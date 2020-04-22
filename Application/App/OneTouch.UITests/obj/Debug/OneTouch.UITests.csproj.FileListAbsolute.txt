@@ -1,0 +1,10 @@
+/Users/eliaherzog/Projects/OneTouch/OneTouch.UITests/bin/Debug/OneTouch.UITests.dll
+/Users/eliaherzog/Projects/OneTouch/OneTouch.UITests/bin/Debug/OneTouch.UITests.pdb
+/Users/eliaherzog/Projects/OneTouch/OneTouch.UITests/bin/Debug/nunit.framework.dll
+/Users/eliaherzog/Projects/OneTouch/OneTouch.UITests/bin/Debug/nunit.framework.pdb
+/Users/eliaherzog/Projects/OneTouch/OneTouch.UITests/bin/Debug/Xamarin.UITest.dll
+/Users/eliaherzog/Projects/OneTouch/OneTouch.UITests/obj/Debug/OneTouch.UITests.csprojAssemblyReference.cache
+/Users/eliaherzog/Projects/OneTouch/OneTouch.UITests/obj/Debug/OneTouch.UITests.csproj.CoreCompileInputs.cache
+/Users/eliaherzog/Projects/OneTouch/OneTouch.UITests/obj/Debug/OneTouch.UITests.csproj.CopyComplete
+/Users/eliaherzog/Projects/OneTouch/OneTouch.UITests/obj/Debug/OneTouch.UITests.dll
+/Users/eliaherzog/Projects/OneTouch/OneTouch.UITests/obj/Debug/OneTouch.UITests.pdb
