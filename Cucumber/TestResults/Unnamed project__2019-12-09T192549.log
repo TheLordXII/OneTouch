@@ -1,0 +1,213 @@
+﻿2019-12-09T19:25:48.9926580+01:00;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2019-12-09T19:25:48.9928427+01:00;VSTestExecutionThread;Info;SpecFlow+Runner 3.1.38 in Framework netcore30 in x64 mode execution started
+2019-12-09T19:25:48.9928468+01:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2019-12-09T19:25:49.0263307+01:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Cucumber.dll
+2019-12-09T19:25:49.0266509+01:00;VSTestExecutionThread;Info;Output folder configured to "C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\TestResults" (default)
+2019-12-09T19:25:49.0270980+01:00;VSTestExecutionThread;Info;Profile: 
+2019-12-09T19:25:49.0649886+01:00;VSTestExecutionThread;Info;Log file path: C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\TestResults\Unnamed project__2019-12-09T192549.log
+2019-12-09T19:25:49.0699036+01:00;VSTestExecutionThread;Info;SpecFlow+Runner Evaluation Mode: Please purchase at http://www.specflow.org/plus to remove test execution delay.
+2019-12-09T19:25:49.0746543+01:00;Thread#12;Info;Checking license
+2019-12-09T19:25:49.0905818+01:00;Thread#12;Info;Evaluation mode: test execution starts in 14 seconds... (this delay is removed in the registered version)
+2019-12-09T19:26:03.0911679+01:00;Thread#12;Info;Evaluation delay finished.
+2019-12-09T19:26:03.1016956+01:00;Thread#12;Info;License check completed
+2019-12-09T19:26:03.1022698+01:00;Thread#12;Info;starting test run
+2019-12-09T19:26:03.1120171+01:00;Thread#12;Info;Discovering target: Default
+2019-12-09T19:26:03.1121727+01:00;Thread#12;Info;Discovering tests from assembly: C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Cucumber.dll
+2019-12-09T19:26:03.2653759+01:00;Thread#12;Info;Discovered tests from assembly: C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Cucumber.dll
+2019-12-09T19:26:03.2687993+01:00:Test Suite Dump
+2019-12-09T19:26:03.2724718+01:00:#0: Unnamed project/ - 
+2019-12-09T19:26:03.2725065+01:00:#1: Default - 
+2019-12-09T19:26:03.2725107+01:00:#2: Cucumber - 
+2019-12-09T19:26:03.2725133+01:00:#3: test - 
+2019-12-09T19:26:03.2784783+01:00:#4: Links - TestAssembly:Cucumber/Feature:test/Scenario:Links
+2019-12-09T19:26:03.2788310+01:00:End: Test Suite Dump
+2019-12-09T19:26:03.3165162+01:00:Thread#0:Scheduler: get next test for thread 0
+2019-12-09T19:26:03.3190264+01:00:Thread#:Scheduler: testitem #4 from normal test queue 
+2019-12-09T19:26:03.3191310+01:00:Thread#0:Scheduler: considering testitem #4 for thread 0
+2019-12-09T19:26:03.3237529+01:00:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2019-12-09T19:26:03.3237813+01:00:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2019-12-09T19:26:03.3237850+01:00:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2019-12-09T19:26:03.3237911+01:00:Thread#0:Scheduler: using testitem #4 for thread 0
+2019-12-09T19:26:03.3248200+01:00:Thread#0:Scheduler: Test #4 is scheduled for thread
+2019-12-09T19:26:03.3274166+01:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2019-12-09T19:26:03.3310199+01:00:Thread #0: creating new test thread executor for Cucumber, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2019-12-09T19:26:03.3341802+01:00:Thread #0: Creating test assembly executor for execution model OutProc
+2019-12-09T19:26:03.3344090+01:00:Thread #0: Creating test assembly executor for execution model OutProc
+2019-12-09T19:26:03.3372764+01:00:Thread #0: using TechTalk.SpecRun.Framework.Execution.OutOfProc.StreamJsonRPC.OutOfProcessTestAssemblyExecutorHost to execute tests
+2019-12-09T19:26:03.3393875+01:00:starting Out Of Process Executor
+2019-12-09T19:26:03.3423435+01:00:Assembly resolving Microsoft.VisualStudio.Validation, Version=15.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2019-12-09T19:26:03.3470380+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0'
+2019-12-09T19:26:03.3474873+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Microsoft.VisualStudio.Validation.dll'
+2019-12-09T19:26:03.3476021+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Microsoft.VisualStudio.Validation.exe'
+2019-12-09T19:26:03.3476402+01:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0'
+2019-12-09T19:26:03.3485963+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' from .deps.json file
+2019-12-09T19:26:03.3486095+01:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' from .deps.json
+2019-12-09T19:26:03.3608167+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.0.0'
+2019-12-09T19:26:03.3608496+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.0.0\Microsoft.VisualStudio.Validation.dll'
+2019-12-09T19:26:03.3612211+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.0.0\Microsoft.VisualStudio.Validation.exe'
+2019-12-09T19:26:03.3613600+01:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.0.0'
+2019-12-09T19:26:03.3616338+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.0.0'
+2019-12-09T19:26:03.3616447+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.0.0\Microsoft.VisualStudio.Validation.dll'
+2019-12-09T19:26:03.3616904+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.0.0\Microsoft.VisualStudio.Validation.exe'
+2019-12-09T19:26:03.3617180+01:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.0.0'
+2019-12-09T19:26:03.3618362+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.0.0'
+2019-12-09T19:26:03.3618430+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.0.0\Microsoft.VisualStudio.Validation.dll'
+2019-12-09T19:26:03.3624520+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.0.0\Microsoft.VisualStudio.Validation.exe'
+2019-12-09T19:26:03.3625226+01:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.0.0'
+2019-12-09T19:26:03.3668810+01:00:Starting callback TCP Rpc server
+2019-12-09T19:26:03.3992019+01:00:Asynchronously starting background TCP Rpc Server on port 32768
+2019-12-09T19:26:03.3992706+01:00:Started callback TCP Rpc server on port 32768
+2019-12-09T19:26:03.3992786+01:00:Starting logger TCP Rpc server
+2019-12-09T19:26:03.4034003+01:00:Asynchronously starting background TCP Rpc Server on port 32769
+2019-12-09T19:26:03.4034377+01:00:Started logger TCP Rpc server on port 32769
+2019-12-09T19:26:03.5718830+01:00:Executing test executor at 'C:\Program Files\dotnet\dotnet.exe' 'exec "C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\SpecFlowPlusRunner\netcoreapp3.0\TechTalk.SpecRun.Framework.Executor.anycpu.netcoreapp3_0.dll" --remoteRunnerPid 15912 --uniqueId "2019-12-09T192549" --outputFolder "C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\TestResults" --callbackPort 32768 --loggerPort 32769' in 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0'
+2019-12-09T19:26:03.5861772+01:00:Executor with PID 18420 has been started successfully.
+2019-12-09T19:26:03.5957492+01:00:Out of Process Executor 18420 started
+2019-12-09T19:26:03.5957783+01:00:Waiting for endpoint
+2019-12-09T19:26:04.0915586+01:00:Assembly resolving StreamJsonRpc.resources, Version=1.4.0.0, Culture=de-DE, PublicKeyToken=b03f5f7f11d50a3a
+2019-12-09T19:26:04.0915855+01:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' in folder 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0'
+2019-12-09T19:26:04.0915907+01:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\StreamJsonRpc.resources.dll'
+2019-12-09T19:26:04.0916323+01:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\StreamJsonRpc.resources.exe'
+2019-12-09T19:26:04.0917063+01:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' in folder 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0'
+2019-12-09T19:26:04.0917131+01:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' from .deps.json file
+2019-12-09T19:26:04.0917169+01:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' from .deps.json
+2019-12-09T19:26:04.0926649+01:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.0.0'
+2019-12-09T19:26:04.0926834+01:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.0.0\StreamJsonRpc.resources.dll'
+2019-12-09T19:26:04.0930365+01:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.0.0\StreamJsonRpc.resources.exe'
+2019-12-09T19:26:04.0931278+01:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.0.0'
+2019-12-09T19:26:04.0933589+01:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.0.0'
+2019-12-09T19:26:04.0933672+01:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.0.0\StreamJsonRpc.resources.dll'
+2019-12-09T19:26:04.0934175+01:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.0.0\StreamJsonRpc.resources.exe'
+2019-12-09T19:26:04.0934620+01:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.0.0'
+2019-12-09T19:26:04.0936497+01:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.0.0'
+2019-12-09T19:26:04.0936580+01:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.0.0\StreamJsonRpc.resources.dll'
+2019-12-09T19:26:04.0939737+01:00:[AssemblyCache] Trying to resolve 'StreamJsonRpc.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.0.0\StreamJsonRpc.resources.exe'
+2019-12-09T19:26:04.0940412+01:00:[AssemblyCache] Could not resolve 'StreamJsonRpc.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.0.0'
+2019-12-09T19:26:04.0948383+01:00:Assembly resolving StreamJsonRpc.resources, Version=1.4.0.0, Culture=de, PublicKeyToken=b03f5f7f11d50a3a
+2019-12-09T19:26:04.0958540+01:00:Assembly resolving Microsoft.VisualStudio.Threading, Version=15.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2019-12-09T19:26:04.0958782+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0'
+2019-12-09T19:26:04.0958808+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Microsoft.VisualStudio.Threading.dll'
+2019-12-09T19:26:04.0959186+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Microsoft.VisualStudio.Threading.exe'
+2019-12-09T19:26:04.0959518+01:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0'
+2019-12-09T19:26:04.0959556+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' from .deps.json file
+2019-12-09T19:26:04.0959594+01:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' from .deps.json
+2019-12-09T19:26:04.0965828+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.0.0'
+2019-12-09T19:26:04.0965994+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.0.0\Microsoft.VisualStudio.Threading.dll'
+2019-12-09T19:26:04.0966583+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.0.0\Microsoft.VisualStudio.Threading.exe'
+2019-12-09T19:26:04.0966957+01:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.0.0'
+2019-12-09T19:26:04.0968357+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.0.0'
+2019-12-09T19:26:04.0968440+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.0.0\Microsoft.VisualStudio.Threading.dll'
+2019-12-09T19:26:04.0968844+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.0.0\Microsoft.VisualStudio.Threading.exe'
+2019-12-09T19:26:04.0969196+01:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.0.0'
+2019-12-09T19:26:04.0970691+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.0.0'
+2019-12-09T19:26:04.0970766+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.0.0\Microsoft.VisualStudio.Threading.dll'
+2019-12-09T19:26:04.0971269+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.0.0\Microsoft.VisualStudio.Threading.exe'
+2019-12-09T19:26:04.0971775+01:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.0.0'
+2019-12-09T19:26:04.4965375+01:00:Remote executor port received: 32770
+2019-12-09T19:26:04.4969272+01:00:Creating executor TCP client on port 32770
+2019-12-09T19:26:04.4973878+01:00:Created executor TCP client on port 32770
+2019-12-09T19:26:04.4973961+01:00:Connecting to remote executor TCP server
+2019-12-09T19:26:04.4984239+01:00:Connected remote executor TCP server
+2019-12-09T19:26:04.4987256+01:00:trying to connect to Out of Process Executor the 1 attempt
+2019-12-09T19:26:04.4987395+01:00:Connection to Out of Process Executor established in the 1 attempt
+2019-12-09T19:26:04.6973329+01:00:2019-12-09T19:26:04.6945648+01:00:OutOfProcessTestAssemblyExecutor: initialized for C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Cucumber.dll on test thread #0
+2019-12-09T19:26:04.7112955+01:00:Endpoint 18420 started
+2019-12-09T19:26:04.7410799+01:00:2019-12-09T19:26:04.7404689+01:00:OutOfProcessTestAssemblyExecutor: running tests...
+2019-12-09T19:26:04.9470183+01:00:2019-12-09T19:26:04.9437605+01:00:Thread#0:T:2019-12-09T19:26:04.9417571+01:00:Assembly resolving TechTalk.SpecFlow, Version=3.1.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41
+2019-12-09T19:26:04.9520042+01:00:2019-12-09T19:26:04.9512702+01:00:Thread#0:T:2019-12-09T19:26:04.9511516+01:00:[AssemblyCache] Trying to resolve 'TechTalk.SpecFlow' in folder 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0'
+2019-12-09T19:26:04.9656749+01:00:2019-12-09T19:26:04.9653498+01:00:Thread#0:T:2019-12-09T19:26:04.9652362+01:00:[AssemblyCache] Trying to resolve 'TechTalk.SpecFlow' to 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\TechTalk.SpecFlow.dll'
+2019-12-09T19:26:04.9663893+01:00:2019-12-09T19:26:04.9661423+01:00:Thread#0:T:2019-12-09T19:26:04.9660555+01:00:[AssemblyCache] Found file 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\TechTalk.SpecFlow.dll' for assembly 'TechTalk.SpecFlow'
+2019-12-09T19:26:04.9679552+01:00:2019-12-09T19:26:04.9676225+01:00:Thread#0:T:2019-12-09T19:26:04.9675176+01:00:[AssemblyCache] Resolved 'TechTalk.SpecFlow' to C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\TechTalk.SpecFlow.dll
+2019-12-09T19:26:05.1186100+01:00:2019-12-09T19:26:05.1182555+01:00:Thread#0:T:-> Loading plugin C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\SpecRun.Runtime.SpecFlowPlugin.dll
+2019-12-09T19:26:05.1208782+01:00:2019-12-09T19:26:05.1203794+01:00:Thread#0:T:2019-12-09T19:26:05.1202839+01:00:Assembly resolving TechTalk.SpecFlow, Version=3.1.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41
+2019-12-09T19:26:05.1287307+01:00:2019-12-09T19:26:05.1283705+01:00:Thread#0:T:-> Using default config
+2019-12-09T19:26:05.1428632+01:00:2019-12-09T19:26:05.1424373+01:00:Thread#0:T:2019-12-09T19:26:05.1423289+01:00:Assembly resolving Cucumber.Messages, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b10c5988214f940c
+2019-12-09T19:26:05.1435251+01:00:2019-12-09T19:26:05.1432521+01:00:Thread#0:T:2019-12-09T19:26:05.1431872+01:00:[AssemblyCache] Trying to resolve 'Cucumber.Messages' in folder 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0'
+2019-12-09T19:26:05.1442006+01:00:2019-12-09T19:26:05.1438963+01:00:Thread#0:T:2019-12-09T19:26:05.1438114+01:00:[AssemblyCache] Trying to resolve 'Cucumber.Messages' to 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Cucumber.Messages.dll'
+2019-12-09T19:26:05.1458140+01:00:2019-12-09T19:26:05.1446658+01:00:Thread#0:T:2019-12-09T19:26:05.1445755+01:00:[AssemblyCache] Found file 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Cucumber.Messages.dll' for assembly 'Cucumber.Messages'
+2019-12-09T19:26:05.1479002+01:00:2019-12-09T19:26:05.1473912+01:00:Thread#0:T:2019-12-09T19:26:05.1472850+01:00:[AssemblyCache] Resolved 'Cucumber.Messages' to C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Cucumber.Messages.dll
+2019-12-09T19:26:05.1494841+01:00:2019-12-09T19:26:05.1491201+01:00:Thread#0:T:2019-12-09T19:26:05.1490008+01:00:Assembly resolving Google.Protobuf, Version=3.7.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604
+2019-12-09T19:26:05.1501173+01:00:2019-12-09T19:26:05.1498678+01:00:Thread#0:T:2019-12-09T19:26:05.1497764+01:00:[AssemblyCache] Trying to resolve 'Google.Protobuf' in folder 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0'
+2019-12-09T19:26:05.1509310+01:00:2019-12-09T19:26:05.1504945+01:00:Thread#0:T:2019-12-09T19:26:05.1503620+01:00:[AssemblyCache] Trying to resolve 'Google.Protobuf' to 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Google.Protobuf.dll'
+2019-12-09T19:26:05.1519078+01:00:2019-12-09T19:26:05.1515412+01:00:Thread#0:T:2019-12-09T19:26:05.1514102+01:00:[AssemblyCache] Found file 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Google.Protobuf.dll' for assembly 'Google.Protobuf'
+2019-12-09T19:26:05.1538784+01:00:2019-12-09T19:26:05.1533562+01:00:Thread#0:T:2019-12-09T19:26:05.1532622+01:00:[AssemblyCache] Resolved 'Google.Protobuf' to C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Google.Protobuf.dll
+2019-12-09T19:26:05.2373394+01:00:2019-12-09T19:26:05.2370094+01:00:Thread#0:T:2019-12-09T19:26:05.2368949+01:00:Assembly resolving Microsoft.VisualStudio.TestPlatform.ObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2019-12-09T19:26:05.2382168+01:00:2019-12-09T19:26:05.2379235+01:00:Thread#0:T:2019-12-09T19:26:05.2378468+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.TestPlatform.ObjectModel' in folder 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0'
+2019-12-09T19:26:05.2388130+01:00:2019-12-09T19:26:05.2385374+01:00:Thread#0:T:2019-12-09T19:26:05.2384691+01:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.TestPlatform.ObjectModel' to 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll'
+2019-12-09T19:26:05.2400719+01:00:2019-12-09T19:26:05.2393250+01:00:Thread#0:T:2019-12-09T19:26:05.2392454+01:00:[AssemblyCache] Found file 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll' for assembly 'Microsoft.VisualStudio.TestPlatform.ObjectModel'
+2019-12-09T19:26:05.2418809+01:00:2019-12-09T19:26:05.2415017+01:00:Thread#0:T:2019-12-09T19:26:05.2414002+01:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.TestPlatform.ObjectModel' to C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
+2019-12-09T19:26:05.2819717+01:00:2019-12-09T19:26:05.2793773+01:00:Thread#0:T:2019-12-09T19:26:05.2792357+01:00:Assembly resolving Utf8Json, Version=1.3.7.0, Culture=neutral, PublicKeyToken=8a73d3ba7e392e27
+2019-12-09T19:26:05.2888878+01:00:2019-12-09T19:26:05.2830074+01:00:Thread#0:T:2019-12-09T19:26:05.2829240+01:00:[AssemblyCache] Trying to resolve 'Utf8Json' in folder 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0'
+2019-12-09T19:26:05.2976284+01:00:2019-12-09T19:26:05.2903295+01:00:Thread#0:T:2019-12-09T19:26:05.2902476+01:00:[AssemblyCache] Trying to resolve 'Utf8Json' to 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Utf8Json.dll'
+2019-12-09T19:26:05.9892888+01:00:2019-12-09T19:26:05.2986759+01:00:Thread#0:T:2019-12-09T19:26:05.2985796+01:00:[AssemblyCache] Found file 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Utf8Json.dll' for assembly 'Utf8Json'
+2019-12-09T19:26:05.9994749+01:00:2019-12-09T19:26:05.9928845+01:00:Thread#0:T:2019-12-09T19:26:05.9925610+01:00:[AssemblyCache] Resolved 'Utf8Json' to C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\Utf8Json.dll
+2019-12-09T19:26:06.3725039+01:00:Thread#0: Test #4/0 is started on thread #0
+2019-12-09T19:26:06.4148689+01:00:2019-12-09T19:26:06.4141663+01:00:Thread#0:B:Given the OneTouchNextGen blog site is open
+2019-12-09T19:26:06.4570723+01:00:2019-12-09T19:26:06.4564954+01:00:Thread#0:T:2019-12-09T19:26:06.4555491+01:00:Assembly resolving WebDriver, Version=3.141.0.0, Culture=neutral, PublicKeyToken=null
+2019-12-09T19:26:06.4587582+01:00:2019-12-09T19:26:06.4582002+01:00:Thread#0:T:2019-12-09T19:26:06.4579751+01:00:[AssemblyCache] Trying to resolve 'WebDriver' in folder 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0'
+2019-12-09T19:26:06.4604543+01:00:2019-12-09T19:26:06.4600039+01:00:Thread#0:T:2019-12-09T19:26:06.4594378+01:00:[AssemblyCache] Trying to resolve 'WebDriver' to 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\WebDriver.dll'
+2019-12-09T19:26:06.4622297+01:00:2019-12-09T19:26:06.4617491+01:00:Thread#0:T:2019-12-09T19:26:06.4615316+01:00:[AssemblyCache] Found file 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\WebDriver.dll' for assembly 'WebDriver'
+2019-12-09T19:26:06.4647063+01:00:2019-12-09T19:26:06.4642369+01:00:Thread#0:T:2019-12-09T19:26:06.4640330+01:00:[AssemblyCache] Resolved 'WebDriver' to C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\WebDriver.dll
+2019-12-09T19:26:10.3636776+01:00:2019-12-09T19:26:10.3356781+01:00:Thread#0:T:done: TestSteps.GivenTheOneTouchNextGenBlogSiteIsOpen() (3,9s)
+2019-12-09T19:26:10.3681315+01:00:2019-12-09T19:26:10.3669701+01:00:Thread#0:B:When I click on the custom link labeled "Blog Feed"
+2019-12-09T19:26:23.6432368+01:00:2019-12-09T19:26:23.6130564+01:00:Thread#0:T:done: TestSteps.WhenIClickOnTheCustomLinkLabeled("Blog Feed") (13,2s)
+2019-12-09T19:26:23.6606936+01:00:2019-12-09T19:26:23.6459241+01:00:Thread#0:B:Then the page title should contain "Week"
+2019-12-09T19:26:23.7635252+01:00:2019-12-09T19:26:23.7601522+01:00:Thread#0:T:done: TestSteps.ThenThePageTitleShouldContain("Week") (0,1s)
+2019-12-09T19:26:23.8115444+01:00:Thread#0:Scheduler: get next test for thread 0
+2019-12-09T19:26:23.8116241+01:00:Thread#:Scheduler: at the end of normal test queue
+2019-12-09T19:26:23.8116271+01:00:Thread#0:Scheduler: enumerator for thread is at end
+2019-12-09T19:26:23.8116309+01:00:Thread#0:Scheduler: No more tests for thread
+2019-12-09T19:26:23.8741454+01:00:Thread#0: Test #4/0 is finished on thread #0 as Succeeded within 17,4991008 seconds
+2019-12-09T19:26:23.8853597+01:00:2019-12-09T19:26:23.8848990+01:00:Got Deinitialize Signal
+2019-12-09T19:26:23.8908311+01:00:RPC Client disconnected, because 'Disposed'. 
+LastMessage: 
+Description:Stream has been disposed
+Exception:<none>
+2019-12-09T19:26:23.8918140+01:00:RPC Server disconnected, because 'Disposed'. 
+LastMessage: 
+Description:Reached end of stream.
+Exception:<none>
+2019-12-09T19:26:23.8939854+01:00:RPC Server disconnected, because 'Disposed'. 
+LastMessage: 
+Description:Reached end of stream.
+Exception:<none>
+2019-12-09T19:26:23.8959383+01:00:Assembly resolving System.Diagnostics.Process.resources, Version=4.2.1.0, Culture=de-DE, PublicKeyToken=b03f5f7f11d50a3a
+2019-12-09T19:26:23.8959602+01:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0'
+2019-12-09T19:26:23.8959701+01:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\System.Diagnostics.Process.resources.dll'
+2019-12-09T19:26:23.8959995+01:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0\System.Diagnostics.Process.resources.exe'
+2019-12-09T19:26:23.8960210+01:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\Cucumber\bin\Debug\netcoreapp3.0'
+2019-12-09T19:26:23.8960263+01:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' from .deps.json file
+2019-12-09T19:26:23.8960324+01:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' from .deps.json
+2019-12-09T19:26:23.8968110+01:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.0.0'
+2019-12-09T19:26:23.8968265+01:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.0.0\System.Diagnostics.Process.resources.dll'
+2019-12-09T19:26:23.8968820+01:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.0.0\System.Diagnostics.Process.resources.exe'
+2019-12-09T19:26:23.8969208+01:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.0.0'
+2019-12-09T19:26:23.8970598+01:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.0.0'
+2019-12-09T19:26:23.8970670+01:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.0.0\System.Diagnostics.Process.resources.dll'
+2019-12-09T19:26:23.8970957+01:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.0.0\System.Diagnostics.Process.resources.exe'
+2019-12-09T19:26:23.8971451+01:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.0.0'
+2019-12-09T19:26:23.8973407+01:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.0.0'
+2019-12-09T19:26:23.8973501+01:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.0.0\System.Diagnostics.Process.resources.dll'
+2019-12-09T19:26:23.8973973+01:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.0.0\System.Diagnostics.Process.resources.exe'
+2019-12-09T19:26:23.8974305+01:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.0.0'
+2019-12-09T19:26:23.8980448+01:00:Assembly resolving System.Diagnostics.Process.resources, Version=4.2.1.0, Culture=de, PublicKeyToken=b03f5f7f11d50a3a
+2019-12-09T19:26:23.9076652+01:00:Thread#-1:Scheduler: get next test for thread -1
+2019-12-09T19:26:23.9076939+01:00:Thread#:Scheduler: at the end of normal test queue
+2019-12-09T19:26:23.9077007+01:00:Thread#-1:Scheduler: enumerator for thread is at end
+2019-12-09T19:26:23.9097344+01:00;Thread#12;Info;test run finished
+2019-12-09T19:26:23.9099515+01:00;Thread#12;Info;publishing test results
+2019-12-09T19:26:23.9101244+01:00;Thread#12;Info;Not publishing results.
+2019-12-09T19:26:23.9101965+01:00;Thread#12;Info;test results published
+2019-12-09T19:26:23.9102618+01:00;Thread#12;Info;generating reports
+2019-12-09T19:26:24.0271426+01:00;Thread#12;Info;Starting external report generation process
+2019-12-09T19:26:25.8588542+01:00;Thread#12;Info;Successfully generated reports.
+2019-12-09T19:26:25.8618220+01:00;Thread#12;Info;Successfully generated reports
+2019-12-09T19:26:25.8712676+01:00:Total: 1
+2019-12-09T19:26:25.8741220+01:00:Succeeded: 1
+2019-12-09T19:26:25.8746266+01:00:Ignored: 0
+2019-12-09T19:26:25.8750124+01:00:Pending: 0
+2019-12-09T19:26:25.8750208+01:00:Skipped: 0
+2019-12-09T19:26:25.8754749+01:00:Failed: 0
+2019-12-09T19:26:25.8835457+01:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2019-12-09T19:26:25.8838549+01:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\b28303\source\repos\TheLordXII\OneTouch\Cucumber\TestResults\Unnamed project__2019-12-09T192549.html'
+========== End of log file ==========
