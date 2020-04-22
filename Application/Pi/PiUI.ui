@@ -35,7 +35,6 @@
     </layout>
     <child>
       <object id="Button_1" class="ttk.Button">
-        <property name="command">on_Button_1_click</property>
         <property name="text" translatable="yes">Martini-Soda</property>
         <layout>
           <property name="column">0</property>
