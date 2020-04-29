@@ -28,13 +28,12 @@ n/a
 # 6.                  Extension Points
 n/a
 
-# 7.                   Function Points
-
-||||
+# 7.                  Functional Points
+![](https://github.com/TheLordXII/OneTouch/blob/master/UCs/FP/database.PNG)
 |Measurement Parameter|DET|RET|FTR|
+|---|---|---|---|
 |Number of user input|0|0|0|
 |Number of user outputs|0|0|0|
 |Number of user inquiries|0|0|0|
-|Number of user files|0|0|0|
+|Number of files|0|0|0|
 |Number of external interfaces|0|0|0|
-
