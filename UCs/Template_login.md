@@ -1,4 +1,4 @@
-# <OneTpuch Next Gen>
+# <OneTouch Next Gen>
 
 ### Use Case Specification: <Login>
 ### Version <1.0>
@@ -29,7 +29,7 @@ User is logged in.
 n/a
 
 # 7.                  Functional Points
-![](https://github.com/TheLordXII/OneTouch/blob/master/UCs/FP/login.png)
+![](https://github.com/TheLordXII/OneTouch/blob/master/UCs/FP/login.PNG)
 |Measurement Parameter|DET|RET|FTR|
 |---|---|---|---|
 |Number of user input|2|1|1|
