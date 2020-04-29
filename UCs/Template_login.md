@@ -30,8 +30,8 @@ n/a
 
 # 7.                  Functional Points
 ![](https://github.com/TheLordXII/OneTouch/blob/master/UCs/FP/Login.png)
-|---|---|---|---|
 |Measurement Parameter|DET|RET|FTR|
+|---|---|---|---|
 |Number of user input|2|1|1|
 |Number of user outputs|0|0|0|
 |Number of user inquiries|2|1|1|
