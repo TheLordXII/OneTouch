@@ -8,9 +8,9 @@
 A user can get a drink out of the app.
 
 # 2.                  Flow of Events
-![](https://github.com/TheLordXII/OneTouch/blob/master/UCs/flowcharts/GetDrinkAppUC.png)
+![](https://github.com/TheLordXII/OneTouch/blob/master/UCs/Screenshots/Home%20Screen.png)
 ## 2.1               Basic Flow
-![](https://github.com/TheLordXII/OneTouch/blob/master/UCs/Screenshots/GetDrinkApp.png )
+![](https://github.com/TheLordXII/OneTouch/blob/master/UCs/flowcharts/GetDrinkAppUC.png)
 User will click on a drink and select it to be pumped.
 ## 2.2               Alternative Flows
 n/a
