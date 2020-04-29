@@ -27,3 +27,14 @@ n/a
 
 # 6.                  Extension Points
 n/a
+
+# 7.                   Function Points
+
+||||
+|Measurement Parameter|DET|RET|FTR|
+|Number of user input|0|0|0|
+|Number of user outputs|0|0|0|
+|Number of user inquiries|0|0|0|
+|Number of user files|0|0|0|
+|Number of external interfaces|0|0|0|
+
