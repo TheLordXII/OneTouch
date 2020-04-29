@@ -28,3 +28,13 @@ Drink is made and can be drunken.
 
 # 6.                  Extension Points
 n/a
+
+# 7.                  Functional Points
+![](https://github.com/TheLordXII/OneTouch/blob/master/UCs/FP/GetDrinkPi.PNG)
+|Measurement Parameter|DET|RET|FTR|
+|---|---|---|---|
+|Number of user input|1|1|1|
+|Number of user outputs|0|0|0|
+|Number of user inquiries|5|3|1|
+|Number of files|5|3|1|
+|Number of external interfaces|0|0|0|
