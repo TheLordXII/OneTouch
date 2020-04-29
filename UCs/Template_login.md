@@ -29,7 +29,7 @@ User is logged in.
 n/a
 
 # 7.                  Functional Points
-![](https://github.com/TheLordXII/OneTouch/blob/master/UCs/FP/Login.png)
+![](https://github.com/TheLordXII/OneTouch/blob/master/UCs/FP/login.png)
 |Measurement Parameter|DET|RET|FTR|
 |---|---|---|---|
 |Number of user input|2|1|1|
