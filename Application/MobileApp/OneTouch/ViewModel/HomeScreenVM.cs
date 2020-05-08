@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using GalaSoft.MvvmLight.Command;
+using Xamarin.Forms;
 
 namespace MobileApp.ViewModel
 {
@@ -13,7 +14,7 @@ namespace MobileApp.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
-        protected virtual void RaisePropertyCHanged(string propertyName)
+        protected virtual void RaisePropertyChanged(string propertyName)
         {
             var handler = PropertyChanged;
             if (handler != null)
@@ -46,9 +47,22 @@ namespace MobileApp.ViewModel
                     return;
                 }
                 _selectedDrink = value;
-                RaisePropertyCHanged("SelectedFriend");
+                RaisePropertyChanged("SelectedDrink");
             }
         }
+
+        private bool _isRefreshing = false;
+
+        public bool IsRefreshing
+        {
+            get { return _isRefreshing; }
+            set
+            {
+                _isRefreshing = value;
+                RaisePropertyChanged("IsRefreshing");
+            }
+        }
+
         private RelayCommand _refreshCommand;
 
         public RelayCommand RefreshCommand
@@ -59,8 +73,11 @@ namespace MobileApp.ViewModel
                 ?? (_refreshCommand = new RelayCommand(
                                         async () =>
                                         {
+                                            IsRefreshing = true;
                                             await Refresh();
+                                            IsRefreshing = false;
                                         }));
+                
             }
         }
 
@@ -71,6 +88,22 @@ namespace MobileApp.ViewModel
             foreach (var drink in drinks)
             {
                 Drinks.Add(drink);
+            }
+        }
+
+        private RelayCommand _showDetailsCommand;
+
+        public RelayCommand ShowDetailsCommand
+        {
+            get
+            {
+                return _showDetailsCommand
+                ?? (_showDetailsCommand = new RelayCommand(
+                                        async () =>
+                                        {
+                                            //TODO: show details page
+                                        }));
+
             }
         }
 

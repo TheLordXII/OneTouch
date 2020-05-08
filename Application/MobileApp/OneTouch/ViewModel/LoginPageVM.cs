@@ -3,6 +3,8 @@ using System.ComponentModel;
 using System.Windows.Input;  
 using Xamarin.Forms;
 using MobileApp.Services;
+using GalaSoft.MvvmLight.Command;
+using System.Threading.Tasks;
 
 namespace MobileApp.ViewModel
 {
@@ -20,6 +22,10 @@ namespace MobileApp.ViewModel
                 handler(this, new PropertyChangedEventArgs(propertName));
             }    
         }
+
+        private ILoginService _loginService;
+        private INavigationService _navigationService;
+        private IDialogService _dialogService;
 
         //properties
         private string _username;
@@ -56,28 +62,51 @@ namespace MobileApp.ViewModel
             get;
         }
 
-        
+        private RelayCommand _loginCommand;
 
-        public void OnSubmit(ILoginService loginService)
+
+        public RelayCommand LoginCommand
         {
-            switch (loginService.CheckCredentials(Username, Password))
+            get
             {
-                case ReturnCode.success:
-                    DisplaySuccessfulLoginPrompt();
-                    break;
-                default:
-                    DisplayInvalidLoginPrompt();
-                    break;
+                return _loginCommand
+                ?? (_loginCommand = new RelayCommand(
+                                        async () =>
+                                        {
+                                            await login();
+                                        }));
+
             }
         }
 
-        public LoginPageVM(ILoginService loginService)
+        private async Task login()
         {
 
+            ReturnCode statusCode = await _loginService.CheckCredentials(Username,Password);
+            if (statusCode == ReturnCode.success)
+            {
+                _navigationService.NavigateTo(new Uri("/HomeScreenVM.xaml", UriKind.Relative));
+
+            }
+            else
+            {
+                DisplayInvalidLoginPrompt();
+                //await _dialogService.ShowMessage("Invalid username or password.");
+                //besser: IDialogService
+            }
+            
+        }
+
+ 
+        public LoginPageVM(ILoginService loginService, INavigationService navigationService, IDialogService dialogService)
+        {
+            _loginService = loginService;
+            _navigationService = navigationService;
+            _dialogService = dialogService;
             //SubmitCommand = new Command(OnSubmit(databaseService)); 
         }
 
-        public LoginPageVM() : this(new LoginService())
+        public LoginPageVM() : this(new LoginService(), new NavigationService(), new DialogService())
         {
 
         }

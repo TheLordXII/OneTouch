@@ -9,7 +9,8 @@ namespace MobileApp.Services
         success,
         wrongPassword,
         usernameNotFound,
-        fatalError
+        fatalError,
+        wrongCredentials
     }
 }
  

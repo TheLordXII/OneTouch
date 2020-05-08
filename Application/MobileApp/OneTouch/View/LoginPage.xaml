@@ -31,7 +31,7 @@
                    VerticalOptions = "LayoutOptions.Center"
                    Text="{Binding Password}"/>
             <Button Text="Login"
-                    Command="{Binding SubmitCommand}"
+                    Command="{Binding LoginCommand}"
                     VerticalOptions = "LayoutOptions.Center"
                     BorderColor = "Color.DarkSlateGray"
                     BorderWidth = "3"

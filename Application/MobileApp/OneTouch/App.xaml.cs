@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using OneTouch.View;
@@ -21,8 +21,8 @@ namespace OneTouch
         {
             InitializeComponent();
 
-            //MainPage = new LoginPage();
-            MainPage = new NavigationPage(new HomeScreen());
+            MainPage = new NavigationPage(new LoginPage());
+            //MainPage = new NavigationPage(new HomeScreen());
         }
 
         protected override void OnStart()
