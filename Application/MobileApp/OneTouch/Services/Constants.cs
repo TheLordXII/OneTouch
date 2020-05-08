@@ -1,5 +1,5 @@
 ﻿using System;
-namespace OneTouch.FürmichbistdueinfachkeinModel
+namespace MobileApp.Services
 {
     /// <summary>
     /// Diese Datei enthält Konstanten, die über alle Klassen hinweg verfügbar sein sollen

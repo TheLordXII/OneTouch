@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OneTouch.View.HomeScreen"
+             Padding="20,20,20,20"
+             BackgroundColor="LightSkyBlue"
+             Title="One Touch Next Gen">
+            
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="DrinksTemplate">
+                <ViewCell>
+                    <Grid>
+                        
+                        <Label Text="{Binding Name}" FontAttributes="Bold" />
+                        <Label Grid.Column="1" Text="{Binding Desciption}" />
+                        <Label Grid.Column="2" Text="{Binding TimesTaken}" HorizontalTextAlignment="End" />
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        
+        <ToolbarItem Text="Refresh"
+                     Order="Primary"
+                     Priority="0"
+                     Command="{Binding RefreshCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--jetzt kommen theoretisch Columns, sind aber hier nicht vorhanden-->
+
+            <Label Text="Select a drink!"
+                   Grid.Row="0"
+                   HorizontalOptions = "LayoutOptions.Center"
+                   VerticalOptions = "End"
+                   TextColor = "Color.DarkSlateGray"
+                   FontSize = "20"/>
+            <Grid x:Name="ContentPanel"
+                  Grid.Row="1" >
+                    <ListView 
+                                ItemsSource="{Binding Drinks}"
+                              ItemTemplate="{StaticResource DrinksTemplate}"/>
+            </Grid>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

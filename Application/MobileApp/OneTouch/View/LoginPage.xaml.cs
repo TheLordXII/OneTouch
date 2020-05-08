@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
-using OneTouch.ViewModel;
+using MobileApp.ViewModel;
 
 namespace OneTouch.View
 {

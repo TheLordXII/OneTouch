@@ -2,15 +2,24 @@
 using System.ComponentModel;  
 using System.Windows.Input;  
 using Xamarin.Forms;
-using OneTouch.FürmichbistdueinfachkeinModel;
+using MobileApp.Services;
 
-namespace OneTouch.ViewModel
+namespace MobileApp.ViewModel
 {
     public class LoginPageVM : INotifyPropertyChanged
     {
         public Action DisplayInvalidLoginPrompt;
         public Action DisplaySuccessfulLoginPrompt;
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
+
+        protected virtual void RaisePropertyCHanged (string propertName)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertName));
+            }    
+        }
 
         //properties
         private string _username;
@@ -47,14 +56,11 @@ namespace OneTouch.ViewModel
             get;
         }
 
-        public LoginPageVM()
-        {
-            SubmitCommand = new Command(OnSubmit);
-        }
+        
 
-        public void OnSubmit()
+        public void OnSubmit(ILoginService loginService)
         {
-            switch(DatabaseManager.CheckCredentials(Username,Password))
+            switch (loginService.CheckCredentials(Username, Password))
             {
                 case ReturnCode.success:
                     DisplaySuccessfulLoginPrompt();
@@ -63,6 +69,17 @@ namespace OneTouch.ViewModel
                     DisplayInvalidLoginPrompt();
                     break;
             }
+        }
+
+        public LoginPageVM(ILoginService loginService)
+        {
+
+            //SubmitCommand = new Command(OnSubmit(databaseService)); 
+        }
+
+        public LoginPageVM() : this(new LoginService())
+        {
+
         }
     }
 }
