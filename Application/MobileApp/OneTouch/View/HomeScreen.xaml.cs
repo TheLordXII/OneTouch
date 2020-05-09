@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using MobileApp.ViewModel;
 using Xamarin.Forms;
+using MobileApp.Services;
+using System.Diagnostics;
 
 namespace OneTouch.View
 {
@@ -12,6 +14,15 @@ namespace OneTouch.View
             var vm = new HomeScreenVM();
             this.BindingContext = vm;
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var currentPageKeyString = Locator.HomeScreen;
+                //.GetInstance<INavigationService>()
+                //.CurrentPageKey;
+            Debug.WriteLine("Current page key: " + currentPageKeyString);
         }
     }
 }

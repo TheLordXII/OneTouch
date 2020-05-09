@@ -3,6 +3,9 @@ using System.ComponentModel;
 using System.Windows.Input;  
 using Xamarin.Forms;
 using MobileApp.Services;
+using GalaSoft.MvvmLight.Command;
+using System.Threading.Tasks;
+
 
 namespace MobileApp.ViewModel
 {
@@ -20,6 +23,11 @@ namespace MobileApp.ViewModel
                 handler(this, new PropertyChangedEventArgs(propertName));
             }    
         }
+
+        private ILoginService _loginService;
+        private readonly INavigationService _navigationService;
+        private IDialogService _dialogService;
+        public ReturnCode loginResult;
 
         //properties
         private string _username;
@@ -50,34 +58,68 @@ namespace MobileApp.ViewModel
             }
         }
 
-        public ICommand SubmitCommand
+        public ICommand NavigateCommand
         {
-            protected set;
+            set;
             get;
         }
 
-        
+        private RelayCommand _loginCommand;
 
-        public void OnSubmit(ILoginService loginService)
+
+        public RelayCommand LoginCommand
         {
-            switch (loginService.CheckCredentials(Username, Password))
+            get
             {
-                case ReturnCode.success:
-                    DisplaySuccessfulLoginPrompt();
-                    break;
-                default:
-                    DisplayInvalidLoginPrompt();
-                    break;
+                return _loginCommand
+                ?? (_loginCommand = new RelayCommand(
+                                        async () =>
+                                        {
+                                            await login();
+                                        }));
+
             }
         }
 
-        public LoginPageVM(ILoginService loginService)
+        private async Task login()
         {
 
-            //SubmitCommand = new Command(OnSubmit(databaseService)); 
+            ReturnCode statusCode = await _loginService.CheckCredentials(Username,Password);
+            if (statusCode == ReturnCode.success)
+            {
+                //NavigateCommand = new RelayCommand(() =>
+                //                        {
+                //                            _navigationService.NavigateTo(Locator.HomeScreen);
+                //                        });
+                loginResult = ReturnCode.success;
+                _navigationService.NavigateTo(Locator.HomeScreen);
+
+            }
+            else
+            {
+                loginResult = ReturnCode.wrongCredentials;
+                DisplayInvalidLoginPrompt();
+                //await _dialogService.ShowMessage("Invalid username or password.");
+                //besser: IDialogService
+            }
+            
         }
 
-        public LoginPageVM() : this(new LoginService())
+ 
+        public LoginPageVM(ILoginService loginService, IDialogService dialogService, INavigationService navigationService)
+        {
+            _loginService = loginService;
+            _navigationService = navigationService;
+            _dialogService = dialogService;
+
+        }
+
+        public LoginPageVM() : this(new LoginService(),  new DialogService(), new NavigationService())
+        {
+
+        }
+
+        public LoginPageVM(INavigationService navigationService) : this(new LoginService(), new DialogService(), navigationService)
         {
 
         }

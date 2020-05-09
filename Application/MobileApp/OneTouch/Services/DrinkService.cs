@@ -9,7 +9,7 @@ namespace MobileApp.Services
 {
     public class DrinkService : IDrinkService
     {
-        private const string urlBase = @"http://h2883569.stratoserver.net:5000/api/drinks";
+        private const string urlBase = @"https://onetouchnextgen.tech:5000/api/drinks";
 
         public DrinkService()
         {
