@@ -27,6 +27,7 @@ namespace MobileApp.ViewModel
         private ILoginService _loginService;
         private readonly INavigationService _navigationService;
         private IDialogService _dialogService;
+        public ReturnCode loginResult;
 
         //properties
         private string _username;
@@ -90,12 +91,13 @@ namespace MobileApp.ViewModel
                 //                        {
                 //                            _navigationService.NavigateTo(Locator.HomeScreen);
                 //                        });
-
+                loginResult = ReturnCode.success;
                 _navigationService.NavigateTo(Locator.HomeScreen);
 
             }
             else
             {
+                loginResult = ReturnCode.wrongCredentials;
                 DisplayInvalidLoginPrompt();
                 //await _dialogService.ShowMessage("Invalid username or password.");
                 //besser: IDialogService

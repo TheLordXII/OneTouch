@@ -21,21 +21,23 @@ namespace LoginUnitTest
             //    #if ENABLE_TEST_CLOUD
             //    Xamarin.Calabash.Start();
             //    #endif
-            if (platform == Platform.Android)
-            {
-                return ConfigureApp
-                    .Android
-                    // TODO: Update this path to point to your Android app and uncomment the
-                    // code if the app is not included in the solution.
-                    //.ApkFile ("../../../Droid/bin/Debug/xamarinforms.apk")
-                    .StartApp();
-            }
+            //if (platform == Platform.Android)
+            //{
+            //    return ConfigureApp
+            //        .Android
+            //        // TODO: Update this path to point to your Android app and uncomment the
+            //        // code if the app is not included in the solution.
+            //        //.ApkFile ("../../../Droid/bin/Debug/xamarinforms.apk")
+            //        .ApkFile("/Users/annajanzen/Documents/ProgrammDateien/VisualStudio/OneTouch/Application/MobileApp/OneTouch.Android/bin/Debug/studi.onetouch-Signed.apk")
+            //        .StartApp();
+            //}
 
             return ConfigureApp
                 .iOS
                 // TODO: Update this path to point to your iOS app and uncomment the
                 // code if the app is not included in the solution.
                 //.AppBundle ("../../../iOS/bin/iPhoneSimulator/Debug/XamarinForms.iOS.app")
+                .AppBundle ("/Users/annajanzen/Documents/ProgrammDateien/VisualStudio/OneTouch/Application/MobileApp/OneTouch.iOS/bin/iPhoneSimulator/Debug/OneTouch.iOS.app")
                 .StartApp();
         }
     }
