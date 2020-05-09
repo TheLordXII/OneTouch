@@ -24,6 +24,7 @@ namespace MobileApp.ViewModel
         }
 
         private IDrinkService _drinkSerice;
+        private INavigationService _navigationService;
 
         public ObservableCollection<Drink> Drinks
         {
@@ -110,13 +111,15 @@ namespace MobileApp.ViewModel
         /// <summary>
         /// ctor 
         /// </summary>
-        public HomeScreenVM( IDrinkService drinkService)
+        public HomeScreenVM( IDrinkService drinkService, INavigationService navigationService)
         {
             _drinkSerice = drinkService;
+            _navigationService = navigationService;
             Drinks = new ObservableCollection<Drink>();
+            Refresh();
         }
 
-        public HomeScreenVM(): this(new DrinkService())
+        public HomeScreenVM(): this(new DrinkService(), new NavigationService())
         {
 
         }

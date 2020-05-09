@@ -4,7 +4,8 @@
              x:Class="OneTouch.View.HomeScreen"
              Padding="20,20,20,20"
              BackgroundColor="LightSkyBlue"
-             Title="One Touch Next Gen">
+             Title="One Touch Next Gen"
+             NavigationPage.HasBackButton="False">
             
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -54,7 +55,8 @@
                             SeparatorVisibility="None"
                             IsPullToRefreshEnabled="True"
                             RefreshCommand="{Binding RefreshCommand}"
-                            IsRefreshing="{Binding IsRefreshing}">
+                            IsRefreshing="{Binding IsRefreshing}"
+                            SelectedItem="{Binding SelectedDrink}">
                               
                     </ListView>
             </Grid>

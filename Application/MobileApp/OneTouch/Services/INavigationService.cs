@@ -4,6 +4,6 @@ namespace MobileApp.Services
     public interface INavigationService
     {
         void GoBack();
-        void NavigateTo(Uri uri);
+        void NavigateTo(string uri);
     }
 }

@@ -6,6 +6,7 @@ using MobileApp.Services;
 using GalaSoft.MvvmLight.Command;
 using System.Threading.Tasks;
 
+
 namespace MobileApp.ViewModel
 {
     public class LoginPageVM : INotifyPropertyChanged
@@ -24,7 +25,7 @@ namespace MobileApp.ViewModel
         }
 
         private ILoginService _loginService;
-        private INavigationService _navigationService;
+        private readonly INavigationService _navigationService;
         private IDialogService _dialogService;
 
         //properties
@@ -56,9 +57,9 @@ namespace MobileApp.ViewModel
             }
         }
 
-        public ICommand SubmitCommand
+        public ICommand NavigateCommand
         {
-            protected set;
+            set;
             get;
         }
 
@@ -85,7 +86,12 @@ namespace MobileApp.ViewModel
             ReturnCode statusCode = await _loginService.CheckCredentials(Username,Password);
             if (statusCode == ReturnCode.success)
             {
-                _navigationService.NavigateTo(new Uri("/HomeScreenVM.xaml", UriKind.Relative));
+                //NavigateCommand = new RelayCommand(() =>
+                //                        {
+                //                            _navigationService.NavigateTo(Locator.HomeScreen);
+                //                        });
+
+                _navigationService.NavigateTo(Locator.HomeScreen);
 
             }
             else
@@ -98,15 +104,20 @@ namespace MobileApp.ViewModel
         }
 
  
-        public LoginPageVM(ILoginService loginService, INavigationService navigationService, IDialogService dialogService)
+        public LoginPageVM(ILoginService loginService, IDialogService dialogService, INavigationService navigationService)
         {
             _loginService = loginService;
             _navigationService = navigationService;
             _dialogService = dialogService;
-            //SubmitCommand = new Command(OnSubmit(databaseService)); 
+
         }
 
-        public LoginPageVM() : this(new LoginService(), new NavigationService(), new DialogService())
+        public LoginPageVM() : this(new LoginService(),  new DialogService(), new NavigationService())
+        {
+
+        }
+
+        public LoginPageVM(INavigationService navigationService) : this(new LoginService(), new DialogService(), navigationService)
         {
 
         }

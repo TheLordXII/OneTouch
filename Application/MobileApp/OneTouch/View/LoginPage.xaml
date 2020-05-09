@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OneTouch.View.LoginPage"
              Padding="20,20,20,20"
-             BackgroundColor="LightSkyBlue">
+             BackgroundColor="LightSkyBlue"
+             NavigationPage.HasNavigationBar="False">
+
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
