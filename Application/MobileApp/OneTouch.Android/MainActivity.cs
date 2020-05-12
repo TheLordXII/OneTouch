@@ -20,6 +20,8 @@ namespace OneTouch.Droid
             base.SetTheme(Resource.Style.MainTheme);
             base.OnCreate(savedInstanceState);
 
+            System.Net.ServicePointManager.ServerCertificateValidationCallback += (o, cert, chain, errors) => true;
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());

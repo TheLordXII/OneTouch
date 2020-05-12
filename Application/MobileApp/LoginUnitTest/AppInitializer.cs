@@ -28,7 +28,7 @@ namespace LoginUnitTest
                     // TODO: Update this path to point to your Android app and uncomment the
                     // code if the app is not included in the solution.
                     //.ApkFile ("../../../Droid/bin/Debug/xamarinforms.apk")
-                    .ApkFile("./OneTouch.Android/bin/Debug/studi.onetouch-Signed.apk")
+                    .ApkFile("../../../OneTouch.Android/bin/Release/studi.onetouch-Signed.apk")
                     .StartApp();
             }
 
@@ -37,7 +37,7 @@ namespace LoginUnitTest
                 // TODO: Update this path to point to your iOS app and uncomment the
                 // code if the app is not included in the solution.
                 //.AppBundle ("../../../iOS/bin/iPhoneSimulator/Debug/XamarinForms.iOS.app")
-                .AppBundle ("../../../OneTouch.iOS/bin/iPhoneSimulator/Debug/OneTouch.iOS.app")
+                .AppBundle ("../../../OneTouch.iOS/bin/iPhoneSimulator/Release/OneTouch.iOS.app")
                 .StartApp();
         }
     }
