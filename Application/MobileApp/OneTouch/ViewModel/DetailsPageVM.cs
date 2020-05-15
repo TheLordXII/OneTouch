@@ -25,6 +25,8 @@ namespace MobileApp.ViewModel
             }
         }
 
+        //for absenden des Drinks popup mit make sure theres a glass
+
         public DetailsPageVM()
         {
         }
