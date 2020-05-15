@@ -6,10 +6,21 @@ var bodyparser = require('body-parser');
 var http = require('http');
 var fs = require('fs'); 
 var https = require('https');
+var mqtt = require('mqtt');
+
 
 var privatekey = fs.readFileSync('C:\\Projects\\REST\\cert\\cert.key', 'utf8');
 var certificate = fs.readFileSync('C:\\Projects\\REST\\cert\\cert.crt', 'utf8');
 var credentials = {key:privatekey, cert:certificate};
+
+//mqtt client
+var mqttclient = mqtt.connect('mqtt://onetouchnextgen.tech');
+
+mqttclient.on('connect', function(){
+    mqttclient.subscribe('machine/Drink', function(err){
+        if (!err) mqttclient.publish('machine/Drink', 'lol123'); 
+    });
+});
 
 //body-parser magie 
 app.use(bodyparser.urlencoded({extended:true}));
@@ -271,3 +282,28 @@ router.route('/user/deleteuser/:value')
     });
 
 });
+
+router.route('/mqtt/queue/:value')
+    .post(function(req, res, next){
+        //sends Drinkrequest to the Machine
+        console.log('/mqtt/queue/value geroutet');
+
+        //sql connection
+        sql.connect(config, function(err){
+            if(err) console.log(err);
+        
+        //building request
+        var request = new sql.Request();
+        request.input('did', sql.Int, req.params.value);
+        request.query('SELECT Ingredient.Name, DrinkToIngredient.How_Much FROM Drink Left JOIN DrinkToIngredient ON Drink.DrinkID = DrinkToIngredient.DrinkID Left JOIN Ingredient ON DrinkToIngredient.IngredientID = Ingredient.IngredientID WHERE Drink.DrinkID = @did', function(err, result){
+            if (err) console.log(err);
+
+        console.log(result.recordset);
+
+        //hier kommt mqtt wooohooo
+        mqttclient.publish('machine/Drink', JSON.stringify(result.recordset));
+        res.json({ Data: result.recordset});
+        });
+
+        });
+    });
