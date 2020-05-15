@@ -5,7 +5,7 @@ using Xamarin.Forms;
 using MobileApp.Services;
 using GalaSoft.MvvmLight.Command;
 using System.Threading.Tasks;
-
+using OneTouch;
 
 namespace MobileApp.ViewModel
 {
@@ -25,7 +25,7 @@ namespace MobileApp.ViewModel
         }
 
         private ILoginService _loginService;
-        private readonly INavigationService _navigationService;
+        public readonly INavigationService _navigationService;
         private IDialogService _dialogService;
         public ReturnCode loginResult;
 
@@ -92,7 +92,7 @@ namespace MobileApp.ViewModel
                 //                            _navigationService.NavigateTo(Locator.HomeScreen);
                 //                        });
                 loginResult = ReturnCode.success;
-                _navigationService.NavigateTo(Locator.HomeScreen);
+                await _navigationService.NavigateAsync(Locator.HomeScreen);
 
             }
             else
@@ -105,23 +105,20 @@ namespace MobileApp.ViewModel
             
         }
 
- 
-        public LoginPageVM(ILoginService loginService, IDialogService dialogService, INavigationService navigationService)
+        public LoginPageVM() : this(new LoginService(), new DialogService())
+        {
+
+        }
+
+        public LoginPageVM(ILoginService loginService, IDialogService dialogService)
         {
             _loginService = loginService;
-            _navigationService = navigationService;
+            _navigationService = App.NavigationService;
             _dialogService = dialogService;
 
         }
 
-        public LoginPageVM() : this(new LoginService(),  new DialogService(), new NavigationService())
-        {
 
-        }
 
-        public LoginPageVM(INavigationService navigationService) : this(new LoginService(), new DialogService(), navigationService)
-        {
-
-        }
     }
 }

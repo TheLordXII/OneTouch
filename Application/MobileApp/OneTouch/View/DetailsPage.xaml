@@ -2,13 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:b="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
-             x:Class="OneTouch.View.LoginPage"
+             x:Class="OneTouch.View.DetailsPage"
              Padding="20,20,20,20"
              BackgroundColor="LightSkyBlue"
-             NavigationPage.HasNavigationBar="False">
-
-    <ContentPage.Content>
-        <Grid>
+             Title="Details"
+             NavigationPage.HasBackButton="True">
+     <ContentPage.Content>
+        <Grid BindingContext="{Binding SelectedDrink}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="40"/>
@@ -18,28 +18,16 @@
 
             <!--jetzt kommen theoretisch Columns, sind aber hier nicht vorhanden-->
 
-            <Label Text="Please log into your Account!"
+            <Label Text="{Binding Name}"
                    Grid.Row="0"
                    HorizontalOptions = "LayoutOptions.Center"
                    VerticalOptions = "LayoutOptions.Center"
                    TextColor = "Color.DarkSlateGray"
                    FontSize = "20"/>
-            <Entry Placeholder="Username"
-                   Grid.Row="1"
-                   VerticalOptions = "LayoutOptions.Center"
-                   Text="{Binding Username}"/>
-            <Entry Placeholder="Password"
-                   Grid.Row="2"
-                   IsPassword="True"
-                   VerticalOptions = "LayoutOptions.Center"
-                   Text="{Binding Password}">
-                <Entry.Behaviors>
-                    <b:EventToCommandBehavior EventName="Completed" Command="{Binding LoginCommand}">
-                    </b:EventToCommandBehavior>
-                </Entry.Behaviors>
-            </Entry>
-            <Button Text="Login"
-                    Command="{Binding LoginCommand}"
+
+
+            <Button Text="Get drink!"
+                    Command="{Binding GetDrinkCommand}"
                     VerticalOptions = "LayoutOptions.Center"
                     BorderColor = "Color.DarkSlateGray"
                     BorderWidth = "3"
