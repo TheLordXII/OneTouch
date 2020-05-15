@@ -276,7 +276,7 @@ router.route('/user/deleteuser/:value')
         request.query('DELETE FROM [dbo].[User] WHERE UserID = @uid', function(res, err){
             if (err) console.log(err);
 
-        res.json({message: 'User deleted'});
+        res.json({ message: 'User deleted'});
         });
         });
     });
@@ -304,6 +304,5 @@ router.route('/mqtt/queue/:value')
         mqttclient.publish('machine/Drink', JSON.stringify(result.recordset));
         res.json({ Data: result.recordset});
         });
-
         });
     });
