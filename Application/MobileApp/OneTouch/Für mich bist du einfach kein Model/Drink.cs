@@ -41,6 +41,14 @@ namespace MobileApp.FürmichbistdueinfachkeinModel
             get;
             set;
         }
+
+        [JsonProperty("Ingredients")]
+        public ListOfIngredients Ingredients
+        {
+            get;
+            set;
+        }
+
         public Drink()
         {
         }

@@ -25,5 +25,18 @@ namespace MobileApp.Services
             var result = JsonConvert.DeserializeObject<ListOfDrinks>(json);
             return result.Data;
         }
+
+        public async Task<IEnumerable<Ingredient>> GetIngredients()
+        {
+            var client = new HttpClient();
+
+            var uri = new Uri(string.Format(urlBase));
+
+//andere URL
+
+            var json = await client.GetStringAsync(uri);
+            var result = JsonConvert.DeserializeObject<ListOfIngredients>(json);
+            return result.Data;
+        }
     }
 }

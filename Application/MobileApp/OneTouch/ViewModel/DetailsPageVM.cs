@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using GalaSoft.MvvmLight;
 using MobileApp.FürmichbistdueinfachkeinModel;
 
@@ -27,8 +28,10 @@ namespace MobileApp.ViewModel
 
         //for absenden des Drinks popup mit make sure theres a glass
 
-        public DetailsPageVM()
+        public DetailsPageVM(Drink selecedDrink)
         {
+            drink = selecedDrink;
+            Debug.WriteLine(drink.Name);
         }
     }
 }

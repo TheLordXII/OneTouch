@@ -5,26 +5,38 @@
              x:Class="OneTouch.View.DetailsPage"
              Padding="20,20,20,20"
              BackgroundColor="LightSkyBlue"
-             Title="Details"
+             Title="{Binding drink.Name}"
              NavigationPage.HasBackButton="True">
      <ContentPage.Content>
-        <Grid BindingContext="{Binding SelectedDrink}">
+        <Grid>
+            
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
 
             <!--jetzt kommen theoretisch Columns, sind aber hier nicht vorhanden-->
 
-            <Label Text="{Binding Name}"
+            <Label Text="{Binding drink.Description}"
                    Grid.Row="0"
                    HorizontalOptions = "LayoutOptions.Center"
                    VerticalOptions = "LayoutOptions.Center"
                    TextColor = "Color.DarkSlateGray"
                    FontSize = "20"/>
-
+            <Label Text="{Binding drink.TimesTaken, StringFormat='Taken: {0}' }"
+                   Grid.Row="1"
+                   HorizontalOptions = "LayoutOptions.Center"
+                   VerticalOptions = "LayoutOptions.Center"
+                   TextColor = "Color.DarkSlateGray"
+                   FontSize = "20"/>
+            <Label Text="{Binding drink.Creator, StringFormat='Creator: {0}'}"
+                   Grid.Row="2"
+                   HorizontalOptions = "LayoutOptions.Center"
+                   VerticalOptions = "LayoutOptions.Center"
+                   TextColor = "Color.DarkSlateGray"
+                   FontSize = "20"/>
 
             <Button Text="Get drink!"
                     Command="{Binding GetDrinkCommand}"

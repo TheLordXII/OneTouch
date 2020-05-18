@@ -12,15 +12,17 @@ namespace OneTouch.View
     {
         public DetailsPage(Drink selectedDrink)
         {
-            var vm = new DetailsPageVM();
-            vm.drink = selectedDrink;
+            var vm = new DetailsPageVM(selectedDrink);
+            
             this.BindingContext = vm;
+            InitializeComponent();
+        ;
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            var currentPageKeyString = Locator.HomeScreen;
+            var currentPageKeyString = Locator.DetailsPage;
             //.GetInstance<INavigationService>()
             //.CurrentPageKey;
             Debug.WriteLine("Current page key: " + currentPageKeyString);
