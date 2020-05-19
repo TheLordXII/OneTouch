@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Newtonsoft.Json;
 namespace MobileApp.FürmichbistdueinfachkeinModel
@@ -43,7 +44,7 @@ namespace MobileApp.FürmichbistdueinfachkeinModel
         }
 
         [JsonProperty("Ingredients")]
-        public ListOfIngredients Ingredients
+        public ObservableCollection<Ingredient> Ingredients
         {
             get;
             set;

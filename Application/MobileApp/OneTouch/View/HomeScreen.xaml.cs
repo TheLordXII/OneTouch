@@ -4,14 +4,15 @@ using MobileApp.ViewModel;
 using Xamarin.Forms;
 using MobileApp.Services;
 using System.Diagnostics;
+using MobileApp.FürmichbistdueinfachkeinModel;
 
 namespace OneTouch.View
 {
     public partial class HomeScreen : ContentPage
     {
-        public HomeScreen()
+        public HomeScreen(User user)
         {
-            var vm = new HomeScreenVM();
+            var vm = new HomeScreenVM(user);
             this.BindingContext = vm;
             InitializeComponent();
         }

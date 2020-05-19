@@ -14,6 +14,7 @@ namespace MobileApp.ViewModel
     public class HomeScreenVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
+        private User User;
 
         protected virtual void RaisePropertyChanged(string propertyName)
         {
@@ -103,7 +104,10 @@ namespace MobileApp.ViewModel
                 ?? (_showDetailsCommand = new RelayCommand(
                                         async () =>
                                         {
-                                            await _navigationService.NavigateAsync (Locator.DetailsPage, SelectedDrink);
+                                            object[] para = new object[2];
+                                            para[0] = SelectedDrink;
+                                            para[1] = User;
+                                            await _navigationService.NavigateAsync (Locator.DetailsPage, para);
                                         }));
 
             }
@@ -112,16 +116,17 @@ namespace MobileApp.ViewModel
         /// <summary>
         /// ctor 
         /// </summary>
-        public HomeScreenVM( IDrinkService drinkService)
+        public HomeScreenVM(User user, IDrinkService drinkService)
         {
             _drinkSerice = drinkService;
+            User = user;
             _navigationService = App.NavigationService;
             Drinks = new ObservableCollection<Drink>();
-            // _navigationService = LoginPageVM._navigationService;
+
             Task.Run(() =>Refresh());
         }
 
-        public HomeScreenVM(): this(new DrinkService())
+        public HomeScreenVM(User user): this(user, new DrinkService())
         {
 
         }

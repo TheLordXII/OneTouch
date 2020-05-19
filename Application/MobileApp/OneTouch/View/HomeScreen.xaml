@@ -24,10 +24,10 @@
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
 
-        <ToolbarItem Text="Details"
+        <ToolbarItem Text="New Drink"
                      Order="Primary"
                      Priority="0"
-                     Command="{Binding ShowDetailsCommand}"/>
+                     Command="{Binding CreateDrinkCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
          <Grid>

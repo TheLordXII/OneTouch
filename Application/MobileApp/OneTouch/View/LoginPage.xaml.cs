@@ -13,8 +13,6 @@ namespace OneTouch.View
             var vm = new LoginPageVM();
             this.BindingContext = vm;
 
-            vm.DisplayInvalidLoginPrompt+= ()=> DisplayAlert("Error", "Invalid Login, try again", "OK");
-            vm.DisplaySuccessfulLoginPrompt += () => DisplayAlert("Success", "You've been logged in", "OK"); 
             InitializeComponent();
         }
 
