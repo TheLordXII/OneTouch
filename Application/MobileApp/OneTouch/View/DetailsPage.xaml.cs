@@ -8,21 +8,26 @@ using MobileApp.FürmichbistdueinfachkeinModel;
 
 namespace OneTouch.View
 {
-    public partial class HomeScreen : ContentPage
+    public partial class DetailsPage : ContentPage
     {
-        public HomeScreen(User user)
+        public DetailsPage(object[] para)
         {
-            var vm = new HomeScreenVM(user);
+            Drink selectedDrink = (Drink) para[0];
+            User user = (User)para[1];
+
+            var vm = new DetailsPageVM(selectedDrink, user);
+            
             this.BindingContext = vm;
             InitializeComponent();
+        ;
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            var currentPageKeyString = Locator.HomeScreen;
-                //.GetInstance<INavigationService>()
-                //.CurrentPageKey;
+            var currentPageKeyString = Locator.DetailsPage;
+            //.GetInstance<INavigationService>()
+            //.CurrentPageKey;
             Debug.WriteLine("Current page key: " + currentPageKeyString);
         }
     }

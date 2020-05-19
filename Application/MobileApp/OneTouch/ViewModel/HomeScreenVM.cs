@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using GalaSoft.MvvmLight.Command;
 using Xamarin.Forms;
+using OneTouch;
 
 namespace MobileApp.ViewModel
 {
     public class HomeScreenVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
+        private User User;
 
         protected virtual void RaisePropertyChanged(string propertyName)
         {
@@ -102,7 +104,10 @@ namespace MobileApp.ViewModel
                 ?? (_showDetailsCommand = new RelayCommand(
                                         async () =>
                                         {
-                                            //TODO: show details page
+                                            object[] para = new object[2];
+                                            para[0] = SelectedDrink;
+                                            para[1] = User;
+                                            await _navigationService.NavigateAsync (Locator.DetailsPage, para);
                                         }));
 
             }
@@ -111,15 +116,17 @@ namespace MobileApp.ViewModel
         /// <summary>
         /// ctor 
         /// </summary>
-        public HomeScreenVM( IDrinkService drinkService, INavigationService navigationService)
+        public HomeScreenVM(User user, IDrinkService drinkService)
         {
             _drinkSerice = drinkService;
-            _navigationService = navigationService;
+            User = user;
+            _navigationService = App.NavigationService;
             Drinks = new ObservableCollection<Drink>();
-            Refresh();
+
+            Task.Run(() =>Refresh());
         }
 
-        public HomeScreenVM(): this(new DrinkService(), new NavigationService())
+        public HomeScreenVM(User user): this(user, new DrinkService())
         {
 
         }

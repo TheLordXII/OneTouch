@@ -18,6 +18,8 @@
     <PackageReference Include="Json.Net" Version="1.0.21" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="MvvmLightStd10" Version="5.4.1.2" />
+    <PackageReference Include="Xamarin.Forms.BehaviorsPack" Version="2.1.1" />
+    <PackageReference Include="CommonServiceLocator" Version="2.0.5" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />
@@ -31,6 +33,9 @@
   <ItemGroup>
     <Reference Include="Mono.Android">
       <HintPath>..\..\..\..\..\..\..\..\..\Library\Frameworks\Xamarin.Android.framework\Versions\10.2.0.100\lib\xamarin.android\xbuild-frameworks\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.iOS">
+      <HintPath>..\..\..\..\..\..\..\..\..\Library\Frameworks\Xamarin.iOS.framework\Versions\13.16.0.13\lib\mono\Xamarin.iOS\Xamarin.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

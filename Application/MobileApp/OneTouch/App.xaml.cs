@@ -22,20 +22,29 @@ namespace OneTouch
         public App()
         {
             //InitializeComponent();
-            var nav = new NavigationService();
-            nav.Configure(Locator.LoginPage, typeof(LoginPage));
-            nav.Configure(Locator.HomeScreen, typeof(HomeScreen));
+            //var nav = new NavigationService();
+            NavigationService.Configure(Locator.LoginPage, typeof(LoginPage));
+            NavigationService.Configure(Locator.HomeScreen, typeof(HomeScreen));
+            NavigationService.Configure(Locator.DetailsPage, typeof(DetailsPage));
 
-            SimpleIoc.Default.Register<INavigationService>(() => nav);
 
-            var firstPage = new NavigationPage(new LoginPage(nav));
+            //SimpleIoc.Default.Register<INavigationService>(() => nav);
 
-            nav.Initialize(firstPage);
+            //var firstPage = new NavigationPage(new LoginPage(nav));
+            //NavigationService.Initialize(firstPage);
+
+            var firstPage = ((NavigationService)NavigationService).SetRootPage(Locator.LoginPage);
+
 
             MainPage = firstPage;
             //MainPage = new NavigationPage(new LoginPage(nav));
             //MainPage = new NavigationPage(new HomeScreen());
         }
+
+        public static INavigationService NavigationService
+        {
+            get;
+        } = new NavigationService();
 
         protected override void OnStart()
         {

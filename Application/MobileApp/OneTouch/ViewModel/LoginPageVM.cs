@@ -5,15 +5,16 @@ using Xamarin.Forms;
 using MobileApp.Services;
 using GalaSoft.MvvmLight.Command;
 using System.Threading.Tasks;
-
+using OneTouch;
+using MobileApp.FürmichbistdueinfachkeinModel;
 
 namespace MobileApp.ViewModel
 {
     public class LoginPageVM : INotifyPropertyChanged
     {
-        public Action DisplayInvalidLoginPrompt;
-        public Action DisplaySuccessfulLoginPrompt;
+
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
+        private User user;
 
         protected virtual void RaisePropertyCHanged (string propertName)
         {
@@ -25,7 +26,7 @@ namespace MobileApp.ViewModel
         }
 
         private ILoginService _loginService;
-        private readonly INavigationService _navigationService;
+        public readonly INavigationService _navigationService;
         private IDialogService _dialogService;
         public ReturnCode loginResult;
 
@@ -40,6 +41,7 @@ namespace MobileApp.ViewModel
             set
             {
                 _username = value;
+                //user.Username = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Username"));
             }
         }
@@ -87,41 +89,35 @@ namespace MobileApp.ViewModel
             ReturnCode statusCode = await _loginService.CheckCredentials(Username,Password);
             if (statusCode == ReturnCode.success)
             {
-                //NavigateCommand = new RelayCommand(() =>
-                //                        {
-                //                            _navigationService.NavigateTo(Locator.HomeScreen);
-                //                        });
+                user.Username = Username;
                 loginResult = ReturnCode.success;
-                _navigationService.NavigateTo(Locator.HomeScreen);
+                
+                await _navigationService.NavigateAsync(Locator.HomeScreen, user);
 
             }
             else
             {
                 loginResult = ReturnCode.wrongCredentials;
-                DisplayInvalidLoginPrompt();
-                //await _dialogService.ShowMessage("Invalid username or password.");
-                //besser: IDialogService
+                Task.Run(() => _dialogService.ShowMessage("Invalid credentials", "You tipped in invalid username or password, please try again."));
             }
             
         }
 
- 
-        public LoginPageVM(ILoginService loginService, IDialogService dialogService, INavigationService navigationService)
+        public LoginPageVM() : this(new LoginService(), new DialogService())
+        {
+
+        }
+
+        public LoginPageVM(ILoginService loginService, IDialogService dialogService)
         {
             _loginService = loginService;
-            _navigationService = navigationService;
+            _navigationService = App.NavigationService;
             _dialogService = dialogService;
+            user = new User();
 
         }
 
-        public LoginPageVM() : this(new LoginService(),  new DialogService(), new NavigationService())
-        {
 
-        }
 
-        public LoginPageVM(INavigationService navigationService) : this(new LoginService(), new DialogService(), navigationService)
-        {
-
-        }
     }
 }

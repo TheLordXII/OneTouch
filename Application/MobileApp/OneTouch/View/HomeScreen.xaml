@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:b="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
              x:Class="OneTouch.View.HomeScreen"
              Padding="20,20,20,20"
              BackgroundColor="LightSkyBlue"
@@ -22,11 +23,11 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
-        
-        <ToolbarItem Text="Details"
+
+        <ToolbarItem Text="New Drink"
                      Order="Primary"
                      Priority="0"
-                     Command="{Binding ShowDetailsCommand}"/>
+                     Command="{Binding CreateDrinkCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
          <Grid>
@@ -57,7 +58,9 @@
                             RefreshCommand="{Binding RefreshCommand}"
                             IsRefreshing="{Binding IsRefreshing}"
                             SelectedItem="{Binding SelectedDrink}">
-                              
+                        <ListView.Behaviors>
+                            <b:SelectedItemBehavior Command="{Binding ShowDetailsCommand}"/>
+                        </ListView.Behaviors>
                     </ListView>
             </Grid>
         </Grid>
