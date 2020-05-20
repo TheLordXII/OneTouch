@@ -80,7 +80,26 @@ router.route('/drinks')
                 res.json({ Data: result.recordset});
             });
         });
-    })
+    });
+
+router.route('/drinksLong')
+    //get Drinks from the Database
+    .get(function(req, res) {
+        console.log('/drinks get geroutet')
+        sql.connect(config, function (err) {
+            if (err) console.log(err);
+            //create request object
+            var request = new sql.Request();
+            //query to the database to get respond
+            request.query('Select DrinkID, Drink.Name, Drink.Description, Times_Taken, [User].Benutzername AS Creator From Drink LEFT JOIN [dbo].[User] ON Creator = [dbo].[User].UserID', function(err, result) {
+            
+                if (err) console.log(err)
+            
+                //send records as a response
+                res.json({ Data: result.recordset});
+            });
+        });
+    });
 
 // router.route('/insertdrink/')
 //     .post(function(req, res) {
@@ -147,11 +166,33 @@ router.route('/drinks/:value')
             
         });
     });
-
-
 });
 
-router.route('/takedrink/drinkid=:did&userid=:uid')
+    router.route('/drinksLong/:value')
+    //get one drink from the database
+    .get(function(req, res) {
+        console.log('/drinks/value geroutet')
+        //sql connection
+        sql.connect(config, function (err) {
+            if (err) console.log(err);
+        
+        //bulding request
+        var request = new sql.Request();
+        //input the url-value as parameter into the sql-statement
+        request.input('drinkid', sql.Int , req.params.value);
+        request.query('Select DrinkID, Drink.Name, Drink.Description, Times_Taken, [User].Benutzername AS Creator From Drink LEFT JOIN [dbo].[User] ON Creator = [dbo].[User].UserID WHERE DrinkID = @drinkid', function(err, result) {
+            if (err) console.log(err)
+            //send recordset as the result
+            console.log(result.recordset);
+            res.json({ Data: result.recordset});
+            
+        });
+    });
+});
+
+
+
+router.route('/takedrink/drinkid=:did&user=:user')
     .put(function(req, res) {
         console.log('/drinks/taken geroutet');
         //sql connection
@@ -162,9 +203,9 @@ router.route('/takedrink/drinkid=:did&userid=:uid')
         var request = new sql.Request();
         //input the url-value as parameter into the sql-statement
         request.input('did', sql.Int , req.params.did);
-        request.input('uid', sql.Int, req.params.uid);
+        request.input('user', sql.NVarChar, req.params.user);
 
-        request.query('UPDATE Drink SET Times_Taken = Times_Taken + 1 WHERE DrinkID = @did; UPDATE [dbo].[User] SET Drinks_Taken = Drinks_Taken + 1 WHERE UserID = @uid;', function(err, result) {
+        request.query('UPDATE Drink SET Times_Taken = Times_Taken + 1 WHERE DrinkID = @did; UPDATE [dbo].[User] SET Drinks_Taken = Drinks_Taken + 1 WHERE Benutzername = @user;', function(err, result) {
             if (err) console.log(err)
             //send message as the result
             res.json({message:'Successful'});
@@ -284,7 +325,7 @@ router.route('/user/deleteuser/:value')
 });
 
 router.route('/mqtt/queue/:value')
-    .post(function(req, res, next){
+    .put(function(req, res){
         //sends Drinkrequest to the Machine
         console.log('/mqtt/queue/value geroutet');
 
@@ -301,8 +342,17 @@ router.route('/mqtt/queue/:value')
         console.log(result.recordset);
 
         //hier kommt mqtt wooohooo
-        mqttclient.publish('machine/Drink', JSON.stringify(result.recordset));
-        res.json({ Data: result.recordset});
+        mqttclient.publish('machine/Drink', JSON.stringify(result.recordset), {qos: 2, retain: true});
+        res.status(200).json({ message: 'Successful' });
         });
         });
+    });
+
+router.route('/machine/config')
+    .get(function(req, res){
+        console.log('/machine/config geroutet');
+        let rawdata = fs.readFileSync('C:\\Projects\\REST\\initialize.json');
+        let initialize = JSON.parse(rawdata);
+        console.log(initialize);
+        res.json(initialize);
     });
