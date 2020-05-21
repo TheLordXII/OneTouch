@@ -8,7 +8,7 @@
             "name": "Projektmappe",
             "type": "python",
             "request": "launch",
-            "program": "${workspacefolder}/main.py",
+            "program": "${workspacefolder}/main",
             "console": "integratedTerminal"            
         },
         {

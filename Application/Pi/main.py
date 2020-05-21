@@ -1,14 +1,15 @@
 import pygubu
 import tkinter as tk
 import os
-from gpiozero import LED
-from Services.MQTTService import MqttService
+from MQTTService import MqttService
 import threading
 import requests as REST
 import json
 import random
 from Models import Schema
 from Models import DictToObj
+from Models.GlobalQueue import globalQueue
+from DrinkService import PumpService
 
 
 class App():
@@ -26,51 +27,25 @@ class App():
         #callbacks
         builder.connect_callbacks(self)
         self.startMqtt()
-        self.getDrinkList()
-        self.getPumpConfig()
+        self.startDrinkService()
 
     def startMqtt(self):
         self.mqttService = MqttService()
-        runThread = threading.Thread(target = self.mqttService.run)
+        mqttThread = threading.Thread(target = self.mqttService.run, daemon = True)
         print('starting MQTITI loooooooooooooolz')
-        runThread.start()
+        mqttThread.start()
 
-    def getDrinkList(self):
-        payload = REST.get('https://onetouchnextgen.tech:5000/api/drinks', verify = False)
-        if payload.status_code != 200:
-            #problemo maximo
-            print('getting DrinkList failed')
-        #inhalt wird als string angezeigt
-        try:
-            jsonString = payload.text
-            jsonObject = json.loads(jsonString)
-            schema = Schema.DataList()
-            drinkList = schema.deserialize(jsonObject)
-            #drinkList ist dict schema spezifiziert das Aussehen des dict
-            #deserialisierung nach Object -> dictionaries sind schwul wie scheiße und generell hardcore dumm
-            self.workingList = DictToObj.ConvertDictToObj(drinkList)
-            self.DrinksInList = 0
-            for drink in self.workingList.Data:
-                self.DrinksInList += 1
-        except:
-            print('Obtaining and parsing the file you requested failed')
-
-    def getPumpConfig(self):
-        payload = REST.get('https://onetouchnextgen.tech:5000/api/machine/config', verify = False)
-        if payload.status_code != 200:
-            #problemo maximio
-            print('getting Config failed')
-        try:
-            jsonString = payload.text
-            self.config = json.loads(jsonString)
-        except:
-            print('Obtaining and parsing the file you requested failed')
+    def startDrinkService(self):
+        self.drinkService = PumpService()
+        drinkThread = threading.Thread(target = self.drinkService.run, daemon = True)
+        print('starting DrinkService')
+        drinkThread.start()
         
     def get_surprise_drink(self):
         #calculate surprise drink id
-        drinkIndex = random.randint(0, self.DrinksInList-1)
+        drinkIndex = random.randint(0, self.drinkService.DrinksInList-1)
         #get DrinkID from Dict
-        drinkID = self.workingList.Data[drinkIndex].DrinkID
+        drinkID = self.drinkService.workingList.Data[drinkIndex].DrinkID
         drinkIDAsString = str(drinkID)
         #getIngredientDict for said drinkId
         payload = REST.get('https://onetouchnextgen.tech:5000/api/ingredientlist/' + drinkIDAsString, verify = False)
@@ -78,22 +53,8 @@ class App():
             #problemo maximo
             print('getting IngredientInfo failed')
             return
-        try:
-            jsonString = payload.text
-            ingredients = json.loads(jsonString)
-            #make the integers in ingredients access
-            ingredientsList = DictToObj.ConvertDictToObj(ingredients)
-            #actual get the fookin drink
-            for ingr in ingredientsList.Data:
-                #determine pump
-                for ingrName in self.config:
-                    if ingr.Name == self.config[ingrName]:
-                        #use that pump with the value for that pump
-                        print(ingr.How_Much)
-                        
-        except:
-            print('Parsing Ingredients in to Object failed')
-
+        jsonString = payload.text
+        globalQueue.put(jsonString, True)
 
 
 if __name__ == '__main__':
