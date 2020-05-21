@@ -342,7 +342,7 @@ router.route('/mqtt/queue/:value')
         console.log(result.recordset);
 
         //hier kommt mqtt wooohooo
-        mqttclient.publish('machine/Drink', JSON.stringify(result.recordset), {qos: 2, retain: true});
+        mqttclient.publish('machine/Drink', JSON.stringify({Data: result.recordset}), {qos: 2, retain: true});
         res.status(200).json({ message: 'Successful' });
         });
         });
@@ -355,4 +355,64 @@ router.route('/machine/config')
         let initialize = JSON.parse(rawdata);
         console.log(initialize);
         res.json(initialize);
+    });
+
+router.route('/getFriends/:user')
+    .get(function(req, res){
+        console.log('/getFriends/user geroutet');
+        //sql connection
+        sql.connect(config, function(err){
+            if(err) console.log(err);
+        
+        //building request
+        var request = new sql.Request();
+        request.input('user', sql.NVarChar, req.params.user);
+        request.query('SELECT U2.[Benutzername] FROM [User] U1 INNER JOIN [Friends] F ON Friend1=UserID OR Friend2=UserID INNER JOIN [User] U2 ON Friend1=U2.UserID OR Friend2=U2.UserID WHERE U1.Benutzername = @user AND U1.UserID != U2.UserID', function(err, result){
+            if (err) console.log(err);
+
+        console.log(result.recordset);
+
+        res.status(200).json({ Data: result.recordset});
+        });
+        });
+    });
+
+router.route('/addFriend/:me&:user')
+    .post(function(req, res, next){
+        console.log('/addFriends/user geroutet');
+        
+        //sql connection
+        sql.connect(config, function(err){
+            if(err) console.log(err);
+        
+        //building request
+        var request = new sql.Request();
+        request.input('me', sql.NVarChar, req.params.me);
+        request.input('user', sql.NVarChar, req.params.user);
+        request.query('INSERT INTO [dbo].[Friends] ([Friend1],[Friend2]) VALUES ((SELECT UserID FROM [User] WHERE Benutzername = @me), (SELECT UserID FROM [User] WHERE Benutzername = @user))', function(err, result){
+            if (err) console.log(err);
+
+        res.status(200).json({ message: 'Successful' });
+        });
+        });
+    });
+
+router.route('/deleteFriend/:me&:user')
+    .delete(function(req, res){
+        console.log('/addFriends/user geroutet');
+    
+        //sql connection
+        sql.connect(config, function(err){
+            if(err) console.log(err);
+    
+        //building request
+        var request = new sql.Request();
+        request.input('me', sql.NVarChar, req.params.me);
+        request.input('user', sql.NVarChar, req.params.user);
+        request.query('DELETE FROM [dbo].[Friends] WHERE Friend1 = (Select UserID FROM [User] WHERE Benutzername = @me) AND Friend2 = (Select UserID FROM [User] WHERE Benutzername = @user) OR (Friend2 = (Select UserID FROM [User] WHERE Benutzername = @me) AND Friend1 = (Select UserID FROM [User] WHERE Benutzername = @user))', function(err, result){
+            if (err) console.log(err);
+
+        res.status(200).json({ message: 'Successful' });
+        });
+        });
     });
