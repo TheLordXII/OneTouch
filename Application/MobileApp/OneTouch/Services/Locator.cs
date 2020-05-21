@@ -10,5 +10,6 @@ namespace MobileApp.Services
         public const string LoginPage = "LoginPage";
         public const string HomeScreen = "HomeScreen";
         public const string DetailsPage = "DetailsPage";
+        public const string Friends = "Friends";
     }
 }

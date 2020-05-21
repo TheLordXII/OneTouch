@@ -29,6 +29,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="LoginManager.cs" />
+    <Compile Remove="View\HomeScreen %28Kopie%29.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Mono.Android">
