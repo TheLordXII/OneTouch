@@ -1,0 +1,3 @@
+# https://docs.microsoft.com/azure/devops/pipelines/ecosystems/xamarin
+pool:
+  vmImage: 'macOS-10.15'
