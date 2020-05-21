@@ -105,15 +105,16 @@ namespace MobileApp.ViewModel
 
         public LoginPageVM() : this(new LoginService(), new DialogService())
         {
-
+            //dies ist ein Kommentar
         }
 
         public LoginPageVM(ILoginService loginService, IDialogService dialogService)
         {
             _loginService = loginService;
-            _navigationService = App.NavigationService;
             _dialogService = dialogService;
+            _navigationService = App.NavigationService;
             user = new User();
+
 
         }
 
