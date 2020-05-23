@@ -92,7 +92,11 @@ namespace MobileApp.ViewModel
                 user.Username = Username;
                 loginResult = ReturnCode.success;
                 
+<<<<<<< Updated upstream
                 await _navigationService.NavigateAsync(Locator.HomeScreen, user);
+=======
+                await _navigationService.NavigateAsync(Locator.MasterPage);
+>>>>>>> Stashed changes
 
             }
             else

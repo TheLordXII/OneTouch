@@ -14,7 +14,11 @@ namespace MobileApp.ViewModel
     public class FriendsVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
+<<<<<<< Updated upstream
         private User User;
+=======
+
+>>>>>>> Stashed changes
 
         protected virtual void RaisePropertyChanged(string propertyName)
         {
@@ -25,15 +29,23 @@ namespace MobileApp.ViewModel
             }
         }
 
+<<<<<<< Updated upstream
         private IDrinkService _drinkSerice;
         private INavigationService _navigationService;
 
         public ObservableCollection<Drink> Drinks
+=======
+        private IFriendService _friendSerice;
+        private INavigationService _navigationService;
+
+        public ObservableCollection<User> Friends
+>>>>>>> Stashed changes
         {
             get;
             private set;
         }
 
+<<<<<<< Updated upstream
         private Drink _selectedDrink;
 
 
@@ -51,6 +63,25 @@ namespace MobileApp.ViewModel
                 }
                 _selectedDrink = value;
                 RaisePropertyChanged("SelectedDrink");
+=======
+        private User _selectedFriend;
+
+
+        public User SelectedFriend
+        {
+            get
+            {
+                return _selectedFriend;
+            }
+            set
+            {
+                if (_selectedFriend == value)
+                {
+                    return;
+                }
+                _selectedFriend = value;
+                RaisePropertyChanged("SelectedFriend");
+>>>>>>> Stashed changes
             }
         }
 
@@ -80,12 +111,17 @@ namespace MobileApp.ViewModel
                                             await Refresh();
                                             IsRefreshing = false;
                                         }));
+<<<<<<< Updated upstream
                 
+=======
+
+>>>>>>> Stashed changes
             }
         }
 
         private async Task Refresh()
         {
+<<<<<<< Updated upstream
             Drinks.Clear();
             var drinks = await _drinkSerice.Refresh();
             foreach (var drink in drinks)
@@ -108,6 +144,29 @@ namespace MobileApp.ViewModel
                                             para[0] = SelectedDrink;
                                             para[1] = User;
                                             await _navigationService.NavigateAsync (Locator.DetailsPage, para);
+=======
+            Friends.Clear();
+            var friends = await _friendSerice.Refresh();
+            foreach (var friend in friends)
+            {
+                Friends.Add(friend);
+            }
+        }
+
+        private RelayCommand _showDetailsFriendsCommand;
+
+        public RelayCommand ShowDetailsFriendsCommand
+        {
+            get
+            {
+                return _showDetailsFriendsCommand
+                ?? (_showDetailsFriendsCommand = new RelayCommand(
+                                        async () =>
+                                        {
+                                            object[] para = new object[2];
+                                            para[0] = SelectedFriend;
+                                            await _navigationService.NavigateAsync(Locator.FriendsDetails, para);
+>>>>>>> Stashed changes
                                         }));
 
             }
@@ -116,6 +175,7 @@ namespace MobileApp.ViewModel
         /// <summary>
         /// ctor 
         /// </summary>
+<<<<<<< Updated upstream
         public FriendsVM(User user, IDrinkService drinkService)
         {
             _drinkSerice = drinkService;
@@ -127,8 +187,24 @@ namespace MobileApp.ViewModel
         }
 
         public FriendsVM(User user): this(user, new DrinkService())
+=======
+        public FriendsVM(IFriendService friendService)
+        {
+            _friendSerice = friendService;
+            _navigationService = App.NavigationService;
+            Friends = new ObservableCollection<User>();
+
+            Task.Run(() => Refresh());
+        }
+
+        public FriendsVM() : this(new FriendService())
+>>>>>>> Stashed changes
         {
 
         }
     }
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes

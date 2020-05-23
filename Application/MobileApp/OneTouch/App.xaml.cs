@@ -27,6 +27,10 @@ namespace OneTouch
             NavigationService.Configure(Locator.HomeScreen, typeof(HomeScreen));
             NavigationService.Configure(Locator.DetailsPage, typeof(DetailsPage));
             NavigationService.Configure(Locator.Friends, typeof(Friends));
+<<<<<<< Updated upstream
+=======
+            NavigationService.Configure(Locator.MasterPage, typeof(MasterPage));
+>>>>>>> Stashed changes
 
 
             //SimpleIoc.Default.Register<INavigationService>(() => nav);
