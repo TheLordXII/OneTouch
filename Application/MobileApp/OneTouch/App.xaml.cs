@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 using OneTouch.View;
 using GalaSoft.MvvmLight.Ioc;
 using MobileApp.Services;
+using MobileApp.FürmichbistdueinfachkeinModel;
 
 /// <summary>
 /// Die App Klasse steuert das grundsätzliche Verhalten der App ihr Bonobos!
@@ -45,6 +46,12 @@ namespace OneTouch
         {
             get;
         } = new NavigationService();
+
+        public static User User
+        {
+            get;
+            set;
+        }
 
         protected override void OnStart()
         {

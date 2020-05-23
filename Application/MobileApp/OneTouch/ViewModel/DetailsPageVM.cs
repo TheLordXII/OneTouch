@@ -15,7 +15,6 @@ namespace MobileApp.ViewModel
         private IDrinkService _drinkService;
         private IDialogService _dialogService;
         private INavigationService _navigationService;
-        private User user;
 
         private Drink _drink;
 
@@ -46,12 +45,13 @@ namespace MobileApp.ViewModel
                 ?? (_OrderCommand = new RelayCommand(
                                         async () =>
                                         {
-                                            await TryOrderDrink();
+                                            await OrderDrink();
                                         }));
 
             }
         }
 
+        //funktion rausgenommen
         private async Task TryOrderDrink()
         {
             await _dialogService.ShowMessage("You want to order a drink",
@@ -74,14 +74,14 @@ namespace MobileApp.ViewModel
         private async Task OrderDrink()
         {
             ReturnCode statusCode = ReturnCode.fatalError;
-            statusCode = await _drinkService.orderDrink(drink.ID, user.Username);
+            statusCode = await _drinkService.orderDrink(drink.ID);
             switch (statusCode)
             {
                 case ReturnCode.success:
                     string title = String.Format("{0} is made", drink.Name);
                     Task.Run(() => _dialogService.ShowMessage(title, "Enjoy your Cocktail!"));
+                    
                     await _navigationService.GoBack();
-                    //await _navigationService.NavigateAsync(Locator.HomeScreen, user);
                     break;
                 case ReturnCode.orderError:
                     await _dialogService.ShowMessage("Error", "Some unexpected error occurred while ordering, please try again later.");
@@ -107,10 +107,9 @@ namespace MobileApp.ViewModel
             Debug.WriteLine("lol foreach ist cool");
         }
 
-        public DetailsPageVM(Drink selectedDrink, User User, IDrinkService drinkService, IDialogService dialogService)
+        public DetailsPageVM(Drink selectedDrink, IDrinkService drinkService, IDialogService dialogService)
         {
             drink = selectedDrink;
-            user = User;
             _drinkService = drinkService;
             _dialogService = dialogService;
             _navigationService = App.NavigationService;
@@ -121,7 +120,7 @@ namespace MobileApp.ViewModel
         }
 
 
-        public DetailsPageVM(Drink selectedDrink, User user): this(selectedDrink , user,  new DrinkService(), new DialogService())
+        public DetailsPageVM(Drink selectedDrink): this(selectedDrink ,  new DrinkService(), new DialogService())
         {
 
         }

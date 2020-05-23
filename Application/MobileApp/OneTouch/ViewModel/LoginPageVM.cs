@@ -14,7 +14,6 @@ namespace MobileApp.ViewModel
     {
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
-        private User user;
 
         protected virtual void RaisePropertyCHanged (string propertName)
         {
@@ -89,10 +88,10 @@ namespace MobileApp.ViewModel
             ReturnCode statusCode = await _loginService.CheckCredentials(Username,Password);
             if (statusCode == ReturnCode.success)
             {
-                user.Username = Username;
+                App.User.Username = Username;
                 loginResult = ReturnCode.success;
                 
-                await _navigationService.NavigateAsync(Locator.HomeScreen, user);
+                await _navigationService.NavigateAsync(Locator.HomeScreen);
 
             }
             else
@@ -105,16 +104,15 @@ namespace MobileApp.ViewModel
 
         public LoginPageVM() : this(new LoginService(), new DialogService())
         {
-            //dies ist ein Kommentar
+
         }
 
         public LoginPageVM(ILoginService loginService, IDialogService dialogService)
         {
             _loginService = loginService;
-            _dialogService = dialogService;
             _navigationService = App.NavigationService;
-            user = new User();
-
+            _dialogService = dialogService;
+            App.User = new User();
 
         }
 
