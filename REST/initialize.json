@@ -1,8 +1,9 @@
 {
-    "Pump1": "Jaegermeister",
+    "Pump1": "Whiskey",
     "Pump2": "Wodka",
-    "Pump3": "Gin",
-    "Pump4": "Cola",
-    "Pump5": "Orangensaft",
-    "Pump6": "Tonic"
+    "Pump3": "Orangensaft",
+    "Pump4": "Cranberrysaft",
+    "Pump5": "Limonensaft",
+    "Pump6": "Sirup"
+    
 }

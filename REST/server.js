@@ -342,7 +342,7 @@ router.route('/mqtt/queue/:value')
         console.log(result.recordset);
 
         //hier kommt mqtt wooohooo
-        mqttclient.publish('machine/Drink', JSON.stringify({Data: result.recordset}), {qos: 2, retain: true});
+        mqttclient.publish('machine/Drink', JSON.stringify({Data: result.recordset}), {qos: 0, retain: true});
         res.status(200).json({ message: 'Successful' });
         });
         });
