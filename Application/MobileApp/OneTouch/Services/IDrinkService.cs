@@ -7,5 +7,5 @@ public interface IDrinkService
 {
     Task<IEnumerable<Drink>> Refresh();
     Task<IEnumerable<Ingredient>> GetIngredients(string drinkID);
-    Task<ReturnCode> orderDrink(string drinkID, string username);
+    Task<ReturnCode> orderDrink(string drinkID);
 }

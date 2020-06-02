@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using MobileApp.Services;
 using MobileApp.ViewModel;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace OneTouch.View
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterPage : MasterDetailPage
     {
         public MasterPage()
@@ -18,11 +15,15 @@ namespace OneTouch.View
             this.BindingContext = vm;
             InitializeComponent();
             Detail = new NavigationPage(new HomeScreen());
-            IsPresented = false;
-            
         }
 
-
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var currentPageKeyString = Locator.MasterPage;
+            //.GetInstance<INavigationService>()
+            //.CurrentPageKey;
+            Debug.WriteLine("Current page key: " + currentPageKeyString);
+        }
     }
-
 }

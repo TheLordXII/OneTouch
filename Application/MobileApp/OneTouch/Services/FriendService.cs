@@ -23,7 +23,6 @@ namespace MobileApp.Services
             string url = urlBase + @"getFriends/{0}";
             Debug.WriteLine(url);
             Uri uri = new Uri(string.Format(url, App.User.Username));
-            Debug.WriteLine(uri.AbsolutePath);
             string json = await client.GetStringAsync(uri);
             var result = JsonConvert.DeserializeObject<ListOfFriends>(json);
             

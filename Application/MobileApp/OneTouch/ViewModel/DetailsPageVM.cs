@@ -4,18 +4,18 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Ioc;
 using MobileApp.FürmichbistdueinfachkeinModel;
 using MobileApp.Services;
 using OneTouch;
+using Xamarin.Forms;
 
 namespace MobileApp.ViewModel
 {
     public class DetailsPageVM : ViewModelBase
     {
         private IDrinkService _drinkService;
-        private IDialogService _dialogService;
         private INavigationService _navigationService;
-        private User user;
 
         private Drink _drink;
 
@@ -54,7 +54,7 @@ namespace MobileApp.ViewModel
 
         private async Task TryOrderDrink()
         {
-            await _dialogService.ShowMessage("You want to order a drink",
+            await SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("You want to order a drink",
             "Please make sure, there is a glass under the output of the OneTouch.", "There is a glass!", "There is no glass!", async returnvalue =>
             {
                 if (returnvalue)
@@ -64,7 +64,7 @@ namespace MobileApp.ViewModel
                 }
                 else
                 {
-                    await _dialogService.ShowMessage ("Can't make drink", "Unfortunately the OneTouch is not able to make a Cocktail without a glass under the output.");
+                    await SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage ("Can't make drink", "Unfortunately the OneTouch is not able to make a Cocktail without a glass under the output.");
                 }
             },
             false, false);
@@ -74,23 +74,23 @@ namespace MobileApp.ViewModel
         private async Task OrderDrink()
         {
             ReturnCode statusCode = ReturnCode.fatalError;
-            statusCode = await _drinkService.orderDrink(drink.ID, user.Username);
+            statusCode = await _drinkService.orderDrink(drink.ID);
             switch (statusCode)
             {
                 case ReturnCode.success:
                     string title = String.Format("{0} is made", drink.Name);
-                    Task.Run(() => _dialogService.ShowMessage(title, "Enjoy your Cocktail!"));
+                    Task.Run(() => SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage(title, "Enjoy your Cocktail!"));
                     await _navigationService.GoBack();
                     //await _navigationService.NavigateAsync(Locator.HomeScreen, user);
                     break;
                 case ReturnCode.orderError:
-                    await _dialogService.ShowMessage("Error", "Some unexpected error occurred while ordering, please try again later.");
+                    await SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Error", "Some unexpected error occurred while ordering, please try again later.");
                     break;
                 case ReturnCode.countError:
-                    await _dialogService.ShowMessage("Error", "Some unexpected error occurred while updating the statistics, please try again later.");
+                    await SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Error", "Some unexpected error occurred while updating the statistics, please try again later.");
                     break;
                 default:
-                    await _dialogService.ShowMessage("Error", "Some unexpected error occurred, please try again later.");
+                    await SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Error", "Some unexpected error occurred, please try again later.");
                     break;
             }
 
@@ -104,15 +104,15 @@ namespace MobileApp.ViewModel
             {
                 drink.Ingredients.Add(ingredient);
             }
-            Debug.WriteLine("lol foreach ist cool");
+            Debug.WriteLine("got ingredients");
         }
 
-        public DetailsPageVM(Drink selectedDrink, User User, IDrinkService drinkService, IDialogService dialogService)
+        public DetailsPageVM(Drink selectedDrink, IDrinkService drinkService)
         {
             drink = selectedDrink;
-            user = User;
             _drinkService = drinkService;
-            _dialogService = dialogService;
+            var dialogservice = DependencyService.Get<IDialogService>();
+            SimpleIoc.Default.Register<IDialogService>(() => dialogservice);
             _navigationService = App.NavigationService;
             Debug.WriteLine(drink.Name);
             drink.Ingredients = new ObservableCollection<Ingredient>();
@@ -121,7 +121,7 @@ namespace MobileApp.ViewModel
         }
 
 
-        public DetailsPageVM(Drink selectedDrink, User user): this(selectedDrink , user,  new DrinkService(), new DialogService())
+        public DetailsPageVM(Drink selectedDrink): this(selectedDrink , new DrinkService())
         {
 
         }

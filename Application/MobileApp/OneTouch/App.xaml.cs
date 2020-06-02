@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 using OneTouch.View;
 using GalaSoft.MvvmLight.Ioc;
 using MobileApp.Services;
+using MobileApp.FürmichbistdueinfachkeinModel;
 
 /// <summary>
 /// Die App Klasse steuert das grundsätzliche Verhalten der App ihr Bonobos!
@@ -27,10 +28,7 @@ namespace OneTouch
             NavigationService.Configure(Locator.HomeScreen, typeof(HomeScreen));
             NavigationService.Configure(Locator.DetailsPage, typeof(DetailsPage));
             NavigationService.Configure(Locator.Friends, typeof(Friends));
-<<<<<<< Updated upstream
-=======
             NavigationService.Configure(Locator.MasterPage, typeof(MasterPage));
->>>>>>> Stashed changes
 
 
             //SimpleIoc.Default.Register<INavigationService>(() => nav);
@@ -51,6 +49,10 @@ namespace OneTouch
             get;
         } = new NavigationService();
 
+        public static User User
+        {
+            get;
+        }
         protected override void OnStart()
         {
         }

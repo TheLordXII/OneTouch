@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using MobileApp.FürmichbistdueinfachkeinModel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using OneTouch;
 
 namespace MobileApp.Services
 {
@@ -39,7 +40,7 @@ namespace MobileApp.Services
             return result.Data;
         }
 
-        public async Task<ReturnCode> orderDrink(string drinkID, string username)
+        public async Task<ReturnCode> orderDrink(string drinkID)
         {
             string urlOrder = urlBase + @"mqtt/queue/{0}";
             Uri uriOrder = new Uri(string.Format(urlOrder, drinkID));
@@ -52,8 +53,8 @@ namespace MobileApp.Services
             if (responseOrder.IsSuccessStatusCode)
             {
                 string urlCount = urlBase + @"takedrink/drinkid={0}&user={1}";
-                Uri uriCount = new Uri(string.Format(urlCount, drinkID, username));
-                jObject.Add("Username", username);
+                Uri uriCount = new Uri(string.Format(urlCount, drinkID, App.User.Username));
+                jObject.Add("Username", App.User.Username);
 
                 HttpResponseMessage responseCount = await client.PutAsync(uriCount, new StringContent(jObject.ToString(), Encoding.UTF8, contentType));
 

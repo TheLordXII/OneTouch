@@ -7,6 +7,7 @@ using GalaSoft.MvvmLight.Command;
 using System.Threading.Tasks;
 using OneTouch;
 using MobileApp.FürmichbistdueinfachkeinModel;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace MobileApp.ViewModel
 {
@@ -27,7 +28,6 @@ namespace MobileApp.ViewModel
 
         private ILoginService _loginService;
         public readonly INavigationService _navigationService;
-        private IDialogService _dialogService;
         public ReturnCode loginResult;
 
         //properties
@@ -92,33 +92,29 @@ namespace MobileApp.ViewModel
                 user.Username = Username;
                 loginResult = ReturnCode.success;
                 
-<<<<<<< Updated upstream
-                await _navigationService.NavigateAsync(Locator.HomeScreen, user);
-=======
                 await _navigationService.NavigateAsync(Locator.MasterPage);
->>>>>>> Stashed changes
 
             }
             else
             {
                 loginResult = ReturnCode.wrongCredentials;
-                Task.Run(() => _dialogService.ShowMessage("Invalid credentials", "You tipped in invalid username or password, please try again."));
+                Task.Run(() => SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Invalid credentials", "You tipped in invalid username or password, please try again."));
             }
             
         }
 
-        public LoginPageVM() : this(new LoginService(), new DialogService())
+        public LoginPageVM() : this(new LoginService())
         {
             //dies ist ein Kommentar
         }
 
-        public LoginPageVM(ILoginService loginService, IDialogService dialogService)
+        public LoginPageVM(ILoginService loginService)
         {
             _loginService = loginService;
-            _dialogService = dialogService;
             _navigationService = App.NavigationService;
             user = new User();
-
+            var dialogservice = DependencyService.Get<IDialogService>();
+            SimpleIoc.Default.Register<IDialogService>(() => dialogservice);
 
         }
 

@@ -10,9 +10,9 @@ namespace OneTouch.View
 {
     public partial class HomeScreen : ContentPage
     {
-        public HomeScreen(User user)
+        public HomeScreen()
         {
-            var vm = new HomeScreenVM(user);
+            var vm = new HomeScreenVM();
             this.BindingContext = vm;
             InitializeComponent();
         }

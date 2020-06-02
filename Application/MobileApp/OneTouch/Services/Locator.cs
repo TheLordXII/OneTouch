@@ -11,10 +11,7 @@ namespace MobileApp.Services
         public const string HomeScreen = "HomeScreen";
         public const string DetailsPage = "DetailsPage";
         public const string Friends = "Friends";
-<<<<<<< Updated upstream
-=======
         public const string FriendsDetails = "FriendsDetail";
         public const string MasterPage = "MasterPage";
->>>>>>> Stashed changes
     }
 }
