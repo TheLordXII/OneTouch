@@ -98,7 +98,7 @@ namespace MobileApp.ViewModel
             else
             {
                 loginResult = ReturnCode.wrongCredentials;
-                Task.Run(() => SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Invalid credentials", "You tipped in invalid username or password, please try again."));
+                Task.Run(() =>  SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Invalid credentials", "You tipped in invalid username or password, please try again."));
             }
             
         }

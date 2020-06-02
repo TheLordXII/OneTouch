@@ -5,7 +5,7 @@
              x:Class="OneTouch.View.Friends"
              Padding="20,20,20,20"
              BackgroundColor="LightSkyBlue"
-             Title="Your friends"
+             Title="Friends"
              NavigationPage.HasBackButton="False">
             
     <ContentPage.Resources>
@@ -24,7 +24,7 @@
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
 
-        <ToolbarItem Text="New Drink"
+        <ToolbarItem Text="Add friend"
                      Order="Primary"
                      Priority="0"
                      Command="{Binding CreateDrinkCommand}"/>
@@ -38,7 +38,7 @@
 
             <!--jetzt kommen theoretisch Columns, sind aber hier nicht vorhanden-->
 
-            <Label Text="Select a drink!"
+            <Label Text="Have a look at your friends"
                    Grid.Row="0"
                    HorizontalOptions = "LayoutOptions.Center"
                    VerticalOptions = "Center"

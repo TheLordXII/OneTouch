@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using GalaSoft.MvvmLight.Command;
 using Xamarin.Forms;
 using OneTouch;
+using System.Diagnostics;
 
 namespace MobileApp.ViewModel
 {
@@ -123,7 +124,7 @@ namespace MobileApp.ViewModel
             _friendSerice = friendService;
             _navigationService = App.NavigationService;
             Friends = new ObservableCollection<User>();
-
+            Debug.WriteLine(App.User.Username);
             Task.Run(() => Refresh());
         }
 

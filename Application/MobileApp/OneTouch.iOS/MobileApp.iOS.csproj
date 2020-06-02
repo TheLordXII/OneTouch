@@ -69,7 +69,8 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DialogService.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+    <Compile Include="DIalogService_iOS.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+    <Compile Include="PlatformServices\DialogService_iOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -169,4 +170,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="PlatformServices\" />
+  </ItemGroup>
 </Project>
