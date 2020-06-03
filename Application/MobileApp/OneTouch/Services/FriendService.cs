@@ -11,10 +11,6 @@ namespace MobileApp.Services
 {
     public class FriendService : IFriendService
     {
-        public FriendService()
-        {
-        }
-
         private const string urlBase = @"https://onetouchnextgen.tech:5000/api/";
         private HttpClient client = new HttpClient();
 
@@ -31,5 +27,7 @@ namespace MobileApp.Services
             
             return result.Data;
         }
+
+        //automatischer ctor ohne argumente
     }
 }

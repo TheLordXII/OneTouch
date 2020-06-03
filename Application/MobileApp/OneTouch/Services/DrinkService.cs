@@ -14,15 +14,12 @@ namespace MobileApp.Services
     public class DrinkService : IDrinkService
     {
         private const string urlBase = @"https://onetouchnextgen.tech:5000/api/";
-        private HttpClient client = new HttpClient();
-
-        public DrinkService()
-        {
-        }
+        private readonly HttpClient client = new HttpClient();
 
         public async Task<IEnumerable<Drink>> Refresh()
         {
-            Uri uri = new Uri(string.Format(urlBase + "drinksLong"));
+            string url = urlBase + "drinksLong";
+            Uri uri = new Uri(url);
 
             string json = await client.GetStringAsync(uri);
             var result = JsonConvert.DeserializeObject<ListOfDrinks>(json);
@@ -68,5 +65,7 @@ namespace MobileApp.Services
             return ReturnCode.orderError;
 
         }
+
+        //automatischer ctor ohne argumente
     }
 }

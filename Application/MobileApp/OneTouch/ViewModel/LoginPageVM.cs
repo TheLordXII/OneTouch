@@ -25,9 +25,8 @@ namespace MobileApp.ViewModel
             }    
         }
 
-        private ILoginService _loginService;
-        public readonly INavigationService _navigationService;
-        public ReturnCode loginResult;
+        private readonly ILoginService _loginService;
+        private readonly INavigationService _navigationService;
 
         //properties
         private string _username;
@@ -40,7 +39,6 @@ namespace MobileApp.ViewModel
             set
             {
                 _username = value;
-                //user.Username = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Username"));
             }
         }
@@ -59,14 +57,8 @@ namespace MobileApp.ViewModel
             }
         }
 
-        public ICommand NavigateCommand
-        {
-            set;
-            get;
-        }
 
         private RelayCommand _loginCommand;
-
 
         public RelayCommand LoginCommand
         {
@@ -89,13 +81,10 @@ namespace MobileApp.ViewModel
             if (statusCode == ReturnCode.success)
             {
                 App.User.Username = Username;
-                loginResult = ReturnCode.success;
-                
                 await _navigationService.NavigateAsync(Locator.MasterPage);
             }
             else
             {
-                loginResult = ReturnCode.wrongCredentials;
                 Task.Run(() =>  SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Invalid credentials", "You tipped in invalid username or password, please try again."));
             }
             

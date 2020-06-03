@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MobileApp.Services;
 using MobileApp.ViewModel;
 using NUnit.Framework;
+using OneTouch;
 using OneTouch.View;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
@@ -16,7 +17,9 @@ namespace LoginUnitTest
     public class Tests
     {
         IApp app;
-        Platform platform;
+        readonly Platform platform;
+        ILoginService log = new TestLoginService();
+        TestNavigationService nav = new TestNavigationService();
 
         public Tests(Platform platform)
         {
@@ -30,35 +33,30 @@ namespace LoginUnitTest
 
         }
 
-        //[Test]
-        //public void TestNavigation()
-        //{
-        //    var log = new TestLoginService();
-        //    var dia = new TestDialogservice();
-        //    var nav = new TestNavigationService();
-        //    var vm = new LoginPageVM(log, dia, nav);
-
-        //    nav.NavigateTo(Locator.HomeScreen);
+        [Test]
+        public void TestNavigation()
+        {
             
-        //    Assert.AreEqual(Locator.HomeScreen, nav.CurrentPage);
-        //}
+            var vm = new LoginPageVM(log);
 
-        //[Test]
-        //public void TestValidLogin()
-        //{
-        //    var log = new TestLoginService();
-        //    var dia = new TestDialogservice();
-        //    var nav = new TestNavigationService();
-        //    var vm = new LoginPageVM(log, dia, nav)
-        //    {
-        //        Username = "Pepsiboi",
-        //        Password = "lol123"
-        //    };
+            nav.NavigateTo(Locator.HomeScreen);
 
-        //    vm.LoginCommand.Execute(null);
+            Assert.AreEqual(Locator.HomeScreen, nav.CurrentPage);
+        }
 
-        //    Assert.AreEqual(ReturnCode.success, vm.loginResult);
-        //}
+        [Test]
+        public void TestValidLogin()
+        {
+            var vm = new LoginPageVM(log)
+            {
+                Username = "Pepsiboi",
+                Password = "lol123"
+            };
+
+            vm.LoginCommand.Execute(null);
+
+            Assert.AreEqual(vm.Username, App.User.Username);
+        }
     }
 
     internal class TestNavigationService

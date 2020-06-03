@@ -22,26 +22,15 @@ namespace OneTouch
         /// </summary>
         public App()
         {
-            //InitializeComponent();
-            //var nav = new NavigationService();
             NavigationService.Configure(Locator.LoginPage, typeof(LoginPage));
             NavigationService.Configure(Locator.HomeScreen, typeof(HomeScreen));
             NavigationService.Configure(Locator.DetailsPage, typeof(DetailsPage));
             NavigationService.Configure(Locator.Friends, typeof(Friends));
             NavigationService.Configure(Locator.MasterPage, typeof(MasterPage));
 
-
-            //SimpleIoc.Default.Register<INavigationService>(() => nav);
-
-            //var firstPage = new NavigationPage(new LoginPage(nav));
-            //NavigationService.Initialize(firstPage);
-
             var firstPage = ((NavigationService)NavigationService).SetRootPage(Locator.LoginPage);
 
-
             MainPage = firstPage;
-            //MainPage = new NavigationPage(new LoginPage(nav));
-            //MainPage = new NavigationPage(new HomeScreen());
         }
 
         public static INavigationService NavigationService
@@ -57,14 +46,19 @@ namespace OneTouch
 
         protected override void OnStart()
         {
+           //kann leer bleiben
         }
 
         protected override void OnSleep()
         {
+            //was passiert wenn die App in den Hintergrund geschickt wird?
+            //kann leer bleiben
         }
 
         protected override void OnResume()
         {
+            //Was passiert wenn man sie aus der Queue holt?
+            //kann leer bleiben
         }
     }
 }

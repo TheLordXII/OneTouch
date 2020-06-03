@@ -14,8 +14,8 @@ namespace MobileApp.ViewModel
 {
     public class DetailsPageVM : ViewModelBase
     {
-        private IDrinkService _drinkService;
-        private INavigationService _navigationService;
+        private readonly IDrinkService _drinkService;
+        private readonly INavigationService _navigationService;
 
         private Drink _drink;
 
@@ -50,26 +50,6 @@ namespace MobileApp.ViewModel
                                         }));
 
             }
-        }
-
-        //funktion rausgenommen
-        private async Task TryOrderDrink()
-        {
-            await SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("You want to order a drink",
-            "Please make sure, there is a glass under the output of the OneTouch.", "There is a glass!", "There is no glass!", async returnvalue =>
-            {
-                if (returnvalue)
-                {
-                    await OrderDrink();
-
-                }
-                else
-                {
-                    await SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage ("Can't make drink", "Unfortunately the OneTouch is not able to make a Cocktail without a glass under the output.");
-                }
-            },
-            false, false);
-
         }
 
         private async Task OrderDrink()
@@ -111,12 +91,9 @@ namespace MobileApp.ViewModel
         {
             drink = selectedDrink;
             _drinkService = drinkService;
-            //var dialogservice = DependencyService.Get<IDialogService>();
-            //SimpleIoc.Default.Register<IDialogService>(() => dialogservice);
             _navigationService = App.NavigationService;
-            Debug.WriteLine(drink.Name);
-            drink.Ingredients = new ObservableCollection<Ingredient>();
 
+            drink.Ingredients = new ObservableCollection<Ingredient>();
             Task.Run(() => GetIngredients());
         }
 
@@ -124,7 +101,6 @@ namespace MobileApp.ViewModel
 
         public DetailsPageVM(Drink selectedDrink): this(selectedDrink , new DrinkService())
         {
-
         }
     }
 }

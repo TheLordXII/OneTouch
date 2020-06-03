@@ -19,7 +19,7 @@ namespace MobileApp.ViewModel
             }
         }
 
-        private INavigationService _navigationService;
+        private readonly INavigationService _navigationService;
 
         private RelayCommand _showDrinksCommand;
 

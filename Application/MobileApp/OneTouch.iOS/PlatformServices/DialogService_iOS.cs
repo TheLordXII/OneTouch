@@ -15,7 +15,7 @@ namespace OneTouch.iOS.PlatformServices
         {
         }
 
-        List<UIAlertController> _openDialogs = new List<UIAlertController>();
+        readonly List<UIAlertController> _openDialogs = new List<UIAlertController>();
 
         public async Task ShowMessage(string title, string message)
         {
