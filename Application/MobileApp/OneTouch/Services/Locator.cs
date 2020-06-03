@@ -3,10 +3,6 @@ namespace MobileApp.Services
 {
     public class Locator
     {
-        public Locator()
-        {
-        }
-
         public static readonly string LoginPage = "LoginPage";
         public static readonly string HomeScreen = "HomeScreen";
         public static readonly string DetailsPage = "DetailsPage";

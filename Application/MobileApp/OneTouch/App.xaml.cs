@@ -54,6 +54,7 @@ namespace OneTouch
             get;
             set;
         } = new User();
+
         protected override void OnStart()
         {
         }

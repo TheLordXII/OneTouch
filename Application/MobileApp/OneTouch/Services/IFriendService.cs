@@ -7,5 +7,4 @@ using MobileApp.FürmichbistdueinfachkeinModel;
     public interface IFriendService
     {
         Task<IEnumerable<User>> Refresh();
-
     }

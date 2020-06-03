@@ -52,6 +52,7 @@ namespace MobileApp.ViewModel
             }
         }
 
+        //funktion rausgenommen
         private async Task TryOrderDrink()
         {
             await SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("You want to order a drink",
@@ -81,7 +82,6 @@ namespace MobileApp.ViewModel
                     string title = String.Format("{0} is made", drink.Name);
                     Task.Run(() => SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage(title, "Enjoy your Cocktail!"));
                     await _navigationService.GoBack();
-                    //await _navigationService.NavigateAsync(Locator.HomeScreen, user);
                     break;
                 case ReturnCode.orderError:
                     await SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Error", "Some unexpected error occurred while ordering, please try again later.");
@@ -119,6 +119,7 @@ namespace MobileApp.ViewModel
 
             Task.Run(() => GetIngredients());
         }
+
 
 
         public DetailsPageVM(Drink selectedDrink): this(selectedDrink , new DrinkService())

@@ -15,7 +15,6 @@ namespace MobileApp.ViewModel
     {
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
-        private User user;
 
         protected virtual void RaisePropertyCHanged (string propertName)
         {
@@ -93,7 +92,6 @@ namespace MobileApp.ViewModel
                 loginResult = ReturnCode.success;
                 
                 await _navigationService.NavigateAsync(Locator.MasterPage);
-
             }
             else
             {
@@ -105,14 +103,14 @@ namespace MobileApp.ViewModel
 
         public LoginPageVM() : this(new LoginService())
         {
-            //dies ist ein Kommentar
+
         }
 
         public LoginPageVM(ILoginService loginService)
         {
             _loginService = loginService;
             _navigationService = App.NavigationService;
-            user = new User();
+
             var dialogservice = DependencyService.Get<IDialogService>();
             SimpleIoc.Default.Register<IDialogService>(() => dialogservice);
 

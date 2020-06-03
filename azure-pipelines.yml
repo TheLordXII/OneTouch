@@ -1,0 +1,15 @@
+# https://docs.microsoft.com/azure/devops/pipelines/ecosystems/xamarin
+pool:
+  vmImage: 'macOS-10.15'
+  
+variables:
+  buildConfiguration: 'Debug'
+
+steps:
+- task: XamariniOS@2
+  inputs:
+    solutionFile: 'Application/MobileApp/OneTouch.IOS/MobileApp.IOS.csproj'
+    configuration: '$(buildConfiguration)'
+    packageApp: false
+    buildForSimulator: true
+    runNugetRestore: true

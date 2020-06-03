@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 
 namespace MobileApp.FürmichbistdueinfachkeinModel
@@ -7,6 +8,12 @@ namespace MobileApp.FürmichbistdueinfachkeinModel
     {
         [JsonProperty("Benutzername")]
         public string Username
+        {
+            get;
+            set;
+        }
+
+        public ObservableCollection<User> Friends
         {
             get;
             set;
