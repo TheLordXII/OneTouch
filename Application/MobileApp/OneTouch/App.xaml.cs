@@ -52,7 +52,8 @@ namespace OneTouch
         public static User User
         {
             get;
-        }
+            set;
+        } = new User();
         protected override void OnStart()
         {
         }

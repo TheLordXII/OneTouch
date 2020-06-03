@@ -7,11 +7,11 @@ namespace MobileApp.Services
         {
         }
 
-        public const string LoginPage = "LoginPage";
-        public const string HomeScreen = "HomeScreen";
-        public const string DetailsPage = "DetailsPage";
-        public const string Friends = "Friends";
-        public const string FriendsDetails = "FriendsDetail";
-        public const string MasterPage = "MasterPage";
+        public static readonly string LoginPage = "LoginPage";
+        public static readonly string HomeScreen = "HomeScreen";
+        public static readonly string DetailsPage = "DetailsPage";
+        public static readonly string Friends = "Friends";
+        public static readonly string FriendsDetails = "FriendsDetail";
+        public static readonly string MasterPage = "MasterPage";
     }
 }

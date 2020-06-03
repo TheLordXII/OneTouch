@@ -46,7 +46,7 @@ namespace MobileApp.ViewModel
                 ?? (_OrderCommand = new RelayCommand(
                                         async () =>
                                         {
-                                            await TryOrderDrink();
+                                            await OrderDrink();
                                         }));
 
             }
@@ -111,8 +111,8 @@ namespace MobileApp.ViewModel
         {
             drink = selectedDrink;
             _drinkService = drinkService;
-            var dialogservice = DependencyService.Get<IDialogService>();
-            SimpleIoc.Default.Register<IDialogService>(() => dialogservice);
+            //var dialogservice = DependencyService.Get<IDialogService>();
+            //SimpleIoc.Default.Register<IDialogService>(() => dialogservice);
             _navigationService = App.NavigationService;
             Debug.WriteLine(drink.Name);
             drink.Ingredients = new ObservableCollection<Ingredient>();

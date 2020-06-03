@@ -6,14 +6,15 @@
              Padding="20,20,20,20"
              BackgroundColor="LightSkyBlue"
              Title="Friends"
-             NavigationPage.HasBackButton="False">
+             NavigationPage.HasBackButton="True">
             
     <ContentPage.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="FriendsTemplate"  >
                 
                 <TextCell TextColor="DarkSlateGray" DetailColor="DarkSlateGray"
-                          Text="{Binding Name}">
+                          Text="{Binding Username}"
+                          >
 
                     
              
@@ -32,7 +33,7 @@
     <ContentPage.Content>
          <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 

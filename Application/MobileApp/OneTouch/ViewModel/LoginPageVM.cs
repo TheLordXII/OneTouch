@@ -89,7 +89,7 @@ namespace MobileApp.ViewModel
             ReturnCode statusCode = await _loginService.CheckCredentials(Username,Password);
             if (statusCode == ReturnCode.success)
             {
-                user.Username = Username;
+                App.User.Username = Username;
                 loginResult = ReturnCode.success;
                 
                 await _navigationService.NavigateAsync(Locator.MasterPage);

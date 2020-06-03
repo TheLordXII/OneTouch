@@ -14,7 +14,7 @@
                 
                 <TextCell TextColor="DarkSlateGray" DetailColor="DarkSlateGray"
                           Text="{Binding Name}"
-                          Detail="{Binding Amount, StringFormat='Amount: {0}ml'}">
+                          Detail="{Binding Amount, StringFormat='Amount: {0} part(s)'}">
                     
              
                     
