@@ -6,7 +6,8 @@
              Padding="20,20,20,20"
              BackgroundColor="LightSkyBlue"
              Title="One Touch Next Gen"
-             NavigationPage.HasBackButton="False">
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True">
             
     <ContentPage.Resources>
         <ResourceDictionary>

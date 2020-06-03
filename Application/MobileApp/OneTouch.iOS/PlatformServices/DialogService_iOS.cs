@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MobileApp.Services;
+using OneTouch.iOS.PlatformServices;
 using UIKit;
 using Xamarin.Forms;
 
-
-namespace MobileApp.Services
+[assembly: Dependency(typeof(DialogService_iOS))]
+namespace OneTouch.iOS.PlatformServices
 {
-    public class DialogService : IDialogService
+    public class DialogService_iOS : IDialogService
     {
-
-        public DialogService()
+        public DialogService_iOS()
         {
         }
 
@@ -87,3 +88,4 @@ namespace MobileApp.Services
         }
     }
 }
+

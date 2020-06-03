@@ -103,9 +103,7 @@ namespace MobileApp.ViewModel
                 ?? (_showDetailsCommand = new RelayCommand(
                                         async () =>
                                         {
-                                            object[] para = new object[1];
-                                            para[0] = SelectedDrink;
-                                            await _navigationService.NavigateAsync (Locator.DetailsPage, para);
+                                            await _navigationService.NavigateAsync (Locator.DetailsPage, SelectedDrink);
                                         }));
 
             }

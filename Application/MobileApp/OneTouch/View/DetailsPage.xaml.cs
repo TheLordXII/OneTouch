@@ -10,10 +10,8 @@ namespace OneTouch.View
 {
     public partial class DetailsPage : ContentPage
     {
-        public DetailsPage(object[] para)
+        public DetailsPage(Drink selectedDrink)
         {
-            Drink selectedDrink = (Drink) para[0];
-
             var vm = new DetailsPageVM(selectedDrink);
             
             this.BindingContext = vm;

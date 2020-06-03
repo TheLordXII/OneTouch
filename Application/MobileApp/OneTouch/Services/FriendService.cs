@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 using MobileApp.FürmichbistdueinfachkeinModel;
 using Newtonsoft.Json;
+using OneTouch;
 
 namespace MobileApp.Services
 {
@@ -16,12 +18,17 @@ namespace MobileApp.Services
         private const string urlBase = @"https://onetouchnextgen.tech:5000/api/";
         private HttpClient client = new HttpClient();
 
-        public async Task<IEnumerable<User>> RefreshFriends()
+        public async Task<IEnumerable<User>> Refresh()
         {
-            Uri uri = new Uri(string.Format(urlBase + "getFriends/{0}"));
-
+            string url = urlBase + @"getFriends/{0}";
+            Debug.WriteLine(url);
+            Debug.WriteLine(App.User.Username);
+            Debug.WriteLine(string.Format(url, App.User.Username));
+            string newUrl = string.Format(url, App.User.Username);
+            Uri uri = new Uri(newUrl);
             string json = await client.GetStringAsync(uri);
             var result = JsonConvert.DeserializeObject<ListOfFriends>(json);
+            
             return result.Data;
         }
     }

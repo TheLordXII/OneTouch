@@ -6,6 +6,5 @@ using MobileApp.FürmichbistdueinfachkeinModel;
 
     public interface IFriendService
     {
-        Task<IEnumerable<User>> RefreshFriends();
-
+        Task<IEnumerable<User>> Refresh();
     }

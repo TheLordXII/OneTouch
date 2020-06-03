@@ -54,6 +54,7 @@ namespace MobileApp.Services
             {
                 string urlCount = urlBase + @"takedrink/drinkid={0}&user={1}";
                 Uri uriCount = new Uri(string.Format(urlCount, drinkID, App.User.Username));
+                Debug.WriteLine(uriCount.AbsoluteUri);
                 jObject.Add("Username", App.User.Username);
 
                 HttpResponseMessage responseCount = await client.PutAsync(uriCount, new StringContent(jObject.ToString(), Encoding.UTF8, contentType));

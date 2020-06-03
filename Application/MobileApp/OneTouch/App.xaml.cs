@@ -27,6 +27,8 @@ namespace OneTouch
             NavigationService.Configure(Locator.LoginPage, typeof(LoginPage));
             NavigationService.Configure(Locator.HomeScreen, typeof(HomeScreen));
             NavigationService.Configure(Locator.DetailsPage, typeof(DetailsPage));
+            NavigationService.Configure(Locator.Friends, typeof(Friends));
+            NavigationService.Configure(Locator.MasterPage, typeof(MasterPage));
 
 
             //SimpleIoc.Default.Register<INavigationService>(() => nav);
@@ -51,7 +53,7 @@ namespace OneTouch
         {
             get;
             set;
-        }
+        } = new User();
 
         protected override void OnStart()
         {
