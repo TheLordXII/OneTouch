@@ -3,12 +3,8 @@ namespace MobileApp.Services
 {
     public class Locator
     {
-        public Locator()
-        {
-        }
-
-        public const string LoginPage = "LoginPage";
-        public const string HomeScreen = "HomeScreen";
-        public const string DetailsPage = "DetailsPage";
+        public static readonly string LoginPage = "LoginPage";
+        public static readonly string HomeScreen = "HomeScreen";
+        public static readonly string DetailsPage = "DetailsPage";
     }
 }
