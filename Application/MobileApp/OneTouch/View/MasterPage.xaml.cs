@@ -14,7 +14,7 @@ namespace OneTouch.View
             var vm = new MasterPageVM();
             this.BindingContext = vm;
             InitializeComponent();
-            Detail = new NavigationPage(new HomeScreen());
+            Detail = new NavigationPage(new DrinksView());
         }
 
         protected override void OnAppearing()

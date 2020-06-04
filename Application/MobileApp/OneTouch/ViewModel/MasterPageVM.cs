@@ -31,7 +31,7 @@ namespace MobileApp.ViewModel
                 ?? (_showDrinksCommand = new RelayCommand(
                                         async () =>
                                         {
-                                            await _navigationService.NavigateAsync(Locator.HomeScreen);
+                                            await _navigationService.NavigateAsync(Locator.DrinksView);
                                         }));
 
             }

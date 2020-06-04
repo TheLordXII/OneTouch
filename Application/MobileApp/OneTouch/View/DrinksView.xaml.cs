@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using MobileApp.ViewModel;
+﻿using MobileApp.ViewModel;
 using Xamarin.Forms;
 using MobileApp.Services;
 using System.Diagnostics;
-using MobileApp.FürmichbistdueinfachkeinModel;
 
 namespace OneTouch.View
 {
-    public partial class HomeScreen : ContentPage
+    public partial class DrinksView : ContentPage
     {
-        public HomeScreen()
+        public DrinksView()
         {
-            var vm = new HomeScreenVM();
+            var vm = new DrinksVM();
             this.BindingContext = vm;
             InitializeComponent();
         }
@@ -20,7 +17,7 @@ namespace OneTouch.View
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            var currentPageKeyString = Locator.HomeScreen;
+            var currentPageKeyString = Locator.DrinksView;
                 //.GetInstance<INavigationService>()
                 //.CurrentPageKey;
             Debug.WriteLine("Current page key: " + currentPageKeyString);

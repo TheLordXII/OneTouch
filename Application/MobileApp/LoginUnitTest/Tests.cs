@@ -39,9 +39,9 @@ namespace LoginUnitTest
             
             var vm = new LoginPageVM(log);
 
-            nav.NavigateTo(Locator.HomeScreen);
+            nav.NavigateTo(Locator.DrinksView);
 
-            Assert.AreEqual(Locator.HomeScreen, nav.CurrentPage);
+            Assert.AreEqual(Locator.DrinksView, nav.CurrentPage);
         }
 
         [Test]

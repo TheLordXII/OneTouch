@@ -11,7 +11,7 @@ using OneTouch;
 
 namespace MobileApp.ViewModel
 {
-    public class HomeScreenVM : INotifyPropertyChanged
+    public class DrinksVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
@@ -112,7 +112,7 @@ namespace MobileApp.ViewModel
         /// <summary>
         /// ctor 
         /// </summary>
-        public HomeScreenVM(IDrinkService drinkService)
+        public DrinksVM(IDrinkService drinkService)
         {
             _drinkSerice = drinkService;
             _navigationService = App.NavigationService;
@@ -121,7 +121,7 @@ namespace MobileApp.ViewModel
             Task.Run(() =>Refresh());
         }
 
-        public HomeScreenVM(): this(new DrinkService())
+        public DrinksVM(): this(new DrinkService())
         {
 
         }

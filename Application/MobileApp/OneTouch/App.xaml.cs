@@ -23,7 +23,7 @@ namespace OneTouch
         public App()
         {
             NavigationService.Configure(Locator.LoginPage, typeof(LoginPage));
-            NavigationService.Configure(Locator.HomeScreen, typeof(HomeScreen));
+            NavigationService.Configure(Locator.DrinksView, typeof(DrinksView));
             NavigationService.Configure(Locator.DetailsPage, typeof(DetailsPage));
             NavigationService.Configure(Locator.Friends, typeof(Friends));
             NavigationService.Configure(Locator.MasterPage, typeof(MasterPage));
