@@ -1,9 +1,9 @@
 // Global
 var express = require('express');
 var app = express();
-var router = express.Router();
+var router = new express.Router();
 var bodyparser = require('body-parser');
-var http = require('http');
+var http = require("http");
 var fs = require('fs'); 
 var https = require('https');
 var mqtt = require('mqtt');
