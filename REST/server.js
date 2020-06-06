@@ -66,7 +66,7 @@ app.use("/api", router);
 router.route("/drinks")
     //get Drinks from the Database
     .get(function(req, res) {
-        console.log("/drinks get geroutet")
+        console.log("/drinks get geroutet");
         sql.connect(config, function (err) {
             if (err) { console.error(err); }
             //create request object
@@ -245,7 +245,7 @@ router.route("/user")
 
         var request = new sql.Request();
         request.query("SELECT * FROM [dbo].[User]", function(err, result){
-            if(err) console.log(err)
+            if (err) {console.error(err); }
 
             res.json({ Data: result.recordset});
         });
