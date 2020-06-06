@@ -66,7 +66,7 @@ app.use("/api", router);
 router.route("/drinks")
     //get Drinks from the Database
     .get(function(req, res) {
-        //console.log("/drinks get geroutet")
+        console.log("/drinks get geroutet")
         sql.connect(config, function (err) {
             if (err) { console.error(err); }
             //create request object
@@ -87,7 +87,7 @@ router.route("/drinksLong")
     .get(function(req, res) {
         console.log("/drinks get geroutet");
         sql.connect(config, function (err) {
-            if (err) { console.log(err); }
+            if (err) { console.error(err); }
             //create request object
             var request = new sql.Request();
             //query to the database to get respond
@@ -105,17 +105,17 @@ router.route("/drinksLong")
 //     .post(function(req, res) {
 //         console.log("/drinks put geroutet");
 //         sql.connect(config, function (err) {
-//             if (err) {console.log(err);}
+//             if (err) {console.error(err);}
 //             //create request object
 //     });
 
 router.route("/drink/bestdrinkers")
     //get Drinkers Tier List
     .get(function(req, res){
-        //console.log("/drinks/bestdrinkers geroutet");
+        console.log("/drinks/bestdrinkers geroutet");
         //sql connection
         sql.connect(config, function(err) {
-            if(err) {console.log(err);}
+            if(err) {console.error(err);}
         
         //building request
         var request = new sql.Request();
@@ -149,7 +149,7 @@ router.route("/drink/bestdrinks")
 router.route("/drinks/:value")
     //get one drink from the database
     .get(function(req, res) {
-        console.log("/drinks/value geroutet")
+        console.log("/drinks/value geroutet");
         //sql connection
         sql.connect(config, function (err) {
             if (err) { console.error(err); }
@@ -159,7 +159,7 @@ router.route("/drinks/:value")
         //input the url-value as parameter into the sql-statement
         request.input("drinkid", sql.Int , req.params.value);
         request.query("SELECT * FROM Drink WHERE DrinkID = @drinkid", function(err, result) {
-            if (err) {console.log(err); }
+            if (err) {console.error(err); }
             //send recordset as the result
             console.log(result.recordset);
             res.json({ Data: result.recordset});
@@ -174,14 +174,14 @@ router.route("/drinks/:value")
         console.log("/drinks/value geroutet");
         //sql connection
         sql.connect(config, function (err) {
-            if (err) {console.log(err);}
+            if (err) {console.error(err);}
         
         //bulding request
         var request = new sql.Request();
         //input the url-value as parameter into the sql-statement
         request.input("drinkid", sql.Int , req.params.value);
         request.query("Select DrinkID, Drink.Name, Drink.Description, Times_Taken, [User].Benutzername AS Creator From Drink LEFT JOIN [dbo].[User] ON Creator = [dbo].[User].UserID WHERE DrinkID = @drinkid", function(err, result) {
-            if (err) console.error(err)
+            if (err) {console.error(err); }
             //send recordset as the result
             console.log(result.recordset);
             res.json({ Data: result.recordset});
@@ -197,7 +197,7 @@ router.route("/takedrink/drinkid=:did&user=:user")
         console.log("/drinks/taken geroutet");
         //sql connection
         sql.connect(config, function (err) {
-            if (err) {console.log(err);}
+            if (err) {console.error(err);}
         
         //bulding request
         var request = new sql.Request();
@@ -206,7 +206,7 @@ router.route("/takedrink/drinkid=:did&user=:user")
         request.input("user", sql.NVarChar, req.params.user);
 
         request.query("UPDATE Drink SET Times_Taken = Times_Taken + 1 WHERE DrinkID = @did; UPDATE [dbo].[User] SET Drinks_Taken = Drinks_Taken + 1 WHERE Benutzername = @user;", function(err, result) {
-            if (err) console.log(err)
+            if (err) {console.error(err); }
             //send message as the result
             res.json({message:"Successful"});
             });
@@ -217,17 +217,17 @@ router.route("/takedrink/drinkid=:did&user=:user")
 router.route("/ingredientlist/:value")
     //get ingredientlist from the database
     .get(function(req, res) {
-        console.log("/ingredientlist geroutet")
+        console.log("/ingredientlist geroutet");
         //sql connection
         sql.connect(config, function (err) {
-            if (err) {console.log(err);}
+            if (err) {console.error(err);}
         
         //bulding request
         var request = new sql.Request();
         //input the url-value as parameter into the sql-statement
         request.input("drinkid", sql.Int , req.params.value);
         request.query("SELECT Ingredient.Name, DrinkToIngredient.How_Much FROM DrinkToIngredient RIGHT JOIN Ingredient ON Ingredient.IngredientID = DrinkToIngredient.IngredientID WHERE DrinkID = @drinkid", function(err, result) {
-            if (err) console.log(err)
+            if (err) {console.error(err); }
             //send recordset as the result
             console.log(result.recordset);
             res.json({ Data: result.recordset});
@@ -241,7 +241,7 @@ router.route("/user")
         //gets all users from Database
         console.log("/user geroutet");
         sql.connect(config, function(err){
-            if (err) {console.log(err);}
+            if (err) {console.error(err);}
 
         var request = new sql.Request();
         request.query("SELECT * FROM [dbo].[User]", function(err, result){
@@ -258,7 +258,7 @@ router.route("/user/login/username=:user&password=:pwd")
         console.log("/user/login geroutet");
         //sql connection
         sql.connect(config, function (err) {
-            if (err) {console.log(err);}
+            if (err) {console.error(err);}
         
         //building request
         var request = new sql.Request();
@@ -268,8 +268,8 @@ router.route("/user/login/username=:user&password=:pwd")
         //sql statement to database
         request.query("SELECT CASE WHEN EXISTS (SELECT * FROM [dbo].[User] WHERE Benutzername = @user AND Password = @password) THEN 0 ELSE 1 END AS RESULT", function(err, result) {
             //error handling
-            console.log(result.recordset)
-            if (result.recordset[0].RESULT == 1) {
+            console.log(result.recordset);
+            if (result.recordset[0].RESULT === 1) {
                 res.status(400).json({message:"Invalid credentials"});
             } else {
             //all good
@@ -284,7 +284,7 @@ router.route("/newuser/username=:user&password=:pwd&name=:name&vorname=:vorname&
         console.log("/newuser geroutet");
         //sql connection
         sql.connect(config, function(err){
-            if(err) console.log(err);
+            if (err) {console.error(err); }
 
         //building request
         var request = new sql.Request();
@@ -295,7 +295,7 @@ router.route("/newuser/username=:user&password=:pwd&name=:name&vorname=:vorname&
         request.input("gebDate", sql.Date, req.params.date);
 
         request.query("INSERT INTO [dbo].[User] ([Name],[Vorname],[Benutzername],[GebDatum],[Is_Admin],[Drinks_Taken],[Password]) VALUES (@name,@vorname,@username,@gebDate,0,0,@password)", function(err, result) {
-            if(err) console.log(err);
+            if (err) {console.error(err); }
 
         res.json({message: "Successful"});
         });
@@ -309,13 +309,13 @@ router.route("/user/deleteuser/:value")
         console.log("/user/deleteuser geroutet");
         //sql connection
         sql.connect(config, function(err){
-            if(err) console.log(err);
+            if (err) {console.error(err); }
 
         //building request
         var request = new sql.Request();
         request.input("uid", sql.Int, req.params.value);
         request.query("DELETE FROM [dbo].[User] WHERE UserID = @uid", function(res, err){
-            if (err) {console.log(err);}
+            if (err) {console.error(err);}
 
         res.json({ message: "User deleted"});
         });
@@ -331,13 +331,13 @@ router.route("/mqtt/queue/:value")
 
         //sql connection
         sql.connect(config, function(err){
-            if(err) console.log(err);
+            if (err) {console.error(err); }
         
         //building request
         var request = new sql.Request();
         request.input("did", sql.Int, req.params.value);
         request.query("SELECT Ingredient.Name, DrinkToIngredient.How_Much FROM Drink Left JOIN DrinkToIngredient ON Drink.DrinkID = DrinkToIngredient.DrinkID Left JOIN Ingredient ON DrinkToIngredient.IngredientID = Ingredient.IngredientID WHERE Drink.DrinkID = @did", function(err, result){
-            if (err) {console.log(err);}
+            if (err) {console.error(err);}
 
         console.log(result.recordset);
 
@@ -362,13 +362,13 @@ router.route("/getFriends/:user")
         console.log("/getFriends/user geroutet");
         //sql connection
         sql.connect(config, function(err){
-            if(err) console.log(err);
+            if (err) {console.error(err); }
         
         //building request
         var request = new sql.Request();
         request.input("user", sql.NVarChar, req.params.user);
         request.query("SELECT U2.[Benutzername] FROM [User] U1 INNER JOIN [Friends] F ON Friend1=UserID OR Friend2=UserID INNER JOIN [User] U2 ON Friend1=U2.UserID OR Friend2=U2.UserID WHERE U1.Benutzername = @user AND U1.UserID != U2.UserID", function(err, result){
-            if (err) {console.log(err);}
+            if (err) {console.error(err);}
 
         console.log(result.recordset);
 
@@ -383,14 +383,14 @@ router.route("/addFriend/:me&:user")
         
         //sql connection
         sql.connect(config, function(err){
-            if(err) console.log(err);
+            if (err) {console.error(err); }
         
         //building request
         var request = new sql.Request();
         request.input("me", sql.NVarChar, req.params.me);
         request.input("user", sql.NVarChar, req.params.user);
         request.query("INSERT INTO [dbo].[Friends] ([Friend1],[Friend2]) VALUES ((SELECT UserID FROM [User] WHERE Benutzername = @me), (SELECT UserID FROM [User] WHERE Benutzername = @user))", function(err, result){
-            if (err) {console.log(err);}
+            if (err) {console.error(err);}
 
         res.status(200).json({ message: "Successful" });
         });
@@ -403,14 +403,14 @@ router.route("/deleteFriend/:me&:user")
     
         //sql connection
         sql.connect(config, function(err){
-            if(err) console.log(err);
+            if (err) {console.error(err); }
     
         //building request
         var request = new sql.Request();
         request.input("me", sql.NVarChar, req.params.me);
         request.input("user", sql.NVarChar, req.params.user);
         request.query("DELETE FROM [dbo].[Friends] WHERE Friend1 = (Select UserID FROM [User] WHERE Benutzername = @me) AND Friend2 = (Select UserID FROM [User] WHERE Benutzername = @user) OR (Friend2 = (Select UserID FROM [User] WHERE Benutzername = @me) AND Friend1 = (Select UserID FROM [User] WHERE Benutzername = @user))", function(err, result){
-            if (err) {console.log(err);}
+            if (err) {console.error(err);}
 
         res.status(200).json({ message: "Successful" });
         });
