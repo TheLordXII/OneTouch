@@ -7,6 +7,7 @@ from Models import DictToObj
 
 class PumpService:
     def __init__(self):
+        """Konstruktor, diese Klasse mappt Ingredients auf Pumpen"""
         print('DrinkService running')
 
     def run(self):
@@ -19,7 +20,6 @@ class PumpService:
         while True:
             if globalQueue.not_empty:
                 self.makeDrink()
-    
 
     def getDrinkList(self):
         payload = REST.get('https://onetouchnextgen.tech:5000/api/drinks', verify = False)
@@ -50,7 +50,7 @@ class PumpService:
             jsonString = payload.text
             self.config = json.loads(jsonString)
             print(jsonString)
-        except:
+        except self.config:
             print('Obtaining and parsing the file you requested failed')
 
     def makeDrink(self):
