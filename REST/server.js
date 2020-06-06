@@ -9,16 +9,16 @@ var https = require('https');
 var mqtt = require('mqtt');
 
 
-var privatekey = fs.readFileSync('C:\\Projects\\REST\\cert\\cert.key', 'utf8');
-var certificate = fs.readFileSync('C:\\Projects\\REST\\cert\\cert.crt', 'utf8');
+var privatekey = fs.readFileSync("C:\\Projects\\REST\\cert\\cert.key", "utf8");
+var certificate = fs.readFileSync("C:\\Projects\\REST\\cert\\cert.crt", "utf8");
 var credentials = {key:privatekey, cert:certificate};
 
 //mqtt client
-var mqttclient = mqtt.connect('mqtt://onetouchnextgen.tech');
+var mqttclient = mqtt.connect("mqtt://onetouchnextgen.tech");
 
 mqttclient.on('connect', function(){
-    mqttclient.subscribe('machine/Drink', function(err){
-        if (!err) mqttclient.publish('machine/Drink', 'lol123'); 
+    mqttclient.subscribe("machine/Drink", function(err){
+        if (!err) {mqttclient.publish("machine/Drink", "lol123"); } 
     });
 });
 
@@ -31,10 +31,10 @@ var sql = require("mssql");
 
 // config for your database
 var config = {
-    user: 'sa',
-    password: 'OneTouch7',
-    server: 'h2883569.stratoserver.net', 
-    database: 'OneTouch',
+    user: "sa",
+    password: "OneTouch7",
+    server: "h2883569.stratoserver.net", 
+    database: "OneTouch",
     port: 1434
 };
 
