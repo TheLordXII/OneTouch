@@ -32,8 +32,8 @@ var sql = require("mssql");
 
 // config for your database
 var config = {
-    user: "sa",
-    password: "OneTouch7",
+    user: "",
+    password: "",
     server: "h2883569.stratoserver.net", 
     database: "OneTouch",
     port: 1434
