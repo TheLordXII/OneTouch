@@ -4,10 +4,7 @@ import os
 from MQTTService import MqttService
 import threading
 import requests as REST
-import json
 import random
-from Models import Schema
-from Models import DictToObj
 from Models.GlobalQueue import globalQueue
 from DrinkService import PumpService
 
@@ -40,7 +37,7 @@ class App():
         drinkThread = threading.Thread(target = self.drinkService.run, daemon = True)
         print('starting DrinkService')
         drinkThread.start()
-        
+
     def get_surprise_drink(self):
         #calculate surprise drink id
         drinkIndex = random.randint(0, self.drinkService.DrinksInList-1)

@@ -1,18 +1,17 @@
 import paho.mqtt.client as mqtt
-import threading
-from Models.GlobalQueue import globalQueue, queueLock
-
+from Models.GlobalQueue import globalQueue
 
 class MqttService(mqtt.Client):
-
+    @staticmethod
     def on_connect(self, mqttc, obj, flags, rc):
         print("rc: "+str(rc))
 
+    @staticmethod
     def on_message(self, mqttc, obj, msg):
         if self.isStartup == True:
             self.isStartup = False
             self.publish("machine/Drink", "ready", 0)
-        else: 
+        else:
             print(msg.topic+" "+str(msg.qos)+" "+str(msg.payload))
             #insert drink in global queue
             toQueue = str(msg.payload)[2:]
@@ -24,16 +23,19 @@ class MqttService(mqtt.Client):
                 print("Vorne in der Queue: " + globalQueue.queue[0])
                 self.publish("machine/Drink", "ready", 0)
 
-
+    @staticmethod
     def on_publish(self, mqttc, obj, mid):
         print("mid: "+str(mid))
 
+    @staticmethod
     def on_subscribe(self, mqttc, obj, mid, granted_qos):
         print("Subscribed: "+str(mid)+" "+str(granted_qos))
 
+    @staticmethod
     def on_log(self, mqttc, obj, level, string):
         print(string)
 
+    @staticmethod
     def run(self):
         self.isStartup = True
         self.connect("onetouchnextgen.tech", 1883)

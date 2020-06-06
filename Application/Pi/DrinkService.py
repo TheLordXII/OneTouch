@@ -1,5 +1,4 @@
 from Models.GlobalQueue import globalQueue
-from Models.GlobalQueue import queueLock
 from tkinter import messagebox
 import json
 import requests as REST
@@ -9,7 +8,7 @@ from Models import DictToObj
 class PumpService:
     def __init__(self):
         print('DrinkService running')
-    
+
     def run(self):
         self.getDrinkList()
         self.getPumpConfig()
@@ -38,7 +37,8 @@ class PumpService:
             self.DrinksInList = 0
             for drink in self.workingList.Data:
                 self.DrinksInList += 1
-        except:
+                print(drink)
+        except jsonObject:
             print('Obtaining and parsing the file you requested failed')
 
     def getPumpConfig(self):
@@ -63,7 +63,7 @@ class PumpService:
         for ingrFromList in ingredientsList.Data:
             #determine pump
             for ingrFromConf in self.config:
-                counter+=1  
+                counter+=1
                 if ingrFromList.Name == self.config[ingrFromConf]:
                     #use that pump with the value for that pump
                     if counter == 1:
