@@ -1,3 +1,4 @@
+/* eslint no-console: ["error", { allow: ["log", "error"] }] */
 // Global
 var express = require("express");
 var app = express();
