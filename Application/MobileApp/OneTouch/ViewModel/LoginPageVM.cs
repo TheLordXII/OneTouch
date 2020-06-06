@@ -5,14 +5,15 @@ using Xamarin.Forms;
 using MobileApp.Services;
 using GalaSoft.MvvmLight.Command;
 using System.Threading.Tasks;
-
+using OneTouch;
+using MobileApp.FürmichbistdueinfachkeinModel;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace MobileApp.ViewModel
 {
     public class LoginPageVM : INotifyPropertyChanged
     {
-        public Action DisplayInvalidLoginPrompt;
-        public Action DisplaySuccessfulLoginPrompt;
+
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
         protected virtual void RaisePropertyCHanged (string propertName)
@@ -24,10 +25,8 @@ namespace MobileApp.ViewModel
             }    
         }
 
-        private ILoginService _loginService;
+        private readonly ILoginService _loginService;
         private readonly INavigationService _navigationService;
-        private IDialogService _dialogService;
-        public ReturnCode loginResult;
 
         //properties
         private string _username;
@@ -58,14 +57,8 @@ namespace MobileApp.ViewModel
             }
         }
 
-        public ICommand NavigateCommand
-        {
-            set;
-            get;
-        }
 
         private RelayCommand _loginCommand;
-
 
         public RelayCommand LoginCommand
         {
@@ -87,41 +80,32 @@ namespace MobileApp.ViewModel
             ReturnCode statusCode = await _loginService.CheckCredentials(Username,Password);
             if (statusCode == ReturnCode.success)
             {
-                //NavigateCommand = new RelayCommand(() =>
-                //                        {
-                //                            _navigationService.NavigateTo(Locator.HomeScreen);
-                //                        });
-                loginResult = ReturnCode.success;
-                _navigationService.NavigateTo(Locator.HomeScreen);
-
+                App.User.Username = Username;
+                await _navigationService.NavigateAsync(Locator.MasterPage);
             }
             else
             {
-                loginResult = ReturnCode.wrongCredentials;
-                DisplayInvalidLoginPrompt();
-                //await _dialogService.ShowMessage("Invalid username or password.");
-                //besser: IDialogService
+                Task.Run(() =>  SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Invalid credentials", "You tipped in invalid username or password, please try again."));
             }
             
         }
 
- 
-        public LoginPageVM(ILoginService loginService, IDialogService dialogService, INavigationService navigationService)
+        public LoginPageVM() : this(new LoginService())
+        {
+
+        }
+
+        public LoginPageVM(ILoginService loginService)
         {
             _loginService = loginService;
-            _navigationService = navigationService;
-            _dialogService = dialogService;
+            _navigationService = App.NavigationService;
+
+            var dialogservice = DependencyService.Get<IDialogService>();
+            SimpleIoc.Default.Register<IDialogService>(() => dialogservice);
 
         }
 
-        public LoginPageVM() : this(new LoginService(),  new DialogService(), new NavigationService())
-        {
 
-        }
 
-        public LoginPageVM(INavigationService navigationService) : this(new LoginService(), new DialogService(), navigationService)
-        {
-
-        }
     }
 }

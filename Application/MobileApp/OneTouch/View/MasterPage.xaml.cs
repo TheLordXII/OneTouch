@@ -1,27 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using MobileApp.Services;
 using MobileApp.ViewModel;
 using Xamarin.Forms;
-using MobileApp.Services;
-using System.Diagnostics;
 
 namespace OneTouch.View
 {
-    public partial class HomeScreen : ContentPage
+    public partial class MasterPage : MasterDetailPage
     {
-        public HomeScreen()
+        public MasterPage()
         {
-            var vm = new HomeScreenVM();
+            var vm = new MasterPageVM();
             this.BindingContext = vm;
             InitializeComponent();
+            Detail = new NavigationPage(new DrinksView());
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            var currentPageKeyString = Locator.HomeScreen;
-                //.GetInstance<INavigationService>()
-                //.CurrentPageKey;
+            var currentPageKeyString = Locator.MasterPage;
+            //.GetInstance<INavigationService>()
+            //.CurrentPageKey;
             Debug.WriteLine("Current page key: " + currentPageKeyString);
         }
     }

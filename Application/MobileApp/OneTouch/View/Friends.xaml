@@ -1,19 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OneTouch.View.HomeScreen"
+             xmlns:b="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
+             x:Class="OneTouch.View.Friends"
              Padding="20,20,20,20"
              BackgroundColor="LightSkyBlue"
-             Title="One Touch Next Gen"
-             NavigationPage.HasBackButton="False">
+             Title="Friends"
+             NavigationPage.HasBackButton="True">
             
     <ContentPage.Resources>
         <ResourceDictionary>
-            <DataTemplate x:Key="DrinksTemplate"  >
+            <DataTemplate x:Key="FriendsTemplate"  >
                 
                 <TextCell TextColor="DarkSlateGray" DetailColor="DarkSlateGray"
-                          Text="{Binding Name}"
-                          Detail="{Binding Description}">
+                          Text="{Binding Username}"
+                          >
+
                     
              
                     
@@ -22,22 +24,22 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
-        
-        <ToolbarItem Text="Details"
+
+        <ToolbarItem Text="Add friend"
                      Order="Primary"
                      Priority="0"
-                     Command="{Binding ShowDetailsCommand}"/>
+                     Command="{Binding CreateDrinkCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
          <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
             <!--jetzt kommen theoretisch Columns, sind aber hier nicht vorhanden-->
 
-            <Label Text="Select a drink!"
+            <Label Text="Have a look at your friends"
                    Grid.Row="0"
                    HorizontalOptions = "LayoutOptions.Center"
                    VerticalOptions = "Center"
@@ -47,17 +49,19 @@
             <Grid x:Name="ContentPanel"
                   Grid.Row="1" >
                     <ListView
-                            x:Name="listViewDrinks"
+                            x:Name="listViewFriends"
                             HorizontalOptions="FillAndExpand"
-                            ItemsSource="{Binding Drinks}"
-                            ItemTemplate="{StaticResource DrinksTemplate}"
+                            ItemsSource="{Binding Friends}"
+                            ItemTemplate="{StaticResource FriendsTemplate}"
                             BackgroundColor="LightSkyBlue"
                             SeparatorVisibility="None"
                             IsPullToRefreshEnabled="True"
                             RefreshCommand="{Binding RefreshCommand}"
                             IsRefreshing="{Binding IsRefreshing}"
-                            SelectedItem="{Binding SelectedDrink}">
-                              
+                            SelectedItem="{Binding SelectedFriend}">
+                        <ListView.Behaviors>
+                            <b:SelectedItemBehavior Command="{Binding ShowDetailsCommand}"/>
+                        </ListView.Behaviors>
                     </ListView>
             </Grid>
         </Grid>

@@ -1,15 +1,26 @@
 // Global
 var express = require('express');
 var app = express();
-var router = express.Router();
+var router = new express.Router();
 var bodyparser = require('body-parser');
-var http = require('http');
+var http = require("http");
 var fs = require('fs'); 
 var https = require('https');
+var mqtt = require('mqtt');
+
 
 var privatekey = fs.readFileSync('C:\\Projects\\REST\\cert\\cert.key', 'utf8');
 var certificate = fs.readFileSync('C:\\Projects\\REST\\cert\\cert.crt', 'utf8');
 var credentials = {key:privatekey, cert:certificate};
+
+//mqtt client
+var mqttclient = mqtt.connect('mqtt://onetouchnextgen.tech');
+
+mqttclient.on('connect', function(){
+    mqttclient.subscribe('machine/Drink', function(err){
+        if (!err) mqttclient.publish('machine/Drink', 'lol123'); 
+    });
+});
 
 //body-parser magie 
 app.use(bodyparser.urlencoded({extended:true}));
@@ -69,7 +80,26 @@ router.route('/drinks')
                 res.json({ Data: result.recordset});
             });
         });
-    })
+    });
+
+router.route('/drinksLong')
+    //get Drinks from the Database
+    .get(function(req, res) {
+        console.log('/drinks get geroutet')
+        sql.connect(config, function (err) {
+            if (err) console.log(err);
+            //create request object
+            var request = new sql.Request();
+            //query to the database to get respond
+            request.query('Select DrinkID, Drink.Name, Drink.Description, Times_Taken, [User].Benutzername AS Creator From Drink LEFT JOIN [dbo].[User] ON Creator = [dbo].[User].UserID', function(err, result) {
+            
+                if (err) console.log(err)
+            
+                //send records as a response
+                res.json({ Data: result.recordset});
+            });
+        });
+    });
 
 // router.route('/insertdrink/')
 //     .post(function(req, res) {
@@ -136,11 +166,33 @@ router.route('/drinks/:value')
             
         });
     });
-
-
 });
 
-router.route('/takedrink/drinkid=:did&userid=:uid')
+    router.route('/drinksLong/:value')
+    //get one drink from the database
+    .get(function(req, res) {
+        console.log('/drinks/value geroutet')
+        //sql connection
+        sql.connect(config, function (err) {
+            if (err) console.log(err);
+        
+        //bulding request
+        var request = new sql.Request();
+        //input the url-value as parameter into the sql-statement
+        request.input('drinkid', sql.Int , req.params.value);
+        request.query('Select DrinkID, Drink.Name, Drink.Description, Times_Taken, [User].Benutzername AS Creator From Drink LEFT JOIN [dbo].[User] ON Creator = [dbo].[User].UserID WHERE DrinkID = @drinkid', function(err, result) {
+            if (err) console.log(err)
+            //send recordset as the result
+            console.log(result.recordset);
+            res.json({ Data: result.recordset});
+            
+        });
+    });
+});
+
+
+
+router.route('/takedrink/drinkid=:did&user=:user')
     .put(function(req, res) {
         console.log('/drinks/taken geroutet');
         //sql connection
@@ -151,9 +203,9 @@ router.route('/takedrink/drinkid=:did&userid=:uid')
         var request = new sql.Request();
         //input the url-value as parameter into the sql-statement
         request.input('did', sql.Int , req.params.did);
-        request.input('uid', sql.Int, req.params.uid);
+        request.input('user', sql.NVarChar, req.params.user);
 
-        request.query('UPDATE Drink SET Times_Taken = Times_Taken + 1 WHERE DrinkID = @did; UPDATE [dbo].[User] SET Drinks_Taken = Drinks_Taken + 1 WHERE UserID = @uid;', function(err, result) {
+        request.query('UPDATE Drink SET Times_Taken = Times_Taken + 1 WHERE DrinkID = @did; UPDATE [dbo].[User] SET Drinks_Taken = Drinks_Taken + 1 WHERE Benutzername = @user;', function(err, result) {
             if (err) console.log(err)
             //send message as the result
             res.json({message:'Successful'});
@@ -265,9 +317,102 @@ router.route('/user/deleteuser/:value')
         request.query('DELETE FROM [dbo].[User] WHERE UserID = @uid', function(res, err){
             if (err) console.log(err);
 
-        res.json({message: 'User deleted'});
+        res.json({ message: 'User deleted'});
         });
         });
     });
 
 });
+
+router.route('/mqtt/queue/:value')
+    .put(function(req, res){
+        //sends Drinkrequest to the Machine
+        console.log('/mqtt/queue/value geroutet');
+
+        //sql connection
+        sql.connect(config, function(err){
+            if(err) console.log(err);
+        
+        //building request
+        var request = new sql.Request();
+        request.input('did', sql.Int, req.params.value);
+        request.query('SELECT Ingredient.Name, DrinkToIngredient.How_Much FROM Drink Left JOIN DrinkToIngredient ON Drink.DrinkID = DrinkToIngredient.DrinkID Left JOIN Ingredient ON DrinkToIngredient.IngredientID = Ingredient.IngredientID WHERE Drink.DrinkID = @did', function(err, result){
+            if (err) console.log(err);
+
+        console.log(result.recordset);
+
+        //hier kommt mqtt wooohooo
+        mqttclient.publish('machine/Drink', JSON.stringify({Data: result.recordset}), {qos: 0, retain: true});
+        res.status(200).json({ message: 'Successful' });
+        });
+        });
+    });
+
+router.route('/machine/config')
+    .get(function(req, res){
+        console.log('/machine/config geroutet');
+        let rawdata = fs.readFileSync('C:\\Projects\\REST\\initialize.json');
+        let initialize = JSON.parse(rawdata);
+        console.log(initialize);
+        res.json(initialize);
+    });
+
+router.route('/getFriends/:user')
+    .get(function(req, res){
+        console.log('/getFriends/user geroutet');
+        //sql connection
+        sql.connect(config, function(err){
+            if(err) console.log(err);
+        
+        //building request
+        var request = new sql.Request();
+        request.input('user', sql.NVarChar, req.params.user);
+        request.query('SELECT U2.[Benutzername] FROM [User] U1 INNER JOIN [Friends] F ON Friend1=UserID OR Friend2=UserID INNER JOIN [User] U2 ON Friend1=U2.UserID OR Friend2=U2.UserID WHERE U1.Benutzername = @user AND U1.UserID != U2.UserID', function(err, result){
+            if (err) console.log(err);
+
+        console.log(result.recordset);
+
+        res.status(200).json({ Data: result.recordset});
+        });
+        });
+    });
+
+router.route('/addFriend/:me&:user')
+    .post(function(req, res, next){
+        console.log('/addFriends/user geroutet');
+        
+        //sql connection
+        sql.connect(config, function(err){
+            if(err) console.log(err);
+        
+        //building request
+        var request = new sql.Request();
+        request.input('me', sql.NVarChar, req.params.me);
+        request.input('user', sql.NVarChar, req.params.user);
+        request.query('INSERT INTO [dbo].[Friends] ([Friend1],[Friend2]) VALUES ((SELECT UserID FROM [User] WHERE Benutzername = @me), (SELECT UserID FROM [User] WHERE Benutzername = @user))', function(err, result){
+            if (err) console.log(err);
+
+        res.status(200).json({ message: 'Successful' });
+        });
+        });
+    });
+
+router.route('/deleteFriend/:me&:user')
+    .delete(function(req, res){
+        console.log('/addFriends/user geroutet');
+    
+        //sql connection
+        sql.connect(config, function(err){
+            if(err) console.log(err);
+    
+        //building request
+        var request = new sql.Request();
+        request.input('me', sql.NVarChar, req.params.me);
+        request.input('user', sql.NVarChar, req.params.user);
+        request.query('DELETE FROM [dbo].[Friends] WHERE Friend1 = (Select UserID FROM [User] WHERE Benutzername = @me) AND Friend2 = (Select UserID FROM [User] WHERE Benutzername = @user) OR (Friend2 = (Select UserID FROM [User] WHERE Benutzername = @me) AND Friend1 = (Select UserID FROM [User] WHERE Benutzername = @user))', function(err, result){
+            if (err) console.log(err);
+
+        res.status(200).json({ message: 'Successful' });
+        });
+        });
+    });

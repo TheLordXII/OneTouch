@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             xmlns:local="clr-namespace:OneTouch.View"  
+             x:Class="OneTouch.View.MasterPage"
+             Title="Menü"
+             MasterBehavior="Popover"
+             BackgroundColor="LightSkyBlue"
+             IconImageSource="IconHamburger.png"
+             NavigationPage.HasNavigationBar="False">  
+      
+    <MasterDetailPage.Master>  
+        <ContentPage Padding="10" BackgroundColor="LightBlue" Title="Menü">  
+            <ContentPage.Content>  
+                <StackLayout Margin="5,30,5,5">  
+                    <Label Text="Menü" TextColor="DarkSlateGray"></Label>  
+                    <Button Text="Drinks" TextColor="DarkSlateGray" Command ="{Binding ShowDrinksCommand}"
+                            HorizontalOptions="Start" ImageSource="IconDrinks.png"/>  
+                    <Button Text="Friends" TextColor="DarkSlateGray" Command="{Binding ShowFriendsCommand}"
+                            HorizontalOptions="Start" ImageSource="IconFriends.png"/> 
+                </StackLayout>  
+            </ContentPage.Content>  
+        </ContentPage>  
+    </MasterDetailPage.Master>  
+
+</MasterDetailPage>

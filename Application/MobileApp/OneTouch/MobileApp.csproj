@@ -1,23 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <OutputType>Library</OutputType>
   </PropertyGroup>
 
+    
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
-    <PackageReference Include="Json.Net" Version="1.0.21" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.800" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Json.Net" Version="1.0.22" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="MvvmLightStd10" Version="5.4.1.2" />
+    <PackageReference Include="Xamarin.Forms.BehaviorsPack" Version="2.1.1" />
+    <PackageReference Include="CommonServiceLocator" Version="2.0.5" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />
@@ -27,15 +29,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="LoginManager.cs" />
+    <Compile Remove="View\HomeScreen %28Kopie%29.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
-    <Reference Include="Mono.Android">
-      <HintPath>..\..\..\..\..\..\..\..\..\Library\Frameworks\Xamarin.Android.framework\Versions\10.2.0.100\lib\xamarin.android\xbuild-frameworks\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
-=======
     <Reference Include="Xamarin.iOS">
       <HintPath>..\..\..\..\..\..\..\..\..\Library\Frameworks\Xamarin.iOS.framework\Versions\13.18.1.31\lib\mono\Xamarin.iOS\Xamarin.iOS.dll</HintPath>
->>>>>>> Stashed changes
     </Reference>
   </ItemGroup>
 </Project>

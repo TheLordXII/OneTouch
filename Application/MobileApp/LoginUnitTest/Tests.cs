@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MobileApp.Services;
 using MobileApp.ViewModel;
 using NUnit.Framework;
+using OneTouch;
 using OneTouch.View;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
@@ -16,7 +17,9 @@ namespace LoginUnitTest
     public class Tests
     {
         IApp app;
-        Platform platform;
+        readonly Platform platform;
+        ILoginService log = new TestLoginService();
+        TestNavigationService nav = new TestNavigationService();
 
         public Tests(Platform platform)
         {
@@ -33,23 +36,18 @@ namespace LoginUnitTest
         [Test]
         public void TestNavigation()
         {
-            var log = new TestLoginService();
-            var dia = new TestDialogservice();
-            var nav = new TestNavigationService();
-            var vm = new LoginPageVM(log, dia, nav);
-
-            nav.NavigateTo(Locator.HomeScreen);
             
-            Assert.AreEqual(Locator.HomeScreen, nav.CurrentPage);
+            var vm = new LoginPageVM(log);
+
+            nav.NavigateTo(Locator.DrinksView);
+
+            Assert.AreEqual(Locator.DrinksView, nav.CurrentPage);
         }
 
         [Test]
         public void TestValidLogin()
         {
-            var log = new TestLoginService();
-            var dia = new TestDialogservice();
-            var nav = new TestNavigationService();
-            var vm = new LoginPageVM(log, dia, nav)
+            var vm = new LoginPageVM(log)
             {
                 Username = "Pepsiboi",
                 Password = "lol123"
@@ -57,11 +55,11 @@ namespace LoginUnitTest
 
             vm.LoginCommand.Execute(null);
 
-            Assert.AreEqual(ReturnCode.success, vm.loginResult);
+            Assert.AreEqual(vm.Username, App.User.Username);
         }
     }
 
-    internal class TestNavigationService: INavigationService   
+    internal class TestNavigationService
     {
         public TestNavigationService()
         {
@@ -96,7 +94,22 @@ namespace LoginUnitTest
             private set;
         }
 
-        public Task ShowMessage(string message)
+        public Task ShowError(string title, Exception error, string buttonText, Action<bool> closeAction, bool cancelableOnTouchOutside = false, bool cancelable = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ShowMessage(string title, string message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ShowMessage(string title, string message, string buttonText, Action<bool> closeAction, bool cancelableOnTouchOutside = false, bool cancelable = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ShowMessage(string title, string message, string buttonConfirmText, string buttonCancelText, Action<bool> closeAction, bool cancelableOnTouchOutside = false, bool cancelable = false)
         {
             throw new NotImplementedException();
         }
