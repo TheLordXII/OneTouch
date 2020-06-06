@@ -7,7 +7,7 @@ from Models import DictToObj
 
 class PumpService:
     def __init__(self):
-        """Konstruktor, diese Klasse mappt Ingredients auf Pumpen"""
+        """Konstruktor, diese Klasse mappt Ingredients auf Pumpen."""
         print('DrinkService running')
 
     def run(self):

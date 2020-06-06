@@ -11,7 +11,7 @@ from DrinkService import PumpService
 
 class App():
     def __init__(self,master):
-        """Einstiegspunkt für die App (Klasse)"""
+        """Einstiegspunkt für die App (Klasse)."""
         #master für die app festlegen
         self.master = master
         #builder erstellen
