@@ -4,7 +4,7 @@ var app = express();
 var router = new express.Router();
 var bodyparser = require('body-parser');
 var http = require("http");
-var fs = require('fs'); 
+var fs = require("fs"); 
 var https = require('https');
 var mqtt = require('mqtt');
 
@@ -50,31 +50,30 @@ httpsServer.listen(5000, function(){
 
 //Router is working
 router.use(function(req, res, next) {
-    console.log('Router use macht was.');
     next();
 });
 
 //Test wether routes are working.
-router.get('/', function(req, res) {
+router.get("/", function(req, res) {
 
     res.json({message: 'Welcome to OneTouch API!'});
 });
 
 //REST of the Routes
-app.use('/api', router);
+app.use("/api", router);
 // ./api/drinks Routedefinition
 router.route('/drinks')
     //get Drinks from the Database
     .get(function(req, res) {
-        console.log('/drinks get geroutet')
+        console.log("/drinks get geroutet")
         sql.connect(config, function (err) {
-            if (err) console.log(err);
+            if (err) console.error(err);
             //create request object
             var request = new sql.Request();
             //query to the database to get respond
-            request.query('Select * From Drink', function(err, result) {
+            request.query("Select * From Drink", function(err, result) {
             
-                if (err) console.log(err)
+                if (err) console.error(err)
             
                 //send records as a response
                 res.json({ Data: result.recordset});
@@ -91,9 +90,9 @@ router.route('/drinksLong')
             //create request object
             var request = new sql.Request();
             //query to the database to get respond
-            request.query('Select DrinkID, Drink.Name, Drink.Description, Times_Taken, [User].Benutzername AS Creator From Drink LEFT JOIN [dbo].[User] ON Creator = [dbo].[User].UserID', function(err, result) {
+            request.query("Select DrinkID, Drink.Name, Drink.Description, Times_Taken, [User].Benutzername AS Creator From Drink LEFT JOIN [dbo].[User] ON Creator = [dbo].[User].UserID", function(err, result) {
             
-                if (err) console.log(err)
+                if (err) console.error(err)
             
                 //send records as a response
                 res.json({ Data: result.recordset});
@@ -109,7 +108,7 @@ router.route('/drinksLong')
 //             //create request object
 //     });
 
-router.route('/drink/bestdrinkers')
+router.route("/drink/bestdrinkers")
     //get Drinkers Tier List
     .get(function(req, res){
         console.log('/drinks/bestdrinkers geroutet')
@@ -127,18 +126,18 @@ router.route('/drink/bestdrinkers')
     });
 });
 
-router.route('/drink/bestdrinks')
+router.route("/drink/bestdrinks")
     //get Best Drinks Tier List
     .get(function(req, res){
-        console.log('/drinks/bestdrinks geroutet')
+        console.log("/drinks/bestdrinks geroutet")
         //sql connection
         sql.connect(config, function(err) {
-            if(err) console.log(err);
+            if(err) console.error(err);
         
         //building request
         var request = new sql.Request();
         request.query('SELECT [Name],[Times_Taken] FROM [dbo].[Drink] ORDER BY Times_Taken DESC', function(err, result){
-            if (err) console.log(err)
+            if (err) console.error(err)
             //send recordset as result
             //console.log(result.recordset);
             res.json({ Data: result.recordset});
@@ -149,16 +148,16 @@ router.route('/drink/bestdrinks')
 router.route('/drinks/:value')
     //get one drink from the database
     .get(function(req, res) {
-        console.log('/drinks/value geroutet')
+        console.log("/drinks/value geroutet")
         //sql connection
         sql.connect(config, function (err) {
-            if (err) console.log(err);
+            if (err) console.error(err);
         
         //bulding request
         var request = new sql.Request();
         //input the url-value as parameter into the sql-statement
-        request.input('drinkid', sql.Int , req.params.value);
-        request.query('SELECT * FROM Drink WHERE DrinkID = @drinkid', function(err, result) {
+        request.input("drinkid", sql.Int , req.params.value);
+        request.query("SELECT * FROM Drink WHERE DrinkID = @drinkid", function(err, result) {
             if (err) console.log(err)
             //send recordset as the result
             console.log(result.recordset);
@@ -180,8 +179,8 @@ router.route('/drinks/:value')
         var request = new sql.Request();
         //input the url-value as parameter into the sql-statement
         request.input('drinkid', sql.Int , req.params.value);
-        request.query('Select DrinkID, Drink.Name, Drink.Description, Times_Taken, [User].Benutzername AS Creator From Drink LEFT JOIN [dbo].[User] ON Creator = [dbo].[User].UserID WHERE DrinkID = @drinkid', function(err, result) {
-            if (err) console.log(err)
+        request.query("Select DrinkID, Drink.Name, Drink.Description, Times_Taken, [User].Benutzername AS Creator From Drink LEFT JOIN [dbo].[User] ON Creator = [dbo].[User].UserID WHERE DrinkID = @drinkid", function(err, result) {
+            if (err) console.error(err)
             //send recordset as the result
             console.log(result.recordset);
             res.json({ Data: result.recordset});
@@ -194,7 +193,7 @@ router.route('/drinks/:value')
 
 router.route('/takedrink/drinkid=:did&user=:user')
     .put(function(req, res) {
-        console.log('/drinks/taken geroutet');
+        console.log("/drinks/taken geroutet");
         //sql connection
         sql.connect(config, function (err) {
             if (err) console.log(err);
@@ -205,7 +204,7 @@ router.route('/takedrink/drinkid=:did&user=:user')
         request.input('did', sql.Int , req.params.did);
         request.input('user', sql.NVarChar, req.params.user);
 
-        request.query('UPDATE Drink SET Times_Taken = Times_Taken + 1 WHERE DrinkID = @did; UPDATE [dbo].[User] SET Drinks_Taken = Drinks_Taken + 1 WHERE Benutzername = @user;', function(err, result) {
+        request.query("UPDATE Drink SET Times_Taken = Times_Taken + 1 WHERE DrinkID = @did; UPDATE [dbo].[User] SET Drinks_Taken = Drinks_Taken + 1 WHERE Benutzername = @user;", function(err, result) {
             if (err) console.log(err)
             //send message as the result
             res.json({message:'Successful'});
