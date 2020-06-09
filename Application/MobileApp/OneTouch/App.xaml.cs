@@ -25,7 +25,7 @@ namespace OneTouch
             NavigationService.Configure(Locator.LoginView, typeof(LoginView));
             NavigationService.Configure(Locator.DrinksView, typeof(DrinksView));
             NavigationService.Configure(Locator.DrinksDetailView, typeof(DrinksDetailView));
-            NavigationService.Configure(Locator.Friends, typeof(Friends));
+            NavigationService.Configure(Locator.FriendsView, typeof(FriendsView));
             NavigationService.Configure(Locator.MasterPage, typeof(MasterPage));
             NavigationService.Configure(Locator.AboutView, typeof(AboutView));
             NavigationService.Configure(Locator.UserView, typeof(UserView));

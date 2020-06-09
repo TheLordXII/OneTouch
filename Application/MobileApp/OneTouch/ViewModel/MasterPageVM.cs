@@ -52,7 +52,7 @@ namespace MobileApp.ViewModel
                         res = Locator.DrinksView;
                         break;
                     case "Friends":
-                        res = Locator.Friends;
+                        res = Locator.FriendsView;
                         break;
                     case "About":
                         res = Locator.AboutView;

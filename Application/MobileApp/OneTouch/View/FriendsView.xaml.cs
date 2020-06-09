@@ -9,19 +9,20 @@ using MobileApp.FürmichbistdueinfachkeinModel;
 
 namespace OneTouch.View
 {
-    public partial class Friends : ContentPage
+    public partial class FriendsView : ContentPage
     {
-        public Friends()
+        public FriendsView()
         {
             var vm = new FriendsVM();
             this.BindingContext = vm;
+            
             InitializeComponent();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            var currentPageKeyString = Locator.Friends;
+            var currentPageKeyString = Locator.FriendsView;
             //.GetInstance<INavigationService>()
             //.CurrentPageKey;
             Debug.WriteLine("Current page key: " + currentPageKeyString);

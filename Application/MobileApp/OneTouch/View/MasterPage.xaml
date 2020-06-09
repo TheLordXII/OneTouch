@@ -24,7 +24,7 @@
                             <x:Array Type="{x:Type model:MasterPageItem}">
                                 <model:MasterPageItem Title="Account" IconSource="IconUser" TargetType="{x:Type local:UserView}" />
                                 <model:MasterPageItem Title="Drinks" IconSource="Image-1" TargetType="{x:Type local:DrinksView}" />
-                                <model:MasterPageItem Title="Friends" IconSource="IconFriends" TargetType="{x:Type local:Friends}" />
+                                <model:MasterPageItem Title="Friends" IconSource="IconFriends" TargetType="{x:Type local:FriendsView}" />
                                 <model:MasterPageItem Title="About" IconSource="IconInfo" TargetType="{x:Type local:AboutView}" />
                             </x:Array>
                        </ListView.ItemsSource>
