@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" colorSpace="calibratedRGB" red="0.52941176470588236" green="0.807843137254902" blue="0.98039215686274506" alpha="1"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="199" translatesAutoresizingMaskIntoConstraints="NO" image="Image-1" insetsLayoutMarginsFromSafeArea="NO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="199" translatesAutoresizingMaskIntoConstraints="NO" image="Logo" insetsLayoutMarginsFromSafeArea="NO">
                                 <rect key="frame" x="57" y="298" width="300" height="300"/>
                                 <constraints>
                                     <constraint id="539" firstAttribute="height" constant="300"/>
@@ -47,6 +47,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image-1" width="2000" height="2000"/>
+        <image name="Logo" width="2000" height="2000"/>
     </resources>
 </document>

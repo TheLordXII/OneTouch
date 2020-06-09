@@ -76,12 +76,6 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Image-1.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Image-1.imageset\OneTouchLogo.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo120-1.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -137,6 +131,20 @@
       <Visible>false</Visible>
     </ImageAsset>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\OneTouchLogo.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\IconFriends.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\IconFriends.imageset\IconFriends5.png" />
+    <ImageAsset Include="Assets.xcassets\IconUser.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\IconUser.imageset\IconUser.png" />
+    <ImageAsset Include="Assets.xcassets\IconInfo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\IconInfo.imageset\IconInfo.png" />
+    <ImageAsset Include="Assets.xcassets\Image-1.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Image-1.imageset\IconDrinks.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -172,5 +180,11 @@
   <ItemGroup />
   <ItemGroup>
     <Folder Include="PlatformServices\" />
+    <Folder Include="Assets.xcassets\IconHamburger.imageset\" />
+    <Folder Include="Assets.xcassets\Logo.imageset\" />
+    <Folder Include="Assets.xcassets\IconDrinks.imageset\" />
+    <Folder Include="Assets.xcassets\IconFriends.imageset\" />
+    <Folder Include="Assets.xcassets\IconUser.imageset\" />
+    <Folder Include="Assets.xcassets\IconInfo.imageset\" />
   </ItemGroup>
 </Project>

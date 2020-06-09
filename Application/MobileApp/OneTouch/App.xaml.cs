@@ -27,6 +27,8 @@ namespace OneTouch
             NavigationService.Configure(Locator.DetailsPage, typeof(DetailsPage));
             NavigationService.Configure(Locator.Friends, typeof(Friends));
             NavigationService.Configure(Locator.MasterPage, typeof(MasterPage));
+            NavigationService.Configure(Locator.AboutView, typeof(AboutView));
+            NavigationService.Configure(Locator.UserView, typeof(UserView));
 
             var firstPage = ((NavigationService)NavigationService).SetRootPage(Locator.LoginPage);
 

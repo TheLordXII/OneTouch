@@ -9,5 +9,7 @@ namespace MobileApp.Services
         public static readonly string Friends = "Friends";
         public static readonly string FriendsDetails = "FriendsDetail";
         public static readonly string MasterPage = "MasterPage";
+        public static readonly string AboutView = "AboutView";
+        public static readonly string UserView = "UserView";
     }
 }
