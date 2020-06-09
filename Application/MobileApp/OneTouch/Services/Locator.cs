@@ -3,7 +3,7 @@ namespace MobileApp.Services
 {
     public class Locator
     {
-        public static readonly string LoginPage = "LoginPage";
+        public static readonly string LoginView = "LoginView";
         public static readonly string DrinksView = "DrinksView";
         public static readonly string DrinksDetailView = "DrinksDetailView";
         public static readonly string Friends = "Friends";

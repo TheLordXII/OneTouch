@@ -11,7 +11,7 @@ using GalaSoft.MvvmLight.Ioc;
 
 namespace MobileApp.ViewModel
 {
-    public class LoginPageVM : INotifyPropertyChanged
+    public class LoginVM : INotifyPropertyChanged
     {
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
@@ -90,12 +90,12 @@ namespace MobileApp.ViewModel
             
         }
 
-        public LoginPageVM() : this(new LoginService())
+        public LoginVM() : this(new LoginService())
         {
 
         }
 
-        public LoginPageVM(ILoginService loginService)
+        public LoginVM(ILoginService loginService)
         {
             _loginService = loginService;
             _navigationService = App.NavigationService;

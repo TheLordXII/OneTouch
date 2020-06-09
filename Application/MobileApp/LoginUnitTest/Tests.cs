@@ -37,7 +37,7 @@ namespace LoginUnitTest
         public void TestNavigation()
         {
             
-            var vm = new LoginPageVM(log);
+            var vm = new LoginVM(log);
 
             nav.NavigateTo(Locator.DrinksView);
 
@@ -47,7 +47,7 @@ namespace LoginUnitTest
         [Test]
         public void TestValidLogin()
         {
-            var vm = new LoginPageVM(log)
+            var vm = new LoginVM(log)
             {
                 Username = "Pepsiboi",
                 Password = "lol123"

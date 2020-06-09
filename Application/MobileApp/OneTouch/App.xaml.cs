@@ -22,7 +22,7 @@ namespace OneTouch
         /// </summary>
         public App()
         {
-            NavigationService.Configure(Locator.LoginPage, typeof(LoginPage));
+            NavigationService.Configure(Locator.LoginView, typeof(LoginView));
             NavigationService.Configure(Locator.DrinksView, typeof(DrinksView));
             NavigationService.Configure(Locator.DrinksDetailView, typeof(DrinksDetailView));
             NavigationService.Configure(Locator.Friends, typeof(Friends));
@@ -30,7 +30,7 @@ namespace OneTouch
             NavigationService.Configure(Locator.AboutView, typeof(AboutView));
             NavigationService.Configure(Locator.UserView, typeof(UserView));
 
-            var firstPage = ((NavigationService)NavigationService).SetRootPage(Locator.LoginPage);
+            var firstPage = ((NavigationService)NavigationService).SetRootPage(Locator.LoginView);
 
             MainPage = firstPage;
         }

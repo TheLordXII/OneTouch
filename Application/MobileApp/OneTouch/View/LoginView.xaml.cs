@@ -6,11 +6,11 @@ using MobileApp.Services;
 
 namespace OneTouch.View
 {
-    public partial class LoginPage : ContentPage
+    public partial class LoginView : ContentPage
     {
-        public LoginPage()
+        public LoginView()
         {
-            var vm = new LoginPageVM();
+            var vm = new LoginVM();
             this.BindingContext = vm;
 
             InitializeComponent();
