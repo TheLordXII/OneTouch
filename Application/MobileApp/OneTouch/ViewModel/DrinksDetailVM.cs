@@ -12,7 +12,7 @@ using Xamarin.Forms;
 
 namespace MobileApp.ViewModel
 {
-    public class DetailsPageVM : ViewModelBase
+    public class DrinksDetailVM : ViewModelBase
     {
         private readonly IDrinkService _drinkService;
         private readonly INavigationService _navigationService;
@@ -87,7 +87,7 @@ namespace MobileApp.ViewModel
             Debug.WriteLine("got ingredients");
         }
 
-        public DetailsPageVM(Drink selectedDrink, IDrinkService drinkService)
+        public DrinksDetailVM(Drink selectedDrink, IDrinkService drinkService)
         {
             drink = selectedDrink;
             _drinkService = drinkService;
@@ -99,7 +99,7 @@ namespace MobileApp.ViewModel
 
 
 
-        public DetailsPageVM(Drink selectedDrink): this(selectedDrink , new DrinkService())
+        public DrinksDetailVM(Drink selectedDrink): this(selectedDrink , new DrinkService())
         {
         }
     }

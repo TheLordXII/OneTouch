@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:b="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
-             x:Class="OneTouch.View.DetailsPage"
+             x:Class="OneTouch.View.DrinksDetailView"
              Padding="20,20,20,20"
              BackgroundColor="LightSkyBlue"
              Title="{Binding drink.Name}"

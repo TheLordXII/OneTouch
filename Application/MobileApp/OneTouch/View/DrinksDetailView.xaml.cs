@@ -8,21 +8,20 @@ using MobileApp.FürmichbistdueinfachkeinModel;
 
 namespace OneTouch.View
 {
-    public partial class DetailsPage : ContentPage
+    public partial class DrinksDetailView : ContentPage
     {
-        public DetailsPage(Drink selectedDrink)
+        public DrinksDetailView(Drink selectedDrink)
         {
-            var vm = new DetailsPageVM(selectedDrink);
+            var vm = new DrinksDetailVM(selectedDrink);
             
             this.BindingContext = vm;
             InitializeComponent();
-        ;
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            var currentPageKeyString = Locator.DetailsPage;
+            var currentPageKeyString = Locator.DrinksDetailView;
             //.GetInstance<INavigationService>()
             //.CurrentPageKey;
             Debug.WriteLine("Current page key: " + currentPageKeyString);
