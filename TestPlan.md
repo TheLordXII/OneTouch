@@ -117,6 +117,8 @@ n/a
 #### 7.6.2	Additional Automated Functional Test Scripts
 [Test Skripts](https://github.com/One-Touch-Next-Gen/OneTouch/blob/master/Application/MobileApp/LoginUnitTest/Tests.cs)
 
+[API Test](https://web.postman.co/monitors/1ea9423e-3dc1-4900-ad73-56155b32e9b4?job=1eaac985-f4a4-4210-a235-e879c38a64cd&result=success&result=failure&result=error&result=abort&trigger=api&trigger=schedule&trigger=webhook&workspace=5ad1e596-49b8-4a6d-8a4c-b2f52073be8e)
+
 #### 7.6.3	Test Guidelines
 n/a
 #### 7.6.4	Traceability Matrices
