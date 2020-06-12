@@ -3,7 +3,7 @@ Software Architecture Document
 
 
 ## Table of Contents
-1.	Introduction	
+1.	Introduction	(#intorduction)
 1.1	Purpose	
 1.2	Scope	
 1.3	Definitions, Acronyms, and Abbreviations	
@@ -29,14 +29,19 @@ Software Architecture Document
 The introduction of the Software Architecture Document provides an overview of the entire Software Architecture Document. It includes the purpose, scope, definitions, acronyms, abbreviations, references, and overview of the Software Architecture Document.
 ## 1.1	Purpose
 This document provides a comprehensive architectural overview of the system, using a number of different architectural views to depict different aspects of the system. It is intended to capture and convey the significant architectural decisions which have been made on the system.
+
 ## 1.2	Scope
 This document describes the architecture of the mobile application from the OneTouch project including all necessary infrastructure.
+
 ## 1.3	Definitions, Acronyms, and Abbreviations
 |**Abbreviations**||
 |---|---|
 |SRS|Software Requirements Specification|
 |SAD|Software Architecture Document|
 |RUP|Rational Unified Process|
+|CI|Continous Integration|
+|mvvm|model-view-viewmodel|
+
 ## 1.4	References
 |**Title|Date**|
 |---|---|
@@ -44,13 +49,14 @@ This document describes the architecture of the mobile application from the OneT
 |[Github](https://github.com/TheLordXII/OneTouch)| Stand 10/20/2019|
 |[Use Case Diagram](https://github.com/TheLordXII/OneTouch/blob/master/UseCaseDiagram.png)|Stand 10/20/2019|
 |[SRS](https://github.com/TheLordXII/OneTouch/blob/master/SRS.md)|Stand 10/20/2019|
+
 ## 1.5	Overview
 All necessary architectural details will be described in the following sections. This includes a database diagram, which gives an overview about the project structure.
 Furthermore, the architectural representation, goals and constraints are clarified in this document.
 # 2.	Architectural Representation 
 The OneTouch application will consist of an application working directly on the rasberry pi and an application for mobiles. The mobile application will be developed in C# in Xamarin. Both applications will be using a SQL database. The SAD will describe the Architecture of the mobile app. 
 
-the mvvm architecture in Xamarin: \n
+the mvvm architecture in Xamarin:
 ![](https://github.com/TheLordXII/OneTouch/blob/master/mvvmXamarin.png)
 
 # 3.	Architectural Goals and Constraints 
