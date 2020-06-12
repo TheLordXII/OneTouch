@@ -17,19 +17,9 @@ Software Architecture Document
 
     -   [2. Architectural Representation and Patterns](#2-architectural-representation)
 
-    -   [2.1 Technologies used](#21-technologies-used)
-
-        -   [Spring Boot (Backend)](#spring-boot-backend)
-        -   [ReactJS (Frontend)](#reactjs-frontend)
-
     -   [3. Architectural Goals and Constraints](#3-architectural-goals-and-constraints)
 
-        -   [Frontend](#frontend)
-        -   [Backend](#backend)
-
     -   [4. Use-Case View](#4-use-case-view)
-
-        -   [4.1 Use-Case Realizations](#41-use-case-realizations)
 
     -   [5. Logical View](#5-logical-view)
 
@@ -48,7 +38,7 @@ Software Architecture Document
 
     -   [10. Size and Performance](#10-size-and-performance)
 
-    -   [11. Quality/Metrics](#11-qualitymetrics)
+    -   [11. Quality](#11-quality)
  
 # Software Architecture Document 
 # 1. Introduction
