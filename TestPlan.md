@@ -106,7 +106,7 @@ API Testing is commonly a part of Integration Testing which means that multiple 
 |Success Criteria|All the API tests pass.|
 |Special Consideration|-|
 
-
+![](https://github.com/TheLordXII/OneTouch/blob/master/PostmanTestResult.png)
 
 ## 6.	Entry and Exit Criteria
 ### 6.1	Test Plan
