@@ -3,7 +3,7 @@ Software Architecture Document
 
 
 ## Table of Contents
-1.	Introduction (#1-introduction)
+[1. Introduction](#1-introduction)
 1.1	Purpose	
 1.2	Scope	
 1.3	Definitions, Acronyms, and Abbreviations	
@@ -25,7 +25,7 @@ Software Architecture Document
 11.	Quality	
  
 # Software Architecture Document 
-# 1.	Introduction
+## 1. Introduction
 The introduction of the Software Architecture Document provides an overview of the entire Software Architecture Document. It includes the purpose, scope, definitions, acronyms, abbreviations, references, and overview of the Software Architecture Document.
 ## 1.1	Purpose
 This document provides a comprehensive architectural overview of the system, using a number of different architectural views to depict different aspects of the system. It is intended to capture and convey the significant architectural decisions which have been made on the system.
