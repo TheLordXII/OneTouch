@@ -4,4 +4,3 @@
 
 [![Build Status](http://www.OneTouchNextGen.tech:8080/buildStatus/icon?job=OneTouch)](http://www.OneTouchNextGen.tech:8080/job/OneTouch/)
 
-mega krasse badges!
