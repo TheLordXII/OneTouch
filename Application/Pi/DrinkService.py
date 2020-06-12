@@ -5,7 +5,7 @@ import requests as REST
 from Models import Schema
 from Models import DictToObj
 
-class PumpService:
+class PumpService(object):
     def __init__(self):
         """Konstruktor, diese Klasse mappt Ingredients auf Pumpen."""
         print('DrinkService running')
@@ -37,7 +37,6 @@ class PumpService:
             self.DrinksInList = 0
             for drink in self.workingList.Data:
                 self.DrinksInList += 1
-                print(drink)
         except jsonObject:
             print('Obtaining and parsing the file you requested failed')
 
