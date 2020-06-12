@@ -90,6 +90,24 @@ n/a
 #### 5.1.12	Installation Testing
 tbd
 
+### 5.2 API Testing
+API Testing ist used to ensure that the communication between the front- and the backend is working as expected. The Tests ensure that the communication between App, machine and database is working as wanted and expected.
+
+API Testing is commonly a part of Integration Testing which means that multiple parts of the application are tested together.
+
+[Postman Monitor](https://web.postman.co/monitors/1ea9423e-3dc1-4900-ad73-56155b32e9b4?job=1eaac985-f4a4-4210-a235-e879c38a64cd&result=success&result=failure&result=error&result=abort&trigger=api&trigger=schedule&trigger=webhook&workspace=5ad1e596-49b8-4a6d-8a4c-b2f52073be8e)
+
+|||
+|---|---|
+|Technique Objective|Test the API and the backend automatically|
+|Technique|Write a Postman collection of API queries and test, automated by a monitor, if the reply status code is the wanted one.|
+|Oracles|The steps of the test will be documented in the console of the Postman monitor. The result will also be visualized in the monitor overview.|
+|Required Tools|[Postman](https://www.postman.com/)|
+|Success Criteria|All the API tests pass.|
+|Special Consideration|-|
+
+
+
 ## 6.	Entry and Exit Criteria
 ### 6.1	Test Plan
 #### 6.1.1	Test Plan Entry Criteria
@@ -116,8 +134,6 @@ n/a
 n/a
 #### 7.6.2	Additional Automated Functional Test Scripts
 [Test Skripts](https://github.com/One-Touch-Next-Gen/OneTouch/blob/master/Application/MobileApp/LoginUnitTest/Tests.cs)
-
-[API Test](https://web.postman.co/monitors/1ea9423e-3dc1-4900-ad73-56155b32e9b4?job=1eaac985-f4a4-4210-a235-e879c38a64cd&result=success&result=failure&result=error&result=abort&trigger=api&trigger=schedule&trigger=webhook&workspace=5ad1e596-49b8-4a6d-8a4c-b2f52073be8e)
 
 #### 7.6.3	Test Guidelines
 n/a
