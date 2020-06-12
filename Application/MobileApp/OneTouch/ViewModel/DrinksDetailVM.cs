@@ -59,7 +59,7 @@ namespace MobileApp.ViewModel
             switch (statusCode)
             {
                 case ReturnCode.success:
-                    string title = String.Format("{0} is made", drink.Name);
+                    string title = String.Format("{0} will be made", drink.Name);
                     Task.Run(() => SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage(title, "Enjoy your Cocktail!"));
                     await _navigationService.GoBack();
                     break;
@@ -84,7 +84,7 @@ namespace MobileApp.ViewModel
             {
                 drink.Ingredients.Add(ingredient);
             }
-            Debug.WriteLine("got ingredients");
+            Debug.WriteLine(String.Format("got ingredients for {0}", drink.Name));
         }
 
         public DrinksDetailVM(Drink selectedDrink, IDrinkService drinkService)
@@ -95,6 +95,7 @@ namespace MobileApp.ViewModel
 
             drink.Ingredients = new ObservableCollection<Ingredient>();
             Task.Run(() => GetIngredients());
+            Debug.WriteLine(String.Format("Details for {0}", drink.Name));
         }
 
 
