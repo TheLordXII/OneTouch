@@ -29,7 +29,7 @@ class App():
 
     def startMqtt(self):
         self.mqttService = MqttService()
-        mqttThread = threading.Thread(target = self.mqttService.run, daemon = True)
+        mqttThread = threading.Thread(target = self.mqttService.run,daemon = True)
         print('starting MQTITI loooooooooooooolz')
         mqttThread.start()
 
