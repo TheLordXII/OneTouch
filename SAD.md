@@ -3,7 +3,7 @@ Software Architecture Document
 
 
 ## Table of Contents
-1.	Introduction	(#intorduction)
+1.	Introduction	(#introduction)
 1.1	Purpose	
 1.2	Scope	
 1.3	Definitions, Acronyms, and Abbreviations	
