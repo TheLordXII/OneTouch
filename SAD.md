@@ -50,35 +50,47 @@ Furthermore, the architectural representation, goals and constraints are clarifi
 # 2.	Architectural Representation 
 The OneTouch application will consist of an application working directly on the rasberry pi and an application for mobiles. The mobile application will be developed in C# in Xamarin. Both applications will be using a SQL database. The SAD will describe the Architecture of the mobile app. 
 
-the mvvm architecture in Xamarin:
+the mvvm architecture in Xamarin: \n
 ![](https://github.com/TheLordXII/OneTouch/blob/master/mvvmXamarin.png)
 
 # 3.	Architectural Goals and Constraints 
 Xamarin uses a Model-View-Viewmodel- architecture. This should lead to a clear distinction between data, logic and views.
+We used the MVVM-Light toolkit by Galasoft.
 
 # 4.	Use-Case View 
 ![](https://github.com/TheLordXII/OneTouch/blob/master/UseCaseDiagram.png)
 To look at the detailed Use Case descritions please visit the [SRS](https://github.com/TheLordXII/OneTouch/blob/master/SRS.md).
 
 # 5.	Logical View 
-tbd
 ## 5.1	Overview
-tbd
+There is no tool to generate a class diagramm out of a .NET Standard project. Therefore we took a picture of our classes.
+There are folders for the models ("Für mich bist du einfach kein Model"), the views and the viewmodels. Additionally we are using services for the business logic and communication with the database.
+
+![](https://github.com/TheLordXII/OneTouch/blob/master/ClassesLogicalView.png)
+
 ## 5.2	Architecturally Significant Design Packages
-tbd
+n/a
+
 # 6.	Process View 
-tbd
+n/a
+
 # 7.	Deployment View 
-tbd
+![](https://github.com/TheLordXII/OneTouch/blob/master/DeploymentView.png)
+
 # 8.	Implementation View 
-tbd
 ## 8.1	Overview
-tbd
+n/a
+
 ## 8.2	Layers
-tbd
-# 9.	Data View (optional)
+n/a
+
+# 9.	Data View
 ![](https://github.com/TheLordXII/OneTouch/blob/master/Database/DBSchema.png)
+
 # 10.	Size and Performance 
-tbd
+n/a
+
 # 11.	Quality 
-tbd
+We are using Jenkins as an ci tool to ensure a high quality of our development process. Whenever there is a new commit to a pull request or the master branch it automatically builds the project. The Jenkins build result will be displayed in a badge on Github.
+In addition we use Codacy to ensure the code quality. Each pull request/commit is checked.The code quality is also displayed in a badge on Github.
+For the Backend we use Postman to test the REST API calls. This is also automated and can be run through all Testcases.
