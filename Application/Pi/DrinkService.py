@@ -4,11 +4,29 @@ import json
 import requests as REST
 from Models import Schema
 from Models import DictToObj
+from gpiozero import LED
+from time import sleep
 
 class PumpService(object):
     def __init__(self):
         """Konstruktor, diese Klasse mappt Ingredients auf Pumpen."""
         print('DrinkService running')
+        self.pump1 = LED(23)
+        self.pump1.on()
+        self.pump2 = LED(14)
+        self.pump2.on()
+        self.pump3 = LED(4)
+        self.pump3.on()
+        self.pump4 = LED(15)
+        self.pump4.on()
+        self.pump5 = LED(18)
+        self.pump5.on()
+        self.pump6 = LED(17)
+        self.pump6.on()
+
+        #flüssigkeiten anziehen
+        self.pump1.off()
+        sleep(0.6)
 
     def run(self):
         self.getDrinkList()
@@ -67,24 +85,54 @@ class PumpService(object):
                     #use that pump with the value for that pump
                     if counter == 1:
                         print('pump1')
-                        #activatePump1(ingr.How_Much)
+                        self.activatePump1(ingr.How_Much)
                     elif counter == 2:
                         print('pump2')
-                        #activatePump2(ingr.How_Much)
+                        self.activatePump2(ingr.How_Much)
                     elif counter == 3:
                         print('pump3')
-                        #activatePump3(ingr.How_Much)
+                        self.activatePump3(ingr.How_Much)
                     elif counter == 4:
                         print('pump4')
-                        #activatePump4(ingr.How_Much)
+                        self.activatePump4(ingr.How_Much)
                     elif counter == 5:
                         print('pump5')
-                        #activatePump5(ingr.How_Much)
+                        self.activatePump5(ingr.How_Much)
                     else:
                         print('pump6')
-                        #activatePump6(ingr.How_Much)
+                        self.activatePump6(ingr.How_Much)
                 if counter == 6:
                     #zurücksetzen
                     counter = 0
         globalQueue.task_done()
+    
+    def activatePump1(self, volume)
+        self.pump1.off()
+        sleep(0.584*volume)
+        self.pump4.on()
+
+    def activatePump2(self, volume)
+        self.pump2.off()
+        sleep(0.584*volume)
+        self.pump2.on()
+
+    def activatePump3(self, volume)
+        self.pump3.off()
+        sleep(0.584*volume)
+        self.pump3.on()
+
+    def activatePump4(self, volume)
+        self.pump4.off()
+        sleep(0.584*volume)
+        self.pump4.on()
+
+    def activatePump5(self, volume)
+        self.pump5.off()
+        sleep(0.584*volume)
+        self.pump5.on()
+
+    def activatePump6(self, volume)
+        self.pump6.off()
+        sleep(0.584*volume)
+        self.pump6.on()
 
