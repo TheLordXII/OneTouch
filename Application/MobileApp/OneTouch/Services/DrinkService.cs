@@ -29,9 +29,9 @@ namespace MobileApp.Services
         public async Task<IEnumerable<Ingredient>> GetIngredients(string drinkID)
         {
             string url = urlBase + @"ingredientlist/{0}";
-            Debug.WriteLine(url);
+           
             Uri uri = new Uri(string.Format(url, drinkID));
-
+            Debug.WriteLine(uri.AbsoluteUri);
             string json = await client.GetStringAsync(uri);
             var result = JsonConvert.DeserializeObject<ListOfIngredients>(json);
             return result.Data;
@@ -41,7 +41,7 @@ namespace MobileApp.Services
         {
             string urlOrder = urlBase + @"mqtt/queue/{0}";
             Uri uriOrder = new Uri(string.Format(urlOrder, drinkID));
-
+            Debug.WriteLine(uriOrder.AbsoluteUri);
             JObject jObject = new JObject();
             jObject.Add("drinkid", drinkID);
             string contentType = "application/json";
