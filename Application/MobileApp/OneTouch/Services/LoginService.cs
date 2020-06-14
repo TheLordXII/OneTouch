@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using MobileApp.FürmichbistdueinfachkeinModel;
@@ -27,11 +28,11 @@ namespace MobileApp.Services
             {
                 return ReturnCode.success;
             }
-            else
+            else if (response.StatusCode.Equals(HttpStatusCode.BadRequest))
             {
                 return ReturnCode.wrongCredentials;
             }
-            
+            return ReturnCode.fatalError;
 
 
         }

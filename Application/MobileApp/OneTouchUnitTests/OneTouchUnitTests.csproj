@@ -109,7 +109,11 @@
     <Compile Include="UnitTestAppDelegate.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="Tests\DrinksServiceTest.cs" />
+    <Compile Include="Tests\DrinksServiceVMTest.cs" />
+    <Compile Include="Tests\Drink_Test.cs" />
+    <Compile Include="Tests\Ingredients_Test.cs" />
+    <Compile Include="Tests\User_Test.cs" />
+    <Compile Include="Tests\Friends_VMS_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OneTouch.iOS\MobileApp.iOS.csproj">

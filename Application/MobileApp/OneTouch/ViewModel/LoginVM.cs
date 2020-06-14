@@ -83,9 +83,13 @@ namespace MobileApp.ViewModel
                 App.User.Username = Username;
                 await _navigationService.NavigateAsync(Locator.MasterPage);
             }
+            else if (statusCode == ReturnCode.wrongCredentials)
+            {
+                await Task.Run(() => SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Invalid credentials", "You tipped in invalid username or password, please try again."));
+            }
             else
             {
-                await Task.Run(() =>  SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Invalid credentials", "You tipped in invalid username or password, please try again."));
+                await Task.Run(() =>  SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Error", "Some unexpected error occured. Please try again later."));
             }
             
         }

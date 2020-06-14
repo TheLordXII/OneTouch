@@ -60,7 +60,7 @@ namespace MobileApp.ViewModel
             {
                 case ReturnCode.success:
                     string title = String.Format("{0} will be made", drink.Name);
-                    await Task.Run(() => SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage(title, "Enjoy your Cocktail!"));
+                    Task.Run(() => SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage(title, "Enjoy your Cocktail!"));
                     await _navigationService.GoBack();
                     break;
                 case ReturnCode.orderError:
@@ -84,6 +84,7 @@ namespace MobileApp.ViewModel
             {
                 drink.Ingredients.Add(ingredient);
             }
+            
             Debug.WriteLine(String.Format("got ingredients for {0}", drink.Name));
         }
 
