@@ -60,7 +60,7 @@ namespace MobileApp.ViewModel
             {
                 case ReturnCode.success:
                     string title = String.Format("{0} will be made", drink.Name);
-                    Task.Run(() => SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage(title, "Enjoy your Cocktail!"));
+                    await Task.Run(() => SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage(title, "Enjoy your Cocktail!"));
                     await _navigationService.GoBack();
                     break;
                 case ReturnCode.orderError:

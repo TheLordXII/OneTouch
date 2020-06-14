@@ -12,7 +12,6 @@ using Xamarin.UITest.Queries;
 
 namespace LoginUnitTest
 {
-    [TestFixture(Platform.Android)]
     [TestFixture(Platform.iOS)]
     public class Tests
     {
