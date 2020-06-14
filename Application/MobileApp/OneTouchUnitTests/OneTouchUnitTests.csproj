@@ -107,9 +107,9 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="UnitTestAppDelegate.cs" />
-    <Compile Include="DrinksServiceTest.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="Tests\DrinksServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OneTouch.iOS\MobileApp.iOS.csproj">
@@ -120,6 +120,9 @@
       <Project>{3B9B2E6E-7BFE-4A34-81CB-E4DAA5098A8B}</Project>
       <Name>MobileApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
