@@ -85,22 +85,22 @@ class PumpService(object):
                     #use that pump with the value for that pump
                     if counter == 1:
                         print('pump1')
-                        self.activatePump1(ingr.How_Much)
+                        self.activatePump1(ingrFromList.How_Much)
                     elif counter == 2:
                         print('pump2')
-                        self.activatePump2(ingr.How_Much)
+                        self.activatePump2(ingrFromList.How_Much)
                     elif counter == 3:
                         print('pump3')
-                        self.activatePump3(ingr.How_Much)
+                        self.activatePump3(ingrFromList.How_Much)
                     elif counter == 4:
                         print('pump4')
-                        self.activatePump4(ingr.How_Much)
+                        self.activatePump4(ingrFromList.How_Much)
                     elif counter == 5:
                         print('pump5')
-                        self.activatePump5(ingr.How_Much)
+                        self.activatePump5(ingrFromList.How_Much)
                     else:
                         print('pump6')
-                        self.activatePump6(ingr.How_Much)
+                        self.activatePump6(ingrFormList.How_Much)
                 if counter == 6:
                     #zurücksetzen
                     counter = 0
