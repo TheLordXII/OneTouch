@@ -27,6 +27,22 @@ class PumpService(object):
         #flüssigkeiten anziehen
         self.pump1.off()
         sleep(0.6)
+        self.pump1.on()
+        self.pump2.off()
+        sleep(0.6)
+        self.pump2.on()
+        self.pump3.off()
+        sleep(0.6)
+        self.pump3.on()
+        self.pump4.off()
+        sleep(0.6)
+        self.pump4.on()
+        self.pump5.off()
+        sleep(0.6)
+        self.pump5.on()
+        self.pump6.off()
+        sleep(0.6)
+        self.pump6.on()
 
     def run(self):
         self.getDrinkList()
@@ -100,38 +116,38 @@ class PumpService(object):
                         self.activatePump5(ingrFromList.How_Much)
                     else:
                         print('pump6')
-                        self.activatePump6(ingrFormList.How_Much)
+                        self.activatePump6(ingrFromList.How_Much)
                 if counter == 6:
                     #zurücksetzen
                     counter = 0
         globalQueue.task_done()
     
-    def activatePump1(self, volume)
+    def activatePump1(self, volume):
         self.pump1.off()
         sleep(0.584*volume)
         self.pump4.on()
 
-    def activatePump2(self, volume)
+    def activatePump2(self, volume):
         self.pump2.off()
         sleep(0.584*volume)
         self.pump2.on()
 
-    def activatePump3(self, volume)
+    def activatePump3(self, volume):
         self.pump3.off()
         sleep(0.584*volume)
         self.pump3.on()
 
-    def activatePump4(self, volume)
+    def activatePump4(self, volume):
         self.pump4.off()
         sleep(0.584*volume)
         self.pump4.on()
 
-    def activatePump5(self, volume)
+    def activatePump5(self, volume):
         self.pump5.off()
         sleep(0.584*volume)
         self.pump5.on()
 
-    def activatePump6(self, volume)
+    def activatePump6(self, volume):
         self.pump6.off()
         sleep(0.584*volume)
         self.pump6.on()
