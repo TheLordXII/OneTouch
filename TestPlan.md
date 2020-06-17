@@ -63,6 +63,8 @@ n/a
 n/a
 
 #### 5.1.4	User Interface Testing
+|||
+|---|---|
 |Technique Objective||
 |Technique|feature file testing (blogsite because it doesn't work with Xamarin)|
 |Oracles|information is shown as expected|
