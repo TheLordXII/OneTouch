@@ -7,6 +7,7 @@ from Models import DictToObj
 from gpiozero import LED
 from time import sleep
 
+
 class PumpService(object):
     def __init__(self):
         """Konstruktor, diese Klasse mappt Ingredients auf Pumpen."""
@@ -23,7 +24,6 @@ class PumpService(object):
         self.pump5.on()
         self.pump6 = LED(17)
         self.pump6.on()
-
         #flüssigkeiten anziehen
         self.pump1.off()
         sleep(0.6)
@@ -48,7 +48,6 @@ class PumpService(object):
         self.getDrinkList()
         self.getPumpConfig()
         self.checkQueue()
-
 
     def checkQueue(self):
         while True:
