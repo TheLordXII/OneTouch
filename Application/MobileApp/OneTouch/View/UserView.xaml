@@ -1,8 +1,55 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OneTouch.View.UserView">
+             x:Class="OneTouch.View.UserView"
+             Padding="20,20,20,20"
+             BackgroundColor="LightSkyBlue"
+             Title="Your account">
     <ContentPage.Content>
-        <Label Text="UserView"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Your Username: "
+                   Grid.Row="0"/>
+            <Label Text="{Binding User.Username}"
+                   Grid.Column="1"/>
+            <Button Text="Change Username"
+                    Command="{Binding ChangeUsernameCommand}"
+                    VerticalOptions = "LayoutOptions.Center"
+                    BorderColor = "Color.DarkSlateGray"
+                    BorderWidth = "3"
+                    TextColor = "Color.DarkSlateGray"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2"/>
+            <Button Text="Change Password"
+                    Command="{Binding ChangePasswordCommand}"
+                    VerticalOptions = "LayoutOptions.Center"
+                    BorderColor = "Color.DarkSlateGray"
+                    BorderWidth = "3"
+                    TextColor = "Color.DarkSlateGray"
+                    Grid.Row="6"
+                    Grid.ColumnSpan="2"/>
+            <Button Text="Change Profile Picture"
+                    Command="{Binding ChangePasswordCommand}"
+                    VerticalOptions = "LayoutOptions.Center"
+                    BorderColor = "Color.DarkSlateGray"
+                    BorderWidth = "3"
+                    TextColor = "Color.DarkSlateGray"
+                    Grid.Row="7"
+                    Grid.ColumnSpan="2"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

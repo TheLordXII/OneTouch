@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.View.FriendsDetailView"
+             Padding="20,20,20,20"
+             BackgroundColor="LightSkyBlue">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="FriendTemplate"  >
+                
+                <TextCell TextColor="DarkSlateGray" DetailColor="DarkSlateGray"
+                          Text="{Binding Name}"
+                          Detail="{Binding Amount, StringFormat='Amount: {0} part(s)'}">
+                    
+             
+                    
+                </TextCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+
+            <!--jetzt kommen theoretisch Columns, sind aber hier nicht vorhanden-->
+
+            <Label Text="{Binding drink.Description}"
+                   Grid.Row="0"
+                   HorizontalOptions = "Center"
+                   VerticalOptions = "LayoutOptions.Center"
+                   TextColor = "Color.DarkSlateGray"
+                   FontSize = "20"/>
+            <Label Text="{Binding drink.TimesTaken, StringFormat='Taken: {0} time(s)' }"
+                   Grid.Row="1"
+                   HorizontalOptions = "Start"
+                   VerticalOptions = "LayoutOptions.Center"
+                   TextColor = "Color.DarkSlateGray"
+                   FontSize = "20"/>
+            <Label Text="{Binding drink.Creator, StringFormat='Creator: {0}'}"
+                   Grid.Row="2"
+                   HorizontalOptions = "Start"
+                   VerticalOptions = "LayoutOptions.Center"
+                   TextColor = "Color.DarkSlateGray"
+                   FontSize = "20"/>
+            <Label Text="Ingredients:"
+                   Grid.Row="3"
+                   HorizontalOptions = "Center"
+                   VerticalOptions = "End"
+                   TextColor = "Color.DarkSlateGray"
+                   FontSize = "20"/>
+            <ListView
+                   Grid.Row="4"
+                            x:Name="listViewIngredients"
+                            HorizontalOptions="FillAndExpand"
+                            ItemsSource="{Binding drink.Ingredients}"
+                            ItemTemplate="{StaticResource IngredientsTemplate}"
+                            BackgroundColor="LightSkyBlue"
+                            SeparatorVisibility="None"
+                            IsPullToRefreshEnabled="False">
+
+                    </ListView>
+            <Button Text="{Binding drink.Name, StringFormat='Order a {0}!' }"
+                    Command="{Binding OrderCommand}"
+                    VerticalOptions = "LayoutOptions.Center"
+                    BorderColor = "Color.DarkSlateGray"
+                    BorderWidth = "3"
+                    TextColor = "Color.DarkSlateGray"
+                    Grid.Row="5"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

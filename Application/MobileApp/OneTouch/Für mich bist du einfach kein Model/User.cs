@@ -13,6 +13,13 @@ namespace MobileApp.FürmichbistdueinfachkeinModel
             set;
         }
 
+        [JsonProperty("Drinks_Taken")]
+        public string Drinks_Taken
+        {
+            get;
+            set;
+        }
+
         public ObservableCollection<User> Friends
         {
             get;
