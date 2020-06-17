@@ -1,8 +1,64 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OneTouch.View.AboutView">
+             x:Class="OneTouch.View.AboutView"
+             Padding="20,20,20,20"
+             BackgroundColor="LightSkyBlue">
     <ContentPage.Content>
-        <Label Text="About"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="About"
+                   Grid.Row="0"
+                   HorizontalOptions = "Center"
+                   VerticalOptions = "Center"
+                   TextColor = "DarkSlateGray"
+                   FontSize = "30"
+                   FontAttributes="Bold"/>
+            <Label Text="OneTouch next Gen"
+                   Grid.Row="1"
+                   HorizontalOptions = "Center"
+                   VerticalOptions = "Center"
+                   TextColor = "DarkSlateGray"
+                   FontSize = "30"
+                   FontAttributes="Bold"/>
+            <Label Grid.Row="2"
+                   Text="Copyright"
+                   VerticalOptions = "Center"
+                   HorizontalOptions="Center"
+                   TextColor = "DarkSlateGray"
+                   FontSize="20"/>
+            <Label Grid.Row="3"
+                   Text="by"
+                   VerticalOptions = "Center"
+                   HorizontalOptions="Center"
+                   TextColor = "DarkSlateGray"
+                   FontSize="10"/>
+            <Label Grid.Row="4"
+                   Text="Tim Koch"
+                   VerticalOptions = "Center"
+                   HorizontalOptions="Center"
+                   TextColor = "DarkSlateGray"
+                   FontSize="20"/>
+            <Label Grid.Row="5"
+                   Text="Elia Herzog"
+                   VerticalOptions = "Center"
+                   HorizontalOptions="Center"
+                   TextColor = "DarkSlateGray"
+                   FontSize="20"/>
+            <Label Grid.Row="6"
+                   Text="Anna Janzen"
+                   VerticalOptions = "Center"
+                   HorizontalOptions="Center"
+                   TextColor = "DarkSlateGray"
+                   FontSize="20"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

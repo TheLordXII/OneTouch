@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using MobileApp.ViewModel;
 using Xamarin.Forms;
 
 namespace OneTouch.View
@@ -9,6 +9,7 @@ namespace OneTouch.View
     {
         public UserView()
         {
+            
             InitializeComponent();
         }
     }
