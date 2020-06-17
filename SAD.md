@@ -113,6 +113,10 @@ n/a
 n/a
 
 # 11.	Quality 
-We are using Jenkins as an ci tool to ensure a high quality of our development process. Whenever there is a new commit to a pull request or the master branch it automatically builds the project. The Jenkins build result will be displayed in a badge on Github.
-In addition we use Codacy to ensure the code quality. Each pull request/commit is checked.The code quality is also displayed in a badge on Github.
+We are using Jenkins as an CI tool to ensure a high quality of our development process. Whenever there is a new commit to a pull request or the master branch it automatically builds the project. The Jenkins build result will be displayed in a badge on Github.
 For the Backend we use Postman to test the REST API calls. This is also automated and can be run through all Testcases.
+
+In addition we use Codacy to ensure the code quality. Each pull request/commit is checked.The code quality is also displayed in a badge on Github.
+We especially focused on the two metrics cyclomatic complexity and duplicated code.
+
+As special pattern we oriented by we chose the dependency injection, where an object receives all objects it depends on.
