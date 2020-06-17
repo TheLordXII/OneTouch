@@ -54,7 +54,7 @@ n/a
 |||
 |---|---|
 |Technique Objective|Every service request shall be done correctly. Possible exceptions are caught correctly.|
-|Technique|Unit testing the viewmodel and services|
+|Technique|Unit testing the viewmodel, view and services|
 |Oracles|user enter valid data, for example a valid username and a valid password|
 |Required Tools|NUnit|
 |Success Criteria|successful scenarios, all tests will pass, no strange behaviour will occur|
@@ -63,8 +63,12 @@ n/a
 n/a
 
 #### 5.1.4	User Interface Testing
-Gherkin feature files
-tbd
+|Technique Objective||
+|Technique|feature file testing (blogsite because it doesn't work with Xamarin)|
+|Oracles|information is shown as expected|
+|Required Tools|Selenium, Cucumber|
+|Success Criteria|Expected behavior and passing tests|
+|Special Consideration|-|
 
 #### 5.1.5	Performance Profiling 
 n/a
