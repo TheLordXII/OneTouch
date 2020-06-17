@@ -22,10 +22,10 @@ This document is meant for internal use primarily.
 - **tbd**	to be determined
 
 ### 1.5	 References
-- [GitHub](https://github.com/One-Touch-Next-Gen/OneTouch)
+- [GitHub](https://github.com/TheLordXII/OneTouch)
 - [Blog](https://onetouch940978896.wordpress.com/2019/10/02/example-post/)
-- [Software Requirements Specification](https://github.com/One-Touch-Next-Gen/OneTouch/blob/master/SRS.md)
-- [Software Architecture Document](https://github.com/One-Touch-Next-Gen/OneTouch/blob/master/SAD.md)
+- [Software Requirements Specification](https://github.com/TheLordXII/OneTouch/blob/master/SRS.md)
+- [Software Architecture Document](https://github.com/TheLordXII/OneTouch/blob/master/SAD.md)
 
 
 ## 2.	Evaluation Mission and Test Motivation
