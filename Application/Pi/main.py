@@ -54,6 +54,10 @@ class App():
         jsonString = payload.text
         globalQueue.put(jsonString, True)
 
+    def initialize_clean_pumps(self):
+        #clean or initialize pumps
+        self.drinkService.initialize_clean()
+
 
 if __name__ == '__main__':
     root = tk.Tk()

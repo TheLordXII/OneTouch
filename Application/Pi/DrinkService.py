@@ -24,6 +24,8 @@ class PumpService(object):
         self.pump5.on()
         self.pump6 = LED(17)
         self.pump6.on()
+
+    def initialize_clean(self):
         #flüssigkeiten anziehen
         self.pump1.off()
         sleep(0.6)

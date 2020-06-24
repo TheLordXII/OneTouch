@@ -24,7 +24,7 @@
     <child>
       <object id="get_button" class="ttk.Button">
         <property name="command">get_surprise_drink</property>
-        <property name="text" translatable="yes">Surprise Motherfucker!</property>
+        <property name="text" translatable="yes">Get Surprise Drink</property>
         <layout>
           <property name="column">0</property>
           <property name="propagate">True</property>
@@ -34,7 +34,19 @@
     </child>
     <child>
       <object id="debug" class="ttk.Label">
-        <property name="text" translatable="yes">Label_1</property>
+        <property name="anchor">center</property>
+        <property name="text" translatable="yes">OneTouch</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object id="clean_initialize_button" class="ttk.Button">
+        <property name="command">initialize_clean_pumps</property>
+        <property name="text" translatable="yes">Initialize/Clean</property>
         <layout>
           <property name="column">0</property>
           <property name="propagate">True</property>
