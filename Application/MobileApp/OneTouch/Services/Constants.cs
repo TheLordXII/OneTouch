@@ -35,7 +35,7 @@ namespace MobileApp.Services
             new Ingredient{Name = "Orangensaft"}, new Ingredient{Name = "Cranberrysaft"}, new Ingredient{Name = "Limettensaft"},
             
             //anderes
-            new Ingredient{Name = "Wasser"}
+            new Ingredient{Name = "Wasser"}, new Ingredient{Name = "Sirup"}
             };
             return Ingredients;
         }
