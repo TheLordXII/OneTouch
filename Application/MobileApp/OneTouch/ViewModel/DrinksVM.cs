@@ -134,7 +134,7 @@ namespace MobileApp.ViewModel
             _navigationService = App.NavigationService;
             Drinks = new ObservableCollection<Drink>();
 
-            Task.Run(() =>Refresh());
+            
         }
 
         public DrinksVM(): this(new DrinkService())

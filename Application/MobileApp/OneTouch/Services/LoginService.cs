@@ -2,9 +2,11 @@
 using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using MobileApp.FürmichbistdueinfachkeinModel;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace MobileApp.Services
 {
@@ -38,14 +40,17 @@ namespace MobileApp.Services
 
         public async Task<ReturnCode> CreateAccount(string Username, string Password, string Firstname, string Surname, string Birthdate)
         {
-            ////put!!!!
-            ///
             string url = urlBase + @"newuser/username={0}&password={1}&name={2}&vorname={3}&gebdate={4}";
 
             Uri uri = new Uri(string.Format(url, Username, Password, Surname, Firstname, Birthdate));
             Debug.WriteLine(uri.AbsoluteUri);
+            
+            JObject jObject = new JObject();
+            jObject.Add("User", Username);
+            string contentType = "application/json";
 
-            HttpResponseMessage response = await client.GetAsync(uri);
+            //post
+            HttpResponseMessage response = await client.PutAsync(uri, new StringContent(jObject.ToString(), Encoding.UTF8, contentType));
 
             if (response.IsSuccessStatusCode)
             {

@@ -108,6 +108,10 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL%403x.png" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\OTL_ohneHG.png" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\OTL_ohneHG-1.png" />
+    <ImageAsset Include="Assets.xcassets\IconAllDrinks.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\IconAllDrinks.imageset\IconAllDrinks.png" />
+    <ImageAsset Include="Assets.xcassets\IconConfig.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\IconConfig.imageset\IconConfig.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -149,5 +153,7 @@
     <Folder Include="Assets.xcassets\IconFriends.imageset\" />
     <Folder Include="Assets.xcassets\IconUser.imageset\" />
     <Folder Include="Assets.xcassets\IconInfo.imageset\" />
+    <Folder Include="Assets.xcassets\IconAllDrinks.imageset\" />
+    <Folder Include="Assets.xcassets\IconConfig.imageset\" />
   </ItemGroup>
 </Project>

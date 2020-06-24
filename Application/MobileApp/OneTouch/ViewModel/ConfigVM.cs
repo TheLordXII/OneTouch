@@ -25,8 +25,8 @@ namespace MobileApp.ViewModel
             }
         }
 
-        IDrinkService _drinkService;
         INavigationService _navigationService;
+        IConfigurationService _configurationService;
 
         private ObservableCollection<Ingredient> _IngredientList;
         public ObservableCollection<Ingredient> IngredientList
@@ -79,11 +79,11 @@ namespace MobileApp.ViewModel
             if (numIngredients == 6)
             {
 
-                var createTask = _drinkService.SubmitConfig(IngredientList);
+                var submitTask = _configurationService.SubmitConfig(IngredientList);
 
-                ReturnCode statusCode = await createTask;
+                ReturnCode statusCode = await submitTask;
 
-                await Task.WhenAll(createTask);
+                await Task.WhenAll(submitTask);
                 if (statusCode == ReturnCode.success)
                 {
                     await Task.Run(() => SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Success", "The config will be updated."));
@@ -100,21 +100,29 @@ namespace MobileApp.ViewModel
             }
         }
 
-        public ConfigVM() : this(new DrinkService())
+        private async Task GetConfig()
+        {
+            Configuration conf = await _configurationService.GetConfig();
+            IngredientList.Add(new Ingredient { Name = conf.IngredientPump1 });
+            IngredientList.Add(new Ingredient { Name = conf.IngredientPump2 });
+            IngredientList.Add(new Ingredient { Name = conf.IngredientPump3 });
+            IngredientList.Add(new Ingredient { Name = conf.IngredientPump4 });
+            IngredientList.Add(new Ingredient { Name = conf.IngredientPump5 });
+            IngredientList.Add(new Ingredient { Name = conf.IngredientPump6 });
+
+            
+        }
+
+        public ConfigVM() : this(new DrinkService(), new ConfigurationService())
         {
 
         }
-        public ConfigVM(IDrinkService drinkService)
+        public ConfigVM(IDrinkService drinkService, IConfigurationService configurationService)
         {
-            _drinkService = drinkService;
+            _configurationService = configurationService;
             _navigationService = App.NavigationService;
             IngredientList = new ObservableCollection<Ingredient>();
-            IngredientList.Add(new Ingredient());
-            IngredientList.Add(new Ingredient());
-            IngredientList.Add(new Ingredient());
-            IngredientList.Add(new Ingredient());
-            IngredientList.Add(new Ingredient());
-            IngredientList.Add(new Ingredient());
+            Task.Run(() => GetConfig());
 
             IngredientSelection constants = new IngredientSelection();
             IngredientSelection = constants.GetIngredientSelection().OrderBy(t => t.Name).ToList();

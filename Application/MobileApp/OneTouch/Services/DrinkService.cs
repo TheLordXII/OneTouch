@@ -27,6 +27,16 @@ namespace MobileApp.Services
             return result.Data;
         }
 
+        public async Task<IEnumerable<Drink>> RefreshAvailable()
+        {
+            string url = urlBase + "availableDrinks";
+            Uri uri = new Uri(url);
+
+            string json = await client.GetStringAsync(uri);
+            var result = JsonConvert.DeserializeObject<ListOfDrinks>(json);
+            return result.Data;
+        }
+
         public async Task<IEnumerable<Ingredient>> GetIngredients(string drinkID)
         {
             string url = urlBase + @"ingredientlist/{0}";
@@ -84,24 +94,7 @@ namespace MobileApp.Services
             return ReturnCode.fatalError;
         }
 
-        public async Task<ReturnCode> SubmitConfig(ObservableCollection<Ingredient> ingredients)
-        {
-            string url = urlBase + @"config/pump1={0}&pump2={1}&pump3={2}&pump4={3}&pump5={4}&pump6={5}";
-            Uri uriOrder = new Uri(string.Format(url, ingredients[0].Name, ingredients[1].Name, ingredients[2].Name, ingredients[3].Name, ingredients[4].Name, ingredients[5].Name));
-            Debug.WriteLine(uriOrder.AbsoluteUri);
-            JObject jObject = new JObject();
-            jObject.Add("User", App.User.Username);
-            string contentType = "application/json";
-            HttpResponseMessage response = await client.PutAsync(uriOrder, new StringContent(jObject.ToString(), Encoding.UTF8, contentType));
-
-            if (response.IsSuccessStatusCode)
-            {
-                return ReturnCode.success;
-            }
-            return ReturnCode.fatalError;
-        }
-
-        //machine/config -> holen
+        
 
         //automatischer ctor ohne argumente
     }

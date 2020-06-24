@@ -32,6 +32,7 @@ namespace OneTouch
             NavigationService.Configure(Locator.CreateAccountView, typeof(CreateAccountView));
             NavigationService.Configure(Locator.NewDrinkView, typeof(NewDrinkView));
             NavigationService.Configure(Locator.ConfigView, typeof(ConfigView));
+            NavigationService.Configure(Locator.DrinksAvailableView, typeof(DrinksAvailableView));
 
             var firstPage = ((NavigationService)NavigationService).SetRootPage(Locator.LoginView);
 

@@ -5,10 +5,10 @@ using System.Diagnostics;
 
 namespace OneTouch.View
 {
-    public partial class DrinksView : ContentPage
+    public partial class DrinksAvailableView : ContentPage
     {
-        DrinksVM vm = new DrinksVM();
-        public DrinksView()
+        DrinksAvailableVM vm = new DrinksAvailableVM();
+        public DrinksAvailableView()
         {
             
             this.BindingContext = vm;
@@ -19,7 +19,7 @@ namespace OneTouch.View
         {
             vm.RefreshCommand.Execute(null);
             base.OnAppearing();
-            var currentPageKeyString = Locator.DrinksView;
+            var currentPageKeyString = Locator.DrinksAvailableView;
                 //.GetInstance<INavigationService>()
                 //.CurrentPageKey;
             Debug.WriteLine("Current page key: " + currentPageKeyString);

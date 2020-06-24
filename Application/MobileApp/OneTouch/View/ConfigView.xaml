@@ -44,15 +44,25 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
+                         <Grid.ColumnDefinitions>
+                             <ColumnDefinition/>
+                             <ColumnDefinition Width="auto"/>
+                         </Grid.ColumnDefinitions>
                         <Label  Text="Pump 1"
-                            Grid.Row="0"
-                            VerticalTextAlignment="End"
-                            FontSize="15"/>
-                        <Picker Title="Select Ingredient on Pump 1"
-                            ItemsSource="{Binding IngredientSelection}"
-                            ItemDisplayBinding="{Binding Name}"
-                            SelectedItem="{Binding IngredientList[0]}"
-                            Grid.Row="1"/>
+                                Grid.Row="0"
+                                VerticalTextAlignment="End"
+                                FontSize="15"/>
+                         <Label Text="{Binding IngredientList[0].Name}"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                VerticalTextAlignment="End"
+                                FontSize="15"/>
+                        <Picker Title="select new ingredient on pump 1"
+                                ItemsSource="{Binding IngredientSelection}"
+                                ItemDisplayBinding="{Binding Name}"
+                                SelectedItem="{Binding IngredientList[0]}"
+                                Grid.Row="1"
+                                Grid.ColumnSpan="2"/>
                     </Grid>
 
                     <Grid Grid.Row="1" BackgroundColor="LightSkyBlue">

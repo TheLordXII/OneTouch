@@ -8,14 +8,12 @@ using System.Collections.Generic;
 using GalaSoft.MvvmLight.Command;
 using Xamarin.Forms;
 using OneTouch;
-using System.Diagnostics;
 
 namespace MobileApp.ViewModel
 {
-    public class FriendsVM : INotifyPropertyChanged
+    public class DrinksAvailableVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
-
 
         protected virtual void RaisePropertyChanged(string propertyName)
         {
@@ -26,36 +24,32 @@ namespace MobileApp.ViewModel
             }
         }
 
-
-        private IFriendService _friendSerice;
+        private IDrinkService _drinkSerice;
         private INavigationService _navigationService;
 
-        public ObservableCollection<User> Friends
-
+        public ObservableCollection<Drink> Drinks
         {
             get;
             private set;
         }
 
+        private Drink _selectedDrink;
 
-        private User _selectedFriend;
 
-
-        public User SelectedFriend
+        public Drink SelectedDrink
         {
             get
             {
-                return _selectedFriend;
+                return _selectedDrink;
             }
             set
             {
-                if (_selectedFriend == value)
+                if (_selectedDrink == value)
                 {
                     return;
                 }
-                _selectedFriend = value;
-                RaisePropertyChanged("SelectedFriend");
-
+                _selectedDrink = value;
+                RaisePropertyChanged("SelectedDrink");
             }
         }
 
@@ -85,50 +79,65 @@ namespace MobileApp.ViewModel
                                             await Refresh();
                                             IsRefreshing = false;
                                         }));
-
+                
             }
         }
 
         private async Task Refresh()
         {
-
-            Friends.Clear();
-            var friends = await _friendSerice.Refresh();
-            foreach (var friend in friends)
+            Drinks.Clear();
+            var drinks = await _drinkSerice.RefreshAvailable();
+            foreach (var drink in drinks)
             {
-                Friends.Add(friend);
+                Drinks.Add(drink);
             }
         }
 
-        private RelayCommand _showDetailsFriendsCommand;
+        private RelayCommand _showDetailsCommand;
 
-        public RelayCommand ShowDetailsFriendsCommand
+        public RelayCommand ShowDetailsCommand
         {
             get
             {
-                return _showDetailsFriendsCommand
-                ?? (_showDetailsFriendsCommand = new RelayCommand(
+                return _showDetailsCommand
+                ?? (_showDetailsCommand = new RelayCommand(
                                         async () =>
                                         {
-                                            object[] para = new object[2];
-                                            para[0] = SelectedFriend;
-                                            await _navigationService.NavigateAsync(Locator.FriendsDetailView, para);
-
+                                            await _navigationService.NavigateAsync (Locator.DrinksDetailView, SelectedDrink);
                                         }));
 
             }
         }
 
-        public FriendsVM(IFriendService friendService)
+        private RelayCommand _NewDrinkCommand;
+
+        public RelayCommand NewDrinkCommand
         {
-            _friendSerice = friendService;
-            _navigationService = App.NavigationService;
-            Friends = new ObservableCollection<User>();
-            Debug.WriteLine(App.User.Username);
-            Task.Run(() => Refresh());
+            get
+            {
+                return _NewDrinkCommand
+                ?? (_NewDrinkCommand = new RelayCommand(
+                                        async () =>
+                                        {
+                                            await _navigationService.NavigateAsync(Locator.NewDrinkView);
+                                        }));
+
+            }
         }
 
-        public FriendsVM() : this(new FriendService())
+        /// <summary>
+        /// ctor 
+        /// </summary>
+        public DrinksAvailableVM(IDrinkService drinkService)
+        {
+            _drinkSerice = drinkService;
+            _navigationService = App.NavigationService;
+            Drinks = new ObservableCollection<Drink>();
+
+            
+        }
+
+        public DrinksAvailableVM(): this(new DrinkService())
         {
 
         }
