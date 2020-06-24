@@ -11,5 +11,8 @@ namespace MobileApp.Services
         public static readonly string MasterPage = "MasterPage";
         public static readonly string AboutView = "AboutView";
         public static readonly string UserView = "UserView";
+        public static readonly string CreateAccountView = "CreateAccountView";
+        public static readonly string NewDrinkView = "NewDrinkView";
+        public static readonly string ConfigView = "ConfigView";
     }
 }

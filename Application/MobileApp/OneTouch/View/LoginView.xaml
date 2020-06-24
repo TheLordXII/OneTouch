@@ -45,6 +45,12 @@
                     BorderWidth = "3"
                     TextColor = "Color.DarkSlateGray"
                     Grid.Row="3"/>
+            <Button Text="or create a new account"
+                    Command="{Binding CreateAccountCommand}"
+                    Grid.Row="3"
+                    VerticalOptions="End"
+                    TextColor="DarkSlateGray"
+                    />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

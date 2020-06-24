@@ -66,6 +66,7 @@ namespace OneTouch.iOS.PlatformServices
             Device.BeginInvokeOnMainThread(() =>
             {
                 var dialogAlert = UIAlertController.Create(title, content, UIAlertControllerStyle.Alert);
+                
                 var okAction = UIAlertAction.Create(!string.IsNullOrEmpty(confirmButtonText) ? confirmButtonText : "OK", UIAlertActionStyle.Default, _ =>
                 {
                     callback?.Invoke(true);

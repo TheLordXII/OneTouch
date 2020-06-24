@@ -76,65 +76,8 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo120-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo40.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo180.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo120-2.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo40-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo40-2.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo60.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo58.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo87.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo58-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo1024.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo80.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo80-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo20.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo29.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo152.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo167.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Logo.imageset\OneTouchLogo.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\IconFriends.imageset\Contents.json" />
@@ -145,6 +88,26 @@
     <ImageAsset Include="Assets.xcassets\IconInfo.imageset\IconInfo.png" />
     <ImageAsset Include="Assets.xcassets\Image-1.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Image-1.imageset\IconDrinks.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL1024.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL83%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL76%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL40%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL40%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL40%402x_60%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL40%402x_60%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL60%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL29%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL29%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL29%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL%402x-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\OTL_ohneHG.png" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\OTL_ohneHG-1.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

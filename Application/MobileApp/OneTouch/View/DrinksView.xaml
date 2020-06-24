@@ -28,7 +28,7 @@
         <ToolbarItem Text="New Drink"
                      Order="Primary"
                      Priority="0"
-                     Command="{Binding CreateDrinkCommand}"/>
+                     Command="{Binding NewDrinkCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
          <Grid>

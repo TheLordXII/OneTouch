@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OneTouch.View.CreateAccountView"
+             Padding="20,20,20,20"
+             BackgroundColor="LightSkyBlue">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Create a new Account"
+                   Grid.Row="0"
+                   HorizontalOptions = "LayoutOptions.Center"
+                   VerticalOptions = "LayoutOptions.Center"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   TextColor = "Color.DarkSlateGray"
+                   FontSize = "20"
+                   FontAttributes="Bold"/>
+
+            <Label Text="Set Username: "
+                   Grid.Row="1"
+                   VerticalTextAlignment="End"/>
+            <Entry Placeholder="Username"
+                   Grid.Row="2"
+                   VerticalOptions = "LayoutOptions.Center"
+                   HorizontalOptions="FillAndExpand"
+                   Text="{Binding Username}"/>
+            <Label Text="Set Password: "
+                   Grid.Row="3"
+                   VerticalTextAlignment="End"/>
+            <Entry Placeholder="Password"
+                   Grid.Row="4"
+                   IsPassword="True"
+                   VerticalOptions = "LayoutOptions.Center"
+                   Text="{Binding Password}"/>
+            <Label Text="Your First Name: "
+                   Grid.Row="5"
+                   VerticalTextAlignment="End"/>
+            <Entry Placeholder="First Name"
+                   Grid.Row="6"
+                   VerticalOptions = "LayoutOptions.Center"
+                   Text="{Binding Firstname}"/>
+            <Label Text="Your Last Name: "
+                   Grid.Row="7"
+                   VerticalTextAlignment="End"/>
+            <Entry Placeholder="Last Name"
+                   Grid.Row="8"
+                   VerticalOptions = "LayoutOptions.Center"
+                   Text="{Binding Surname}"/>
+            <Label Text="Your Birthdate (in Form yyyy:mm:dd): "
+                   Grid.Row="9"
+                   VerticalTextAlignment="End"/>
+            <Entry Placeholder="Birthdate"
+                   Grid.Row="10"
+                   VerticalOptions = "LayoutOptions.Center"
+                   Text="{Binding Birthdate}"/>
+
+            <Button Text="Create Account!"
+                    Command="{Binding CreateAccountCommand}"
+                    VerticalOptions = "LayoutOptions.Center"
+                    BorderColor = "Color.DarkSlateGray"
+                    BorderWidth = "3"
+                    TextColor = "Color.DarkSlateGray"
+                    Grid.Row="11"
+                    />
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

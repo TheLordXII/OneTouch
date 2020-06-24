@@ -60,6 +60,9 @@ namespace MobileApp.ViewModel
                     case "Account":
                         res = Locator.UserView;
                         break;
+                    case "Configure":
+                        res = Locator.ConfigView;
+                        break;
                     default:
                         res = Locator.MasterPage;
                         break;

@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OneTouch.View.NewDrinkView"
+             Padding="20,20,20,20"
+             BackgroundColor="LightSkyBlue"
+             Title="New Drink">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="IngredientsTemplate"  >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label  Text="Ingredient 1"
+                            Grid.Row="0"
+                            VerticalTextAlignment="End"/>
+                    <Picker Title="Select Ingredient 1"
+                            ItemsSource="{Binding IngredientSelection}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding Drink.Ingredients[0].Name}"
+                            Grid.Row="1"/>
+                    <Slider x:Name="slider0"
+                            Grid.Row="2"
+                            Maximum="240"
+                            Value="{Binding Slider0Command}"/>
+                    <Label  Text="{Binding Drink.Ingredients[0].AmountInt, StringFormat='Amount: {0}ml'}"
+                            Grid.Row="3"/>
+                </Grid>
+                
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Name of the new Drink: "
+                   Grid.Row="0"
+                   VerticalTextAlignment="End"
+                   FontSize="15"/>
+            <Entry Placeholder="Name"
+                   Grid.Row="1"
+                   VerticalOptions = "LayoutOptions.Center"
+                   Text="{Binding Drink.Name}"/>
+            <Label Text="Description of the new Drink: "
+                   Grid.Row="2"
+                   VerticalTextAlignment="End"
+                   FontSize="15"/>
+            <Entry Placeholder="Description"
+                   Grid.Row="3"
+                   VerticalOptions = "LayoutOptions.Center"
+                   Text="{Binding Drink.Description}"/>
+            <!--Times taken auf 0, creator app.User-->
+
+            <Label Text="Ingredients:"
+                   Grid.Row="4"
+                   FontSize="20"
+                   VerticalTextAlignment="End"/>
+
+            <ScrollView VerticalScrollBarVisibility="Always"
+                         Grid.Row="5"
+                        >
+           
+
+                <Grid BackgroundColor="DarkSlateGray">
+                    <!--6 Ingredients-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <!--jetzt folgen die Grids der einzelnen Ingredients-->
+                    <Grid Grid.Row="0" BackgroundColor="LightSkyBlue">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label  Text="Ingredient 1"
+                            Grid.Row="0"
+                            VerticalTextAlignment="End"
+                                 FontSize="15"/>
+                        <Picker Title="Select Ingredient 1"
+                            ItemsSource="{Binding IngredientSelection}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding Drink.Ingredients[0]}"
+                            Grid.Row="1"/>
+                        <Slider x:Name="slider0"
+                            Grid.Row="2"
+                            Maximum="240"
+                            Value="{Binding Slider0Command}"/>
+                        <Label  Text="{Binding Drink.Ingredients[0].AmountInt, StringFormat='Amount: {0}ml'}"
+                            Grid.Row="3"
+                                FontSize="15"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1" BackgroundColor="LightSkyBlue">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label  Text="Ingredient 2"
+                            Grid.Row="0"
+                                 FontSize="15"
+                            VerticalTextAlignment="End"/>
+                        <Picker Title="Select Ingredient 2"
+                            ItemsSource="{Binding IngredientSelection}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding Drink.Ingredients[1]}"
+                            Grid.Row="1"/>
+                        <Slider x:Name="slider1"
+                            Grid.Row="2"
+                            Maximum="240"
+                            Value="{Binding Slider1Command}"/>
+                        <Label  Text="{Binding Drink.Ingredients[1].AmountInt, StringFormat='Amount: {0}ml'}"
+                            Grid.Row="3"
+                                FontSize="15"/>
+                    </Grid>
+
+                    <Grid Grid.Row="2" BackgroundColor="LightSkyBlue">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label  Text="Ingredient 3"
+                            Grid.Row="0"
+                                 FontSize="15"
+                            VerticalTextAlignment="End"/>
+                        <Picker Title="Select Ingredient 3"
+                            ItemsSource="{Binding IngredientSelection}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding Drink.Ingredients[2]}"
+                            Grid.Row="1"/>
+                        <Slider x:Name="slider2"
+                            Grid.Row="2"
+                            Maximum="240"
+                            Value="{Binding Slider2Command}"/>
+                        <Label  Text="{Binding Drink.Ingredients[2].AmountInt, StringFormat='Amount: {0}ml'}"
+                            Grid.Row="3"
+                                FontSize="15"/>
+                    </Grid>
+
+                    <Grid Grid.Row="3" BackgroundColor="LightSkyBlue">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label  Text="Ingredient 4"
+                            Grid.Row="0"
+                                 FontSize="15"
+                            VerticalTextAlignment="End"/>
+                        <Picker Title="Select Ingredient 4"
+                            ItemsSource="{Binding IngredientSelection}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding Drink.Ingredients[3]}"
+                            Grid.Row="1"/>
+                        <Slider x:Name="slider3"
+                            Grid.Row="2"
+                            Maximum="240"
+                            Value="{Binding Slider3Command}"/>
+                        <Label  Text="{Binding Drink.Ingredients[3].AmountInt, StringFormat='Amount: {0}ml'}"
+                            Grid.Row="3"
+                                FontSize="15"/>
+                    </Grid>
+
+                    <Grid Grid.Row="4" BackgroundColor="LightSkyBlue">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label  Text="Ingredient 5"
+                            Grid.Row="0"
+                                 FontSize="15"
+                            VerticalTextAlignment="End"/>
+                        <Picker Title="Select Ingredient5"
+                            ItemsSource="{Binding IngredientSelection}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding Drink.Ingredients[4]}"
+                            Grid.Row="1"/>
+                        <Slider x:Name="slider4"
+                            Grid.Row="2"
+                            Maximum="240"
+                            Value="{Binding Slider4Command}"/>
+                        <Label  Text="{Binding Drink.Ingredients[4].AmountInt, StringFormat='Amount: {0}ml'}"
+                            Grid.Row="3"
+                                FontSize="15"/>
+                    </Grid>
+
+                    <Grid Grid.Row="5" BackgroundColor="LightSkyBlue">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label  Text="Ingredient 6"
+                            Grid.Row="0"
+                                 FontSize="15"
+                            VerticalTextAlignment="End"/>
+                        <Picker Title="Select Ingredient 6"
+                            ItemsSource="{Binding IngredientSelection}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding Drink.Ingredients[5]}"
+                            Grid.Row="1"/>
+                        <Slider x:Name="slider5"
+                            Grid.Row="2"
+                            Maximum="240"
+                            Value="{Binding Slider5Command}"/>
+                        <Label  Text="{Binding Drink.Ingredients[5].AmountInt, StringFormat='Amount: {0}ml'}"
+                            Grid.Row="3"
+                                FontSize="15"/>
+                    </Grid>
+                
+                    
+            </Grid>
+            </ScrollView>
+
+            <Label Text="{Binding TotalAmount, StringFormat='Total Amount: {0}ml'}"
+                   Grid.Row="6"
+                   FontSize="15"/>
+            <Button Text="{Binding Drink.Name, StringFormat='Create the {0}!' }"
+                    Command="{Binding CreateDrinkCommand}"
+                    VerticalOptions = "LayoutOptions.Center"
+                    BorderColor = "Color.DarkSlateGray"
+                    BorderWidth = "3"
+                    TextColor = "Color.DarkSlateGray"
+                    Grid.Row="7"
+                    />
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

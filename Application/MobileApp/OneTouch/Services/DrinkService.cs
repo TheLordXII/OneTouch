@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
@@ -16,7 +17,7 @@ namespace MobileApp.Services
         private const string urlBase = @"https://onetouchnextgen.tech:5000/api/";
         private readonly HttpClient client = new HttpClient();
 
-        public async Task<IEnumerable<Drink>> Refresh()
+        public async Task<IEnumerable<Drink>> RefreshAll()
         {
             string url = urlBase + "drinksLong";
             Uri uri = new Uri(url);
@@ -65,6 +66,42 @@ namespace MobileApp.Services
             return ReturnCode.orderError;
 
         }
+
+        public async Task<ReturnCode> CreateDrink(Drink drink)
+        {
+            string url = urlBase + @"";
+            Uri uriOrder = new Uri(string.Format(url, drink.Name, drink.Description, App.User.Username ,drink.Ingredients[0].Name, drink.Ingredients[0].Amount, drink.Ingredients[1].Name, drink.Ingredients[1].Amount,drink.Ingredients[2].Name, drink.Ingredients[2].Amount,drink.Ingredients[3].Name, drink.Ingredients[3].Amount, drink.Ingredients[4].Name, drink.Ingredients[4].Amount, drink.Ingredients[5].Name, drink.Ingredients[5].Amount));
+            Debug.WriteLine(uriOrder.AbsoluteUri);
+            JObject jObject = new JObject();
+            jObject.Add("User", App.User.Username);
+            string contentType = "application/json";
+            HttpResponseMessage response = await client.PutAsync(uriOrder, new StringContent(jObject.ToString(), Encoding.UTF8, contentType));
+
+            if (response.IsSuccessStatusCode)
+            {
+                return ReturnCode.success;
+            }
+            return ReturnCode.fatalError;
+        }
+
+        public async Task<ReturnCode> SubmitConfig(ObservableCollection<Ingredient> ingredients)
+        {
+            string url = urlBase + @"config/pump1={0}&pump2={1}&pump3={2}&pump4={3}&pump5={4}&pump6={5}";
+            Uri uriOrder = new Uri(string.Format(url, ingredients[0].Name, ingredients[1].Name, ingredients[2].Name, ingredients[3].Name, ingredients[4].Name, ingredients[5].Name));
+            Debug.WriteLine(uriOrder.AbsoluteUri);
+            JObject jObject = new JObject();
+            jObject.Add("User", App.User.Username);
+            string contentType = "application/json";
+            HttpResponseMessage response = await client.PutAsync(uriOrder, new StringContent(jObject.ToString(), Encoding.UTF8, contentType));
+
+            if (response.IsSuccessStatusCode)
+            {
+                return ReturnCode.success;
+            }
+            return ReturnCode.fatalError;
+        }
+
+        //machine/config -> holen
 
         //automatischer ctor ohne argumente
     }
