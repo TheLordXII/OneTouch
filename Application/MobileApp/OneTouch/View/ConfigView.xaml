@@ -2,9 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OneTouch.View.ConfigView"
+             xmlns:services="clr-namespace:OneTouch.Services"
              Padding="20,20,20,20"
              BackgroundColor="LightSkyBlue"
              Title="Configuration">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <services:IngredientToNameConverter x:Key="IngredientToName"/> 
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -52,7 +58,7 @@
                                 Grid.Row="0"
                                 VerticalTextAlignment="End"
                                 FontSize="15"/>
-                         <Label Text="{Binding IngredientList[0].Name}"
+                         <Label Text="{Binding IngredientList[0].Name, StringFormat='current: {0}', Converter=IngredientToName}"
                                 Grid.Row="0"
                                 Grid.Column="1"
                                 VerticalTextAlignment="End"
