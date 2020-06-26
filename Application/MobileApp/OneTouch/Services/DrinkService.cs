@@ -85,7 +85,7 @@ namespace MobileApp.Services
             JObject jObject = new JObject();
             jObject.Add("User", App.User.Username);
             string contentType = "application/json";
-            HttpResponseMessage response = await client.PutAsync(uriOrder, new StringContent(jObject.ToString(), Encoding.UTF8, contentType));
+            HttpResponseMessage response = await client.PostAsync(uriOrder, new StringContent(jObject.ToString(), Encoding.UTF8, contentType));
 
             if (response.IsSuccessStatusCode)
             {

@@ -50,7 +50,7 @@ namespace MobileApp.Services
             string contentType = "application/json";
 
             //post
-            HttpResponseMessage response = await client.PutAsync(uri, new StringContent(jObject.ToString(), Encoding.UTF8, contentType));
+            HttpResponseMessage response = await client.PostAsync(uri, new StringContent(jObject.ToString(), Encoding.UTF8, contentType));
 
             if (response.IsSuccessStatusCode)
             {
