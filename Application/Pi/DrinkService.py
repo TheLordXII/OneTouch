@@ -125,31 +125,31 @@ class PumpService(object):
     
     def activatePump1(self, volume):
         self.pump1.off()
-        sleep(0.584*volume)
+        sleep(0.7*volume)
         self.pump1.on()
 
     def activatePump2(self, volume):
         self.pump2.off()
-        sleep(0.584*volume)
+        sleep(0.7*volume)
         self.pump2.on()
 
     def activatePump3(self, volume):
         self.pump3.off()
-        sleep(0.584*volume)
+        sleep(0.7*volume)
         self.pump3.on()
 
     def activatePump4(self, volume):
         self.pump4.off()
-        sleep(0.584*volume)
+        sleep(0.7*volume)
         self.pump4.on()
 
     def activatePump5(self, volume):
         self.pump5.off()
-        sleep(0.584*volume)
+        sleep(0.9*volume)
         self.pump5.on()
 
     def activatePump6(self, volume):
         self.pump6.off()
-        sleep(0.584*volume)
+        sleep(0.7*volume)
         self.pump6.on()
 
