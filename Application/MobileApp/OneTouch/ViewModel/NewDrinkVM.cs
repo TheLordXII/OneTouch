@@ -280,12 +280,12 @@ namespace MobileApp.ViewModel
             _drinkService = drinkService;
             _navigationService = App.NavigationService;
             IngredientList = new ObservableCollection<Ingredient>();
-            IngredientList.Add(new Ingredient());
-            IngredientList.Add(new Ingredient());
-            IngredientList.Add(new Ingredient());
-            IngredientList.Add(new Ingredient());
-            IngredientList.Add(new Ingredient());
-            IngredientList.Add(new Ingredient());
+            IngredientList.Add(new Ingredient { AmountInt = 0 });
+            IngredientList.Add(new Ingredient { AmountInt = 0 });
+            IngredientList.Add(new Ingredient { AmountInt = 0 });
+            IngredientList.Add(new Ingredient { AmountInt = 0 });
+            IngredientList.Add(new Ingredient { AmountInt = 0 });
+            IngredientList.Add(new Ingredient { AmountInt = 0 });
 
             Drink = new Drink { Name ="-", Description="-", Ingredients = IngredientList};
             IngredientSelection constants = new IngredientSelection();

@@ -58,7 +58,7 @@
                                 Grid.Row="0"
                                 VerticalTextAlignment="End"
                                 FontSize="15"/>
-                         <Label Text="{Binding IngredientList[0].Name, StringFormat='current: {0}', Converter=IngredientToName}"
+                         <Label Text="{Binding IngredientList[0].Name, StringFormat='current: {0}'}"
                                 Grid.Row="0"
                                 Grid.Column="1"
                                 VerticalTextAlignment="End"

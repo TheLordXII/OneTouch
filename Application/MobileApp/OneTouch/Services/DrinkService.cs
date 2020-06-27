@@ -79,8 +79,9 @@ namespace MobileApp.Services
 
         public async Task<ReturnCode> CreateDrink(Drink drink)
         {
-            string url = urlBase + @"";
-            Uri uriOrder = new Uri(string.Format(url, drink.Name, drink.Description, App.User.Username ,drink.Ingredients[0].Name, drink.Ingredients[0].Amount, drink.Ingredients[1].Name, drink.Ingredients[1].Amount,drink.Ingredients[2].Name, drink.Ingredients[2].Amount,drink.Ingredients[3].Name, drink.Ingredients[3].Amount, drink.Ingredients[4].Name, drink.Ingredients[4].Amount, drink.Ingredients[5].Name, drink.Ingredients[5].Amount));
+            string url = urlBase + @"/newdrink/name=:{0}&description=:{1}&creator=:{2}&name1=:{3}&amount1=:{4}&name2=:{5}&amount2=:{6}&name3=:{7}&amount3=:{8}&name4=:{9}&amount4=:{10}&name5=:{11}&amount5=:{12}&name6=:{13}&amount6=:{14}";
+
+            Uri uriOrder = new Uri(string.Format(url, drink.Name, drink.Description, App.User.Username ,drink.Ingredients[0].Name, drink.Ingredients[0].AmountInt, drink.Ingredients[1].Name, drink.Ingredients[1].AmountInt,drink.Ingredients[2].Name, drink.Ingredients[2].AmountInt,drink.Ingredients[3].Name, drink.Ingredients[3].AmountInt, drink.Ingredients[4].Name, drink.Ingredients[4].AmountInt, drink.Ingredients[5].Name, drink.Ingredients[5].AmountInt));
             Debug.WriteLine(uriOrder.AbsoluteUri);
             JObject jObject = new JObject();
             jObject.Add("User", App.User.Username);

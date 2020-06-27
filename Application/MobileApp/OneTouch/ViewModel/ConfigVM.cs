@@ -67,36 +67,19 @@ namespace MobileApp.ViewModel
 
         private async Task SubmitConfig()
         {
-            int numIngredients = 0;
-            for (int i = 0; i < 6; i++)
+            var submitTask = _configurationService.SubmitConfig(IngredientList);
+
+            ReturnCode statusCode = await submitTask;
+
+            await Task.WhenAll(submitTask);
+            if (statusCode == ReturnCode.success)
             {
-                if (IngredientList[i].Name != null)
-                {
-                    numIngredients++;
-                }
-            }
-            //alle felder ausgefüllt
-            if (numIngredients == 6)
-            {
-
-                var submitTask = _configurationService.SubmitConfig(IngredientList);
-
-                ReturnCode statusCode = await submitTask;
-
-                await Task.WhenAll(submitTask);
-                if (statusCode == ReturnCode.success)
-                {
-                    await Task.Run(() => SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Success", "The config will be updated."));
-                    await _navigationService.NavigateAsync(Locator.MasterPage);
-                }
-                else
-                {
-                    await Task.Run(() => SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Error", "Some unexpected error occured. Please try again later."));
-                }
+                await Task.Run(() => SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Success", "The config will be updated."));
+                await _navigationService.NavigateAsync(Locator.MasterPage);
             }
             else
             {
-                await Task.Run(() => SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Error", "Please fill out all fields."));
+                await Task.Run(() => SimpleIoc.Default.GetInstance<IDialogService>().ShowMessage("Error", "Some unexpected error occured. Please try again later."));
             }
         }
 
