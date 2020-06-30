@@ -32,7 +32,7 @@ namespace MobileApp.Services
             new Ingredient{Name = "Cola"}, new Ingredient{Name = "Fanta"}, new Ingredient{Name = "Sprite"},
             new Ingredient{Name = "Tonic Water"},
             //Säfte
-            new Ingredient{Name = "Orangensaft"}, new Ingredient{Name = "Cranberrysaft"}, new Ingredient{Name = "Limettensaft"},
+            new Ingredient{Name = "Orangensaft"}, new Ingredient{Name = "Cranberrysaft"}, new Ingredient{Name = "Limonensaft"}, new Ingredient {Name ="Grapefruitsaft"},
             
             //anderes
             new Ingredient{Name = "Wasser"}, new Ingredient{Name = "Sirup"}
