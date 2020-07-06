@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using MobileApp.ViewModel;
 using MobileApp.Services;
+using System.Diagnostics;
 
 namespace OneTouch.View
 {
@@ -16,6 +17,13 @@ namespace OneTouch.View
             InitializeComponent();
         }
 
-
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var currentPageKeyString = Locator.LoginView;
+            //.GetInstance<INavigationService>()
+            //.CurrentPageKey;
+            Debug.WriteLine("Current page key: " + currentPageKeyString);
+        }
     }
 }

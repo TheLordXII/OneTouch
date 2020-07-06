@@ -48,8 +48,8 @@ namespace MobileApp.ViewModel
                 string res;
                 switch (_selectedPage.Title)
                 {
-                    case "Drinks":
-                        res = Locator.DrinksView;
+                    case "Available Drinks":
+                        res = Locator.DrinksAvailableView;
                         break;
                     case "Friends":
                         res = Locator.FriendsView;
@@ -59,6 +59,12 @@ namespace MobileApp.ViewModel
                         break;
                     case "Account":
                         res = Locator.UserView;
+                        break;
+                    case "Configuration":
+                        res = Locator.ConfigView;
+                        break;
+                    case "All Drinks":
+                        res = Locator.DrinksView;
                         break;
                     default:
                         res = Locator.MasterPage;

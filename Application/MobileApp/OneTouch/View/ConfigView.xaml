@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OneTouch.View.ConfigView"
+             xmlns:services="clr-namespace:OneTouch.Services"
+             Padding="20,20,20,20"
+             BackgroundColor="LightSkyBlue"
+             Title="Configuration">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <services:IngredientToNameConverter x:Key="IngredientToName"/> 
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="Please select the connected ingredients"
+                   Grid.Row="0"
+                   HorizontalOptions = "Center"
+                   VerticalOptions = "Center"
+                   TextColor = "DarkSlateGray"
+                   FontSize = "15"/>
+            <Label Text="from left to right"
+                   Grid.Row="1"
+                   HorizontalOptions = "Center"
+                   VerticalOptions = "Center"
+                   TextColor = "DarkSlateGray"
+                   FontSize = "12"/>
+
+            <ScrollView Grid.Row="2">
+                <Grid>
+                    <!--6 Pumpen-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <!--jetzt folgen die Grids der einzelnen Pumpen-->
+                     <Grid Grid.Row="0" BackgroundColor="LightSkyBlue">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                         <Grid.ColumnDefinitions>
+                             <ColumnDefinition/>
+                             <ColumnDefinition Width="auto"/>
+                         </Grid.ColumnDefinitions>
+                        <Label  Text="Pump 1"
+                                Grid.Row="0"
+                                VerticalTextAlignment="End"
+                                FontSize="15"/>
+                         <Label Text="{Binding IngredientList[0].Name, StringFormat='current: {0}'}"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                VerticalTextAlignment="End"
+                                FontSize="15"/>
+                        <Picker Title="select new ingredient on pump 1"
+                                ItemsSource="{Binding IngredientSelection}"
+                                ItemDisplayBinding="{Binding Name}"
+                                SelectedItem="{Binding IngredientList[0]}"
+                                Grid.Row="1"
+                                Grid.ColumnSpan="2"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1" BackgroundColor="LightSkyBlue">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label  Text="Pump 2"
+                            Grid.Row="0"
+                            VerticalTextAlignment="End"
+                            FontSize="15"/>
+                        <Picker Title="Select Ingredient on Pump 2"
+                            ItemsSource="{Binding IngredientSelection}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding IngredientList[1]}"
+                            Grid.Row="1"/>
+                    </Grid>
+
+                    <Grid Grid.Row="2" BackgroundColor="LightSkyBlue">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label  Text="Pump 3"
+                            Grid.Row="0"
+                            VerticalTextAlignment="End"
+                            FontSize="15"/>
+                        <Picker Title="Select Ingredient on Pump 3"
+                            ItemsSource="{Binding IngredientSelection}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding IngredientList[2]}"
+                            Grid.Row="1"/>
+                    </Grid>
+
+                    <Grid Grid.Row="3" BackgroundColor="LightSkyBlue">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label  Text="Pump 4"
+                            Grid.Row="0"
+                            VerticalTextAlignment="End"
+                            FontSize="15"/>
+                        <Picker Title="Select Ingredient on Pump 4"
+                            ItemsSource="{Binding IngredientSelection}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding IngredientList[3]}"
+                            Grid.Row="1"/>
+                    </Grid>
+
+                    <Grid Grid.Row="4" BackgroundColor="LightSkyBlue">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label  Text="Pump 5"
+                            Grid.Row="0"
+                            VerticalTextAlignment="End"
+                            FontSize="15"/>
+                        <Picker Title="Select Ingredient on Pump 5"
+                            ItemsSource="{Binding IngredientSelection}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding IngredientList[4]}"
+                            Grid.Row="1"/>
+                    </Grid>
+
+                    <Grid Grid.Row="5" BackgroundColor="LightSkyBlue">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label  Text="Pump 6"
+                            Grid.Row="0"
+                            VerticalTextAlignment="End"
+                            FontSize="15"/>
+                        <Picker Title="Select Ingredient on Pump 6"
+                            ItemsSource="{Binding IngredientSelection}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding IngredientList[5]}"
+                            Grid.Row="1"/>
+                    </Grid>
+
+                </Grid>
+            </ScrollView>
+
+            <Button Text="Submit"
+                    Command="{Binding SubmitConfigCommand}"
+                    VerticalOptions = "LayoutOptions.Center"
+                    BorderColor = "Color.DarkSlateGray"
+                    BorderWidth = "3"
+                    TextColor = "Color.DarkSlateGray"
+                    Grid.Row="3"
+                    />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

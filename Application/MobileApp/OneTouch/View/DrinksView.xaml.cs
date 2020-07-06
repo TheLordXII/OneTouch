@@ -7,15 +7,17 @@ namespace OneTouch.View
 {
     public partial class DrinksView : ContentPage
     {
+        DrinksVM vm = new DrinksVM();
         public DrinksView()
         {
-            var vm = new DrinksVM();
+            
             this.BindingContext = vm;
             InitializeComponent();
         }
 
         protected override void OnAppearing()
         {
+            vm.RefreshCommand.Execute(null);
             base.OnAppearing();
             var currentPageKeyString = Locator.DrinksView;
                 //.GetInstance<INavigationService>()

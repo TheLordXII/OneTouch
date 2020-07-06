@@ -30,7 +30,7 @@ namespace OneTouchUnitTests.Tests
 
             friendsVM.RefreshCommand.Execute(null);
 
-            Assert.IsNotNull(App.User.Friends);
+            Assert.IsNull(App.User.Friends);
         }
 
         [Test]

@@ -86,7 +86,7 @@ namespace MobileApp.ViewModel
         private async Task Refresh()
         {
             Drinks.Clear();
-            var drinks = await _drinkSerice.Refresh();
+            var drinks = await _drinkSerice.RefreshAll();
             foreach (var drink in drinks)
             {
                 Drinks.Add(drink);
@@ -109,6 +109,22 @@ namespace MobileApp.ViewModel
             }
         }
 
+        private RelayCommand _NewDrinkCommand;
+
+        public RelayCommand NewDrinkCommand
+        {
+            get
+            {
+                return _NewDrinkCommand
+                ?? (_NewDrinkCommand = new RelayCommand(
+                                        async () =>
+                                        {
+                                            await _navigationService.NavigateAsync(Locator.NewDrinkView);
+                                        }));
+
+            }
+        }
+
         /// <summary>
         /// ctor 
         /// </summary>
@@ -118,7 +134,7 @@ namespace MobileApp.ViewModel
             _navigationService = App.NavigationService;
             Drinks = new ObservableCollection<Drink>();
 
-            Task.Run(() =>Refresh());
+            
         }
 
         public DrinksVM(): this(new DrinkService())

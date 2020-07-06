@@ -74,6 +74,22 @@ namespace MobileApp.ViewModel
             }
         }
 
+        private RelayCommand _CreateAccountCommand;
+
+        public RelayCommand CreateAccountCommand
+        {
+            get
+            {
+                return _CreateAccountCommand
+                ?? (_CreateAccountCommand = new RelayCommand(
+                                        async () =>
+                                        {
+                                            await _navigationService.NavigateAsync(Locator.CreateAccountView);
+                                        }));
+
+            }
+        }
+
         private async Task login()
         {
 

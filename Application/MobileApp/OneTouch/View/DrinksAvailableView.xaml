@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:b="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
+             x:Class="OneTouch.View.DrinksAvailableView"
+             Padding="20,20,20,20"
+             BackgroundColor="LightSkyBlue"
+             Title="One Touch Next Gen"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True">
+            
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="DrinksTemplate"  >
+                
+                <TextCell TextColor="DarkSlateGray" DetailColor="DarkSlateGray"
+                          Text="{Binding Name}"
+                          Detail="{Binding Description}">
+                    
+             
+                    
+                </TextCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem Text="New Drink"
+                     Order="Primary"
+                     Priority="0"
+                     Command="{Binding NewDrinkCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <!--jetzt kommen theoretisch Columns, sind aber hier nicht vorhanden-->
+
+            <Label Text="Select a drink!"
+                   Grid.Row="0"
+                   HorizontalOptions = "LayoutOptions.Center"
+                   VerticalOptions = "Center"
+                   TextColor = "DarkSlateGray"
+                   FontSize = "30"
+                   FontAttributes="Bold"/>
+            <Grid x:Name="ContentPanel"
+                  Grid.Row="1" >
+                    <ListView
+                            x:Name="listViewDrinks"
+                            HorizontalOptions="FillAndExpand"
+                            ItemsSource="{Binding Drinks}"
+                            ItemTemplate="{StaticResource DrinksTemplate}"
+                            BackgroundColor="LightSkyBlue"
+                            SeparatorVisibility="None"
+                            IsPullToRefreshEnabled="True"
+                            RefreshCommand="{Binding RefreshCommand}"
+                            IsRefreshing="{Binding IsRefreshing}"
+                            SelectedItem="{Binding SelectedDrink}">
+                        <ListView.Behaviors>
+                            <b:SelectedItemBehavior Command="{Binding ShowDetailsCommand}"/>
+                        </ListView.Behaviors>
+                    </ListView>
+            </Grid>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>
+        

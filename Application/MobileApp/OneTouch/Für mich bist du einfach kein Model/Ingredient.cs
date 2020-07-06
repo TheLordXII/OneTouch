@@ -15,12 +15,14 @@ namespace MobileApp.FürmichbistdueinfachkeinModel
             set;
         }
 
+        private string _Name;
         [JsonProperty("Name")]
         public string Name
         {
-            get;
-            set;
+            get { return _Name; }
+            set { _Name = value; RaisePropertyCHanged("Name"); }
         }
+    
 
 
         [JsonProperty("How_Much")]
@@ -30,6 +32,13 @@ namespace MobileApp.FürmichbistdueinfachkeinModel
             set;
         }
 
+        private int _AmountInt;
+        public int AmountInt
+        {
+            get { return _AmountInt; }
+            set { _AmountInt = value; RaisePropertyCHanged("AmountInt"); }
+        }
+    
 
         public Ingredient()
         {

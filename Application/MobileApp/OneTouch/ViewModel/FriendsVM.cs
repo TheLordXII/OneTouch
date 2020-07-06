@@ -112,7 +112,7 @@ namespace MobileApp.ViewModel
                                         {
                                             object[] para = new object[2];
                                             para[0] = SelectedFriend;
-                                            await _navigationService.NavigateAsync(Locator.FriendsDetails, para);
+                                            await _navigationService.NavigateAsync(Locator.FriendsDetailView, para);
 
                                         }));
 

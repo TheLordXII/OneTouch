@@ -28,6 +28,7 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -36,7 +37,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>x86_64</MtouchArch>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,11 +49,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Anna Janzen (SAWM8BJ9WU)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>None</MtouchLink>
     <MtouchInterpreter>-all</MtouchInterpreter>
+    <CodesignProvision>One Touch INF</CodesignProvision>
+    <MtouchEnableSGenConc>false</MtouchEnableSGenConc>
+    <BuildIpa>true</BuildIpa>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -59,9 +65,27 @@
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer: Anna Janzen (SAWM8BJ9WU)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>One Touch INF</CodesignProvision>
+    <BuildIpa>true</BuildIpa>
+    <IpaIncludeArtwork>true</IpaIncludeArtwork>
+    <MtouchLink>None</MtouchLink>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'iPad Release|iPhone' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\iPad Release</OutputPath>
+    <DefineConstants></DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchVerbosity></MtouchVerbosity>
+    <MtouchFloat32>true</MtouchFloat32>
+    <MtouchEnableSGenConc>false</MtouchEnableSGenConc>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARM64</MtouchArch>
+    <AssemblyName>MobileApp.iOS</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -76,65 +100,8 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo120-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo40.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo180.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo120-2.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo40-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo40-2.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo60.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo58.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo87.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo58-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo1024.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo80.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo80-1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo20.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo29.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo152.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OneTouchLogo167.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Logo.imageset\OneTouchLogo.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\IconFriends.imageset\Contents.json" />
@@ -145,29 +112,54 @@
     <ImageAsset Include="Assets.xcassets\IconInfo.imageset\IconInfo.png" />
     <ImageAsset Include="Assets.xcassets\Image-1.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Image-1.imageset\IconDrinks.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL1024.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL83%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL76%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL40%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL40%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL40%402x_60%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL40%402x_60%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL60%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL29%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL29%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL29%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL%402x-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\OTL%403x.png" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\OTL_ohneHG.png" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\OTL_ohneHG-1.png" />
+    <ImageAsset Include="Assets.xcassets\IconAllDrinks.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\IconAllDrinks.imageset\IconAllDrinks.png" />
+    <ImageAsset Include="Assets.xcassets\IconConfig.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\IconConfig.imageset\IconConfig.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="Xamarin.iOS" />
-    <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors" />
+    <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.6.0.847" />
     <PackageReference Include="Xamarin.TestCloud.Agent" Version="0.21.9" />
     <PackageReference Include="Xamarin.Essentials">
       <Version>1.5.3.2</Version>
     </PackageReference>
     <PackageReference Include="Json.Net">
-      <Version>1.0.22</Version>
+      <Version>1.0.23</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
     </PackageReference>
     <PackageReference Include="RestSharp">
       <Version>106.11.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms">
+      <Version>4.7.0.968</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
@@ -186,5 +178,7 @@
     <Folder Include="Assets.xcassets\IconFriends.imageset\" />
     <Folder Include="Assets.xcassets\IconUser.imageset\" />
     <Folder Include="Assets.xcassets\IconInfo.imageset\" />
+    <Folder Include="Assets.xcassets\IconAllDrinks.imageset\" />
+    <Folder Include="Assets.xcassets\IconConfig.imageset\" />
   </ItemGroup>
 </Project>

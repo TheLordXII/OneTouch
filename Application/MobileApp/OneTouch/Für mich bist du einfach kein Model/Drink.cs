@@ -15,18 +15,20 @@ namespace MobileApp.FürmichbistdueinfachkeinModel
             set;
         }
 
+        private string _Name;
         [JsonProperty("Name")]
         public string Name
         {
-            get;
-            set;
+            get { return _Name; }
+            set { _Name = value; RaisePropertyCHanged("Name"); }
         }
 
+        private string _Description;
         [JsonProperty("Description")]
         public string Description
         {
-            get;
-            set;
+            get { return _Description; }
+            set { _Description = value; RaisePropertyCHanged("Description"); }
         }
 
         [JsonProperty("Times_Taken")]
@@ -43,12 +45,14 @@ namespace MobileApp.FürmichbistdueinfachkeinModel
             set;
         }
 
+        private ObservableCollection<Ingredient> _Ingredients;
         [JsonProperty("Ingredients")]
         public ObservableCollection<Ingredient> Ingredients
         {
-            get;
-            set;
+            get { return _Ingredients; }
+            set { _Ingredients = value; RaisePropertyCHanged("Ingredients"); }
         }
+    
 
         public Drink()
         {
